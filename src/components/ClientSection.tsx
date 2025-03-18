@@ -6,15 +6,15 @@ const testimonials = [
     id: 1,
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
     name: "Sarah Anderson",
-    role: "CEO at TechVision",
-    quote: "The level of expertise and dedication is unmatched. Truly transformed our business operations."
+    role: "CEO at Pepsi",
+    quote: "It is always a great pleasure and satisfaction for us to work with PKF We have been associated with PKF since the time we started our operations in UAE (which dates back to December 1993). They always guide us in the most professional manner"
   },
   {
     id: 2,
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
     name: "Michael Chen",
     role: "CFO at GlobalFin",
-    quote: "Outstanding service that helped us navigate complex financial challenges with ease."
+    quote: "It is always a great pleasure and satisfaction for us to work with PKF We have been associated with PKF since the time we started our operations in UAE (which dates back to December 1993). They always guide us in the most professional manner"
   },
   {
     id: 3,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, CheckCircle2 } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight } from 'lucide-react';
 
 interface PopupFormProps {
   isOpen: boolean;
@@ -97,7 +97,7 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div 
-        className="bg-white rounded-2xl w-full max-w-5xl overflow-hidden animate-in fade-in zoom-in duration-300 shadow-2xl"
+        className="bg-[#0f172a] rounded-2xl w-full max-w-5xl overflow-hidden animate-in fade-in zoom-in duration-300 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex h-[600px]">
@@ -118,17 +118,17 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
           </div>
 
           {/* Right side - Form */}
-          <div className="w-full md:w-[65%] p-8 bg-white">
+          <div className="w-full md:w-[65%] p-8 bg-[#0f172a]">
             {submitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                   <CheckCircle2 className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-2">Thank You!</h3>
-                <p className="text-gray-600 mb-8">We've received your request and will get back to you shortly.</p>
+                <h3 className="text-2xl font-semibold text-white mb-2">Thank You!</h3>
+                <p className="text-gray-400 mb-8">We've received your request and will get back to you shortly.</p>
                 <button
                   onClick={onClose}
-                  className="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                  className="px-6 py-2 bg-gray-800 text-gray-200 rounded-lg hover:bg-gray-700 transition-colors"
                 >
                   Close
                 </button>
@@ -138,18 +138,18 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                 <div className="flex justify-between items-start mb-6">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-blue-600 text-white font-semibold text-sm">RDV</span>
-                      <h4 className="text-sm font-medium text-gray-600">
-                        #1 Accounting Services In <span className="text-[#4361ee]">Dubai</span>
+                      <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#e66b02] text-white font-semibold text-sm">RDV</span>
+                      <h4 className="text-sm font-medium text-gray-400">
+                        #1 Accounting Services In <span className="text-[#e66b02]">Dubai</span>
                       </h4>
                     </div>
-                    <h2 className="text-2xl font-semibold text-gray-900">
+                    <h2 className="text-2xl font-semibold text-white">
                       Get a Free Call Back from Our Expert
                     </h2>
                   </div>
                   <button
                     onClick={onClose}
-                    className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-full"
+                    className="text-gray-400 hover:text-gray-200 transition-colors p-2 hover:bg-gray-800 rounded-full"
                   >
                     <X size={20} />
                   </button>
@@ -158,7 +158,7 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-gray-300 mb-1">
                         Name
                       </label>
                       <input
@@ -167,16 +167,16 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Enter your name"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-gray-50 border ${
-                          errors.name ? 'border-red-300' : 'border-gray-200'
-                        } focus:border-[#4361ee] focus:ring-4 focus:ring-[#4361ee]/10 outline-none transition-all placeholder:text-gray-400`}
+                        className={`w-full px-4 py-2.5 rounded-xl bg-gray-800/50 border ${
+                          errors.name ? 'border-red-500' : 'border-gray-700'
+                        } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-500 text-white`}
                       />
                       {errors.name && (
                         <p className="mt-1 text-red-500 text-[13px]">{errors.name}</p>
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-gray-300 mb-1">
                         Email
                       </label>
                       <input
@@ -185,9 +185,9 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="Enter your email"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-gray-50 border ${
-                          errors.email ? 'border-red-300' : 'border-gray-200'
-                        } focus:border-[#4361ee] focus:ring-4 focus:ring-[#4361ee]/10 outline-none transition-all placeholder:text-gray-400`}
+                        className={`w-full px-4 py-2.5 rounded-xl bg-gray-800/50 border ${
+                          errors.email ? 'border-red-500' : 'border-gray-700'
+                        } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-500 text-white`}
                       />
                       {errors.email && (
                         <p className="mt-1 text-red-500 text-[13px]">{errors.email}</p>
@@ -197,12 +197,12 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-gray-300 mb-1">
                         Number
                       </label>
                       <div className="flex">
                         <div className="flex-shrink-0">
-                          <select className="h-full px-3 py-2.5 rounded-l-xl bg-gray-50 border border-r-0 border-gray-200 text-gray-500 text-sm focus:border-[#4361ee] focus:ring-4 focus:ring-[#4361ee]/10 outline-none transition-all">
+                          <select className="h-full px-3 py-2.5 rounded-l-xl bg-gray-800/50 border border-r-0 border-gray-700 text-gray-300 text-sm focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all">
                             <option>🇦🇪 +971</option>
                           </select>
                         </div>
@@ -212,9 +212,9 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="Phone number"
-                          className={`w-full px-4 py-2.5 rounded-r-xl bg-gray-50 border ${
-                            errors.phone ? 'border-red-300' : 'border-gray-200'
-                          } focus:border-[#4361ee] focus:ring-4 focus:ring-[#4361ee]/10 outline-none transition-all placeholder:text-gray-400`}
+                          className={`w-full px-4 py-2.5 rounded-r-xl bg-gray-800/50 border ${
+                            errors.phone ? 'border-red-500' : 'border-gray-700'
+                          } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-500 text-white`}
                         />
                       </div>
                       {errors.phone && (
@@ -222,7 +222,7 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                       )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-gray-300 mb-1">
                         Company
                       </label>
                       <input
@@ -231,27 +231,31 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Your company name"
-                        className="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#4361ee] focus:ring-4 focus:ring-[#4361ee]/10 outline-none transition-all placeholder:text-gray-400"
+                        className="w-full px-4 py-2.5 rounded-xl bg-gray-800/50 border border-gray-700 focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-500 text-white"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-300 mb-1">
                       Location
                     </label>
                     <select
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2.5 rounded-xl bg-gray-50 border ${
-                        errors.location ? 'border-red-300' : 'border-gray-200'
-                      } focus:border-[#4361ee] focus:ring-4 focus:ring-[#4361ee]/10 outline-none transition-all text-gray-500`}
+                      className={`w-full px-4 py-2.5 rounded-xl bg-gray-800/50 border ${
+                        errors.location ? 'border-red-500' : 'border-gray-700'
+                      } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all text-gray-300`}
                     >
                       <option value="">Select your location</option>
                       <option value="dubai">Dubai</option>
                       <option value="abu-dhabi">Abu Dhabi</option>
                       <option value="sharjah">Sharjah</option>
+                      <option value="ajman">Ajman</option>
+                      <option value="ras-al-khaimah">Ras Al Khaimah</option>
+                      <option value="fujairah">Fujairah</option>
+                      <option value="umm-al-quwain">Umm Al Quwain</option>
                     </select>
                     {errors.location && (
                       <p className="mt-1 text-red-500 text-[13px]">{errors.location}</p>
@@ -259,39 +263,31 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-300 mb-1">
                       Message
                     </label>
                     <textarea
-                      rows={2}
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Please let us know your requirements here..."
-                      className="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#4361ee] focus:ring-4 focus:ring-[#4361ee]/10 outline-none transition-all resize-none placeholder:text-gray-400"
-                    ></textarea>
+                      rows={3}
+                      className="w-full px-4 py-2.5 rounded-xl bg-gray-800/50 border border-gray-700 focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-500 text-white resize-none"
+                    />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#4361ee] hover:bg-[#3651d4] text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full py-3 bg-[#e66b02] hover:bg-[#d65f02] text-white rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 hover:gap-3"
                   >
                     {isSubmitting ? (
-                      <div className="flex items-center justify-center">
-                        <svg className="animate-spin h-5 w-5 text-white mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        <span>Processing...</span>
-                      </div>
+                      <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                     ) : (
-                      <div className="flex items-center justify-center w-full">
-                        <span className="mr-2">SUBMIT</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </div>
+                      <>
+                        <span>SUBMIT</span>
+                        <ArrowRight size={18} className="transform -rotate-45" />
+                      </>
                     )}
                   </button>
                 </form>

@@ -3,26 +3,26 @@ import { ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    title: "Business Incorporation ",
-    description: "Hassle-free company formation in the UAE with expert guidance.",
+    title: "Build your Future in the UAE",
+    description: "Unlock endless opportunities—seamless business setup in the UAE with expert guidance!",
     video: "/video/03Dubai.mp4",
     cta: "Book an Appointment"
   },
   {
-    title: "Banking\nSolutions",
-    description: "Get Central Bank approved Business account without any hassle!",
+    title: "Your Business, Our Expertise",
+    description: "Stay compliant and enhance your financial growth with our trusted accounting and tax solutions",
     video: "/video/04Dubai.mp4",
     cta: "Book an Appointment"
   },
   {
-    title: "Golden Visa",
-    description: "Looking for 10 year visa for family or for yourself?\nUnderstand the possibility now.",
+    title: "Your Gateway to the UAE",
+    description: "Fast-track your UAE visa process, from residency permits to exclusive Golden Visas—hassle-free and fast!",
     video: "/video/02Auditing.mp4",
     cta: "Book an Appointment"
   },
   {
-    title: "Setup Your\nBusiness in Dubai",
-    description: "Start your business journey in the heart of the Middle East.\nExpert guidance through every step of company formation.",
+    title: "Simplified Banking Solutions",
+    description: "Secure your UAE business account with ease and efficiency today!",
     video: "/video/01Taxation.mp4",
     cta: "Book an Appointment"
   }

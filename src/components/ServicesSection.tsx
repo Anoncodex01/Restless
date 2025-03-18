@@ -6,33 +6,33 @@ import { PopupForm } from './PopupForm';
 const services = [
   {
     icon: Calculator,
-    title: "Tax Consultation",
-    description: "Navigate complex tax regulations confidently with our expert guidance. We optimize your tax strategy, ensure compliance, and help you save more, empowering your business's financial health."
+    title: "Accounting and Bookkeeping",
+    description: "Precision-driven financial accounting and strategic insights to enhance accuracy, efficiency."
   },
   {
     icon: Plus,
-    title: "Business Creation",
-    description: "Start your journey with ease! Our streamlined business registration services handle every detail, helping you launch faster and focus on growing your new venture confidently."
+    title: "Tax & Compliance",
+    description: "Expert tax strategies and regulatory compliance solutions to mitigate risks and optimize financial management."
   },
   {
     icon: FileText,
-    title: "Negotiations",
-    description: "Secure better deals with expert negotiation support. We represent your interests, ensuring favorable outcomes in contracts, partnerships, and financial agreements to drive your business forward."
+    title: "Company License",
+    description: "End-to-end licensing solutions ensuring a seamless and fully compliant business setup in the UAE."
   },
   {
     icon: CheckCircle,
-    title: "Accounting",
-    description: "Simplify your finances with precise, reliable accounting solutions. We deliver clear insights, efficient reporting, and proactive management to keep your business running smoothly and profitably."
+    title: "Visa Services",
+    description: "Customized visa options for businesses and individuals, backed by expert support every step of the way."
   },
   {
     icon: CheckCircle,
-    title: "Compliance",
-    description: "Stay ahead with our comprehensive compliance services. We ensure your business meets all regulatory requirements, fostering trust and stability in an ever-changing financial environment."
+    title: "Business Advisory",
+    description: "Data-driven insights and strategic advisory services to drive sustainable growth and competitive advantage."
   },
   {
     icon: TrendingUp,
-    title: "Growth Advisory",
-    description: "Unlock your business's true potential with tailored growth strategies. We analyze opportunities, optimize operations, and help you achieve sustainable success in today's competitive marketplace."
+    title: "PRO Services",
+    description: "Efficient government liaison, document processing, and corporate administration to streamline your operations."
   }
 ];
 
@@ -95,7 +95,8 @@ export function ServicesSection() {
         }`}>
           <div>
             <h2 className="text-5xl font-bold mb-4 text-[#0f172a]">
-              Delivering<br />Excellence
+            No Matter The Business,
+            <br />We've Got You Covered
             </h2>
             <p className="text-gray-600 text-sm">
               Shielding your financial future with<br />insight, precision and confidence
@@ -144,9 +145,9 @@ export function ServicesSection() {
                   </p>
                   <button 
                     onClick={() => setIsPopupOpen(true)}
-                    className="inline-flex items-center gap-2 bg-[#4361ee] text-white px-6 py-2.5 rounded-full transition-all duration-300 hover:bg-[#3651d4] hover:shadow-lg"
+                    className="inline-flex items-center gap-2 bg-[#e66b02] text-white px-6 py-2.5 rounded-full transition-all duration-300 hover:bg-[#d65f02] hover:shadow-lg hover:shadow-orange-500/20"
                   >
-                    <span className="text-sm font-medium">Speak to our expert</span>
+                    <span className="text-sm font-medium">Book a Consultation</span>
                     <ArrowRight size={16} className="transform -rotate-45" />
                   </button>
                 </div>

@@ -69,28 +69,28 @@ export function GuidingSection() {
   const [isVisible, setIsVisible] = useState(false);
   const features = [
     {
-      title: "Government-Registered Experts",
-      description: "Our team consists of certified professionals who provide reliable, up-to-date advice to ensure your business meets all legal requirements."
+      title: "Business-friendly tax structure",
+      description: "The UAE's tax structure promotes business growth with no personal income tax, no tax on overseas earnings, and a highly competitive 9% corporate tax rate—the lowest in the GCC—making it an attractive hub for investors and entrepreneurs."
     },
     {
-      title: "Fast & Hassle-Free Process",
-      description: "We simplify complex financial and business processes, ensuring a smooth and efficient experience from consultation to execution."
+      title: "Cutting-edge infrastructure",
+      description: "The UAE offers world-class infrastructure, featuring state-of-the-art office spaces, advanced logistics, and a seamless digital ecosystem to support business efficiency and growth."
     },
     {
-      title: "Tailored Business Solutions",
-      description: "Every business is unique; we offer customized financial strategies that align with your industry, goals, and long-term vision."
+      title: "Effortless business setup",
+      description: "The UAE is renowned for its fast and hassle-free business setup, supported by pro-business regulations and government incentives. With Free Zones offering 100% foreign ownership, tax exemptions, and low startup costs, entrepreneurs can establish and expand their businesses with ease."
     },
     {
-      title: "Comprehensive Compliance",
-      description: "Stay compliant with ease as we handle your tax filings, financial reporting, and regulatory obligations with accuracy and expertise."
+      title: "Center of global trade",
+      description: "The UAE is a global trade hub, with 10 airports and 12 seaports providing seamless access to key markets. Its strategic location between Europe, Asia, and Africa makes it a central gateway for international trade and investment."
     },
     {
-      title: "Banking & Financial Services",
-      description: "We assist in opening Central Bank-approved business accounts, providing guidance on financial management and banking solutions."
+      title: "Long-term economic security",
+      description: "The UAE is recognized for its economic stability, driven by oil revenues and diversification into sectors like tourism, real estate, and finance. Its robust economic policies ensure long-term economic security and resilience."
     },
     {
-      title: "Proven Success in Dubai",
-      description: "With a strong track record, we have helped numerous businesses establish, grow, and sustain success in Dubai's dynamic market."
+      title: "Exceptional quality of life",
+      description: "The UAE offers a high standard of living with a vibrant, multicultural society, high-end infrastructure and low crime rates. Its Golden Visa program provides long-term residency, allowing residents to enjoy a secure and prosperous lifestyle without income tax."
     }
   ];
 

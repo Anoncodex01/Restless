@@ -131,11 +131,10 @@ export function FreeZones() {
             <span className="text-orange-600 font-medium text-sm">UAE Free Zones</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-            Our Exceptional Clients
+          Elevate Your Business with Tailored Expert Solutions
           </h2>
           <p className="text-gray-600 text-base">
-            Building Success Together with Our Trusted Expert Accountants
-          </p>
+          At RDV Consultants, we don’t just set up businesses— we pave the way for long-term success in the UAE’s dynamic market. We tailor our solutions to meet the unique needs of your business, ensuring your growth is strategically aligned with your goals to kickstart your journey to success.          </p>
         </div>
 
         {/* Desktop Grid */}

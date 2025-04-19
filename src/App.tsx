@@ -30,6 +30,7 @@ import { TeamSection } from './components/TeamSection';
 import Contact from './components/Contact';
 import Careers from './components/Careers';
 import { LoadingScreen } from './components/LoadingScreen';
+import { useFirstVisit } from './hooks/useFirstVisit';
 import './styles/global.css';
 
 // ScrollToTop component to handle scroll restoration
@@ -95,109 +96,54 @@ function HomePage() {
   );
 }
 
-function AppRoutes() {
+function AppContent() {
+  const { isFirstVisit, isLoading } = useFirstVisit();
   const location = useLocation();
-  
+
+  if (isLoading && isFirstVisit) {
+    return <LoadingScreen />;
+  }
+
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about-us" element={<PageTransition><AboutUs /></PageTransition>} />
-        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-        <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
-        <Route path="/mainland" element={<PageTransition><MainLand /></PageTransition>} />
-        <Route path="/freezone" element={<PageTransition><FreeZone /></PageTransition>} />
-        <Route path="/services/accounting-bookkeeping" element={<PageTransition><Accounting /></PageTransition>} />
-        <Route path="/services/payroll" element={<PageTransition><Payroll /></PageTransition>} />
-        <Route path="/services/financial-reporting" element={<PageTransition><FinancialReporting /></PageTransition>} />
-        <Route path="/services/vat-compliance" element={<PageTransition><VATCompliance /></PageTransition>} />
-        <Route path="/services/golden-visa" element={<PageTransition><GoldenVisa /></PageTransition>} />
-        <Route path="/services/cit-compliance" element={<PageTransition><CITCompliance /></PageTransition>} />
-        <Route path="/services/pro-services" element={<PageTransition><ProServices /></PageTransition>} />
-        <Route path="/services/business-advisory" element={<PageTransition><BusinessAdvisory /></PageTransition>} />
-      </Routes>
-    </AnimatePresence>
+    <div className="relative">
+      <Header />
+      <ScrollToTop />
+      
+      {/* Content */}
+      <main>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about-us" element={<PageTransition><AboutUs /></PageTransition>} />
+            <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+            <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
+            <Route path="/mainland" element={<PageTransition><MainLand /></PageTransition>} />
+            <Route path="/freezone" element={<PageTransition><FreeZone /></PageTransition>} />
+            <Route path="/services/accounting-bookkeeping" element={<PageTransition><Accounting /></PageTransition>} />
+            <Route path="/services/payroll" element={<PageTransition><Payroll /></PageTransition>} />
+            <Route path="/services/financial-reporting" element={<PageTransition><FinancialReporting /></PageTransition>} />
+            <Route path="/services/vat-compliance" element={<PageTransition><VATCompliance /></PageTransition>} />
+            <Route path="/services/golden-visa" element={<PageTransition><GoldenVisa /></PageTransition>} />
+            <Route path="/services/cit-compliance" element={<PageTransition><CITCompliance /></PageTransition>} />
+            <Route path="/services/pro-services" element={<PageTransition><ProServices /></PageTransition>} />
+            <Route path="/services/business-advisory" element={<PageTransition><BusinessAdvisory /></PageTransition>} />
+          </Routes>
+        </AnimatePresence>
+
+        <div className="bg-[#0f172a]">
+          <FooterSection />
+        </div>
+
+        <FloatingActions />
+      </main>
+    </div>
   );
 }
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Preload images and assets
-    const imagesToPreload = [
-      '/video/03Dubai.mp4',
-      '/images/1.jpeg',
-      '/images/2.jpeg',
-      '/images/3.jpeg',
-      '/images/4.jpeg',
-      '/images/bg 2.webp',
-      '/images/cmp.jpg',
-      '/images/contact-hero.jpg',
-      '/images/financial.jpg',
-      '/images/freezone/imas.jpg',
-      '/images/imas.jpg',
-      '/images/personalized.jpg'
-    ];
-
-    const preloadImages = async () => {
-      const imagePromises = imagesToPreload.map((src) => {
-        return new Promise((resolve, reject) => {
-          if (src.endsWith('.mp4')) {
-            const video = document.createElement('video');
-            video.src = src;
-            video.onloadeddata = resolve;
-            video.onerror = reject;
-          } else {
-            const img = new Image();
-            img.src = src;
-            img.onload = resolve;
-            img.onerror = reject;
-          }
-        });
-      });
-
-      try {
-        await Promise.all(imagePromises);
-      } catch (error) {
-        console.error('Error preloading assets:', error);
-      }
-    };
-
-    // Simulate minimum loading time and preload assets
-    Promise.all([
-      preloadImages(),
-      new Promise(resolve => setTimeout(resolve, 3000)) // Increased to 3 seconds for better animation visibility
-    ]).then(() => {
-      setIsLoading(false);
-    });
-  }, []);
-
   return (
     <Router>
-      <div className="relative">
-        <AnimatePresence mode="wait">
-          {isLoading ? (
-            <LoadingScreen />
-          ) : (
-            <>
-              <Header />
-              <ScrollToTop />
-              
-              {/* Content */}
-              <main>
-                <AppRoutes />
-
-                <div className="bg-[#0f172a]">
-                  <FooterSection />
-                </div>
-
-                <FloatingActions />
-              </main>
-            </>
-          )}
-        </AnimatePresence>
-      </div>
+      <AppContent />
     </Router>
   );
 }

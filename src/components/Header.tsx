@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, Facebook, Instagram, Linkedin, Twitter, ChevronDown } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -7,9 +7,11 @@ import i18n from '../i18n';
 
 export function Header() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
   const [currentLang, setCurrentLang] = useState(i18n.language || 'en');
 
   const languages = [
@@ -75,6 +77,16 @@ export function Header() {
 
   const handleDropdownToggle = (dropdown: string) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  };
+
+  const handleMobileDropdownToggle = (dropdown: string) => {
+    setActiveMobileDropdown(activeMobileDropdown === dropdown ? null : dropdown);
+  };
+
+  const handleMobileNavigation = (path: string) => {
+    setIsMenuOpen(false);
+    setActiveMobileDropdown(null);
+    navigate(path);
   };
 
   return (
@@ -240,6 +252,7 @@ export function Header() {
             <div className="px-8 pt-2 pb-3 space-y-1">
               <Link
                 to="/about-us"
+                onClick={() => handleMobileNavigation('/about-us')}
                 className="block px-3 py-2 text-gray-700 hover:text-orange-500 text-sm font-medium transition-colors duration-200"
               >
                 {t('about_us')}
@@ -247,42 +260,76 @@ export function Header() {
 
               {/* Business Setup Mobile */}
               <div className="px-3 py-2">
-                <div className="text-gray-700 text-sm font-medium mb-2">{t('business_setup')}</div>
-                <Link
-                  to="/freezone"
-                  className="block pl-4 py-1.5 text-gray-600 hover:text-orange-500 text-sm transition-colors duration-200"
+                <button
+                  onClick={() => handleMobileDropdownToggle('business')}
+                  className="flex items-center justify-between w-full text-gray-700 text-sm font-medium"
                 >
-                  {t('free_zone')}
-                </Link>
-                <Link
-                  to="/mainland"
-                  className="block pl-4 py-1.5 text-gray-600 hover:text-orange-500 text-sm transition-colors duration-200"
-                >
-                  {t('main_land')}
-                </Link>
+                  <span>{t('business_setup')}</span>
+                  <ChevronDown
+                    size={16}
+                    className={`transform transition-transform ${
+                      activeMobileDropdown === 'business' ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {activeMobileDropdown === 'business' && (
+                  <div className="mt-2 space-y-1">
+                    <Link
+                      to="/freezone"
+                      onClick={() => handleMobileNavigation('/freezone')}
+                      className="block pl-4 py-1.5 text-gray-600 hover:text-orange-500 text-sm transition-colors duration-200"
+                    >
+                      {t('free_zone')}
+                    </Link>
+                    <Link
+                      to="/mainland"
+                      onClick={() => handleMobileNavigation('/mainland')}
+                      className="block pl-4 py-1.5 text-gray-600 hover:text-orange-500 text-sm transition-colors duration-200"
+                    >
+                      {t('main_land')}
+                    </Link>
+                  </div>
+                )}
               </div>
 
               {/* Services Mobile Menu */}
               <div className="px-3 py-2">
-                <div className="text-gray-700 text-sm font-medium mb-2">{t('our_services')}</div>
-                {Object.values(services).map((category) => (
-                  <div key={category.title} className="mb-4">
-                    <div className="text-orange-600 font-medium mb-2 pl-4">{category.title}</div>
-                    {category.items.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={item.href}
-                        className="block pl-8 py-1.5 text-gray-600 hover:text-orange-500 text-sm transition-colors duration-200"
-                      >
-                        {item.name}
-                      </Link>
+                <button
+                  onClick={() => handleMobileDropdownToggle('services')}
+                  className="flex items-center justify-between w-full text-gray-700 text-sm font-medium"
+                >
+                  <span>{t('our_services')}</span>
+                  <ChevronDown
+                    size={16}
+                    className={`transform transition-transform ${
+                      activeMobileDropdown === 'services' ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {activeMobileDropdown === 'services' && (
+                  <div className="mt-2">
+                    {Object.values(services).map((category) => (
+                      <div key={category.title} className="mb-4">
+                        <div className="text-orange-600 font-medium mb-2 pl-4">{category.title}</div>
+                        {category.items.map((item) => (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            onClick={() => handleMobileNavigation(item.href)}
+                            className="block pl-8 py-1.5 text-gray-600 hover:text-orange-500 text-sm transition-colors duration-200"
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
                     ))}
                   </div>
-                ))}
+                )}
               </div>
 
               <Link
                 to="/#blog"
+                onClick={() => handleMobileNavigation('/#blog')}
                 className="block px-3 py-2 text-gray-700 hover:text-orange-500 text-sm font-medium transition-colors duration-200"
               >
                 Blog
@@ -290,6 +337,7 @@ export function Header() {
 
               <Link
                 to="/careers"
+                onClick={() => handleMobileNavigation('/careers')}
                 className="block px-3 py-2 text-gray-700 hover:text-orange-500 text-sm font-medium transition-colors duration-200"
               >
                 Careers
@@ -297,6 +345,7 @@ export function Header() {
 
               <Link
                 to="/contact"
+                onClick={() => handleMobileNavigation('/contact')}
                 className="block px-3 py-2 text-gray-700 hover:text-orange-500 text-sm font-medium transition-colors duration-200"
               >
                 Contact Us
@@ -330,20 +379,6 @@ export function Header() {
                   <FacebookIcon className="h-5 w-5" />
                 </a>
               </div>
-
-              {/* Language Options in Mobile Menu */}
-              <div className="border-t border-orange-100 my-2"></div>
-              {languages.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => handleLanguageChange(lang.code)}
-                  className={`w-full text-left block px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                    currentLang === lang.code ? 'text-orange-600 bg-orange-50' : 'text-gray-700 hover:text-orange-500'
-                  }`}
-                >
-                  {lang.label}
-                </button>
-              ))}
             </div>
           </div>
         )}

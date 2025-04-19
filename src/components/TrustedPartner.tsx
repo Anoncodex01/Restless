@@ -7,28 +7,32 @@ const features = [
     title: "Streamlined company formation",
     description: "Quick and efficient business setup process in the UAE",
     icon: Building2,
-    gradient: "from-blue-500 to-blue-600"
+    gradient: "from-blue-500 to-blue-600",
+    image: "/images/imas.jpg"
   },
   {
     id: 2,
     title: "Leading financial experts",
     description: "Expert guidance from seasoned professionals",
     icon: Users,
-    gradient: "from-orange-500 to-orange-600"
+    gradient: "from-orange-500 to-orange-600",
+    image: "/images/financial.jpg"
   },
   {
     id: 3,
     title: "Personalized solutions",
     description: "Tailored strategies for your unique business needs",
     icon: LineChart,
-    gradient: "from-green-500 to-green-600"
+    gradient: "from-green-500 to-green-600",
+    image: "/images/personalized.jpg"
   },
   {
     id: 4,
     title: "Ensure seamless compliance",
     description: "Stay compliant with UAE regulations effortlessly",
     icon: ShieldCheck,
-    gradient: "from-purple-500 to-purple-600"
+    gradient: "from-purple-500 to-purple-600",
+    image: "/images/imas.jpg"
   }
 ];
 
@@ -65,14 +69,13 @@ export function TrustedPartner() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
               <h1 className="text-4xl font-bold leading-tight mb-4">
-                <span className="text-[#1c2757]">Secure your UAE</span>{" "}
+                <span className="text-[#1c2757]">Your Strategic Partner for</span>{" "}
                 <span className="bg-gradient-to-r from-[#1c2757] to-[#e66b02] bg-clip-text text-transparent">
-                business account{"\n"}with ease and
-                efficiency today!
+                  Business Success in the UAE
                 </span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-xl">
-                Our mission is clear – empowering your business and accelerating growth by delivering expert guidance, strategic solutions, and ongoing support tailored to your evolving needs.
+                Empowering your business and accelerating growth by delivering expert guidance, strategic solutions, and ongoing support tailored to your evolving needs.
               </p>
             </div>
 
@@ -140,63 +143,64 @@ export function TrustedPartner() {
         </div>
       </div>
 
-      {/* Features Section */}
-      <div className="mt-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50/50 to-white">
-          {/* Hexagon Grid Pattern */}
-          <svg className="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="texture-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M20 1L37.3205 10.5V29.5L20 39L2.67949 29.5V10.5L20 1Z" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="0.5"
-                      className="text-[#1c2757]" />
-              </pattern>
-            </defs>
-            <rect x="0" y="0" width="100%" height="100%" fill="url(#texture-pattern)" />
-          </svg>
-          
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/80"></div>
-        </div>
+      {/* Why Choose Section */}
+      <div className="mt-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#1e293b] mb-4">
+              Why Choose RDV Accounting?
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Experience unparalleled financial services tailored to your business needs
+            </p>
+          </div>
 
-        <div className="relative py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-[#1c2757] mb-4">
-                Why Choose RDV Accounting?
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Experience unparalleled financial services tailored to your business needs
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-              {features.map((feature, index) => (
-                <div
-                  key={feature.id}
-                  className={`group p-6 rounded-2xl bg-white/90 backdrop-blur-sm border border-gray-100 
-                    hover:shadow-xl hover:scale-[1.02] transition-all duration-300
-                    ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} 
-                    p-2.5 mb-4 text-white transform group-hover:rotate-6 transition-transform duration-300
-                    shadow-lg`}>
-                    <feature.icon size={28} />
+          <div className="grid md:grid-cols-2 gap-6 max-w-7xl mx-auto">
+            {features.map((feature, index) => (
+              <div
+                key={feature.id}
+                className={`group relative overflow-hidden rounded-3xl transition-all duration-500 cursor-pointer
+                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                {/* Background Image */}
+                <div className="relative h-[300px] overflow-hidden">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Overlay Gradient - Changes opacity on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1c2757]/90 via-[#1c2757]/70 to-[#1c2757]/20 opacity-60 transition-opacity duration-500 group-hover:opacity-95"></div>
+                  
+                  {/* Content */}
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end transform transition-transform duration-500">
+                    <div className="overflow-hidden">
+                      <h3 className="text-2xl font-bold text-white mb-3 transform translate-y-0 transition-transform duration-500 group-hover:translate-y-0">
+                        {feature.title}
+                      </h3>
+                      {/* Description - Hidden by default, slides up on hover */}
+                      <p className="text-white/0 transform translate-y-8 transition-all duration-500 group-hover:translate-y-0 group-hover:text-white/90 h-0 group-hover:h-auto overflow-hidden opacity-0 group-hover:opacity-100">
+                        {feature.description}
+                      </p>
+                    </div>
+                    
+                    {/* Hover Indicator */}
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-[#e66b02] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    {feature.description}
-                  </p>
+
+                  {/* Decorative Elements */}
+                  <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                      <feature.icon className="w-6 h-6 text-orange-500" />
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-};
+}

@@ -6,25 +6,25 @@ const slides = [
     title: "Build your Future in the UAE",
     description: "Unlock endless opportunities—seamless business setup in the UAE with expert guidance!",
     video: "/video/03Dubai.mp4",
-    cta: "Book an Appointment"
-  },
-  {
-    title: "Your Business, Our Expertise",
-    description: "Stay compliant and enhance your financial growth with our trusted accounting and tax solutions",
-    video: "/video/04Dubai.mp4",
-    cta: "Book an Appointment"
-  },
-  {
-    title: "Your Gateway to the UAE",
-    description: "Fast-track your UAE visa process, from residency permits to exclusive Golden Visas—hassle-free and fast!",
-    video: "/video/02Auditing.mp4",
-    cta: "Book an Appointment"
+    cta: "Book a Consultation"
   },
   {
     title: "Simplified Banking Solutions",
     description: "Secure your UAE business account with ease and efficiency today!",
     video: "/video/01Taxation.mp4",
-    cta: "Book an Appointment"
+    cta: "Book a Consultation"
+  },
+  {
+    title: "Your Business, Our Expertise",
+    description: "Stay compliant and enhance your financial growth with our trusted accounting and tax solutions",
+    video: "/video/04Dubai.mp4",
+    cta: "Book a Consultation"
+  },
+  {
+    title: "Your Gateway to the UAE",
+    description: "Fast-track your UAE visa process, from residency permits to exclusive Golden Visas—hassle-free and fast!",
+    video: "/video/02Auditing.mp4",
+    cta: "Book a Consultation"
   }
 ];
 

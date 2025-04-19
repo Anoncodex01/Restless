@@ -2,37 +2,56 @@ import React, { useEffect, useState } from 'react';
 import { Calculator, Plus, FileText, CheckCircle, TrendingUp, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useRef } from 'react';
 import { PopupForm } from './PopupForm';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
     icon: Calculator,
     title: "Accounting and Bookkeeping",
-    description: "Precision-driven financial accounting and strategic insights to enhance accuracy, efficiency."
-  },
-  {
-    icon: Plus,
-    title: "Tax & Compliance",
-    description: "Expert tax strategies and regulatory compliance solutions to mitigate risks and optimize financial management."
+    description: "Precision-driven financial accounting and strategic insights to enhance accuracy, efficiency.",
+    href: "/services/accounting-bookkeeping"
   },
   {
     icon: FileText,
-    title: "Company License",
-    description: "End-to-end licensing solutions ensuring a seamless and fully compliant business setup in the UAE."
+    title: "Payroll Services",
+    description: "Comprehensive payroll management solutions ensuring timely and accurate processing of employee compensation.",
+    href: "/services/payroll"
+  },
+  {
+    icon: TrendingUp,
+    title: "Financial Reporting",
+    description: "Detailed financial analysis and reporting services to provide clear insights into your business performance.",
+    href: "/services/financial-reporting"
+  },
+  {
+    icon: Plus,
+    title: "VAT Compliance",
+    description: "Expert VAT compliance solutions to ensure your business meets all regulatory requirements and obligations.",
+    href: "/services/vat-compliance"
   },
   {
     icon: CheckCircle,
-    title: "Visa Services",
-    description: "Customized visa options for businesses and individuals, backed by expert support every step of the way."
+    title: "CIT Compliance",
+    description: "Professional corporate income tax compliance services to optimize your tax position and ensure full compliance.",
+    href: "/services/cit-compliance"
   },
   {
     icon: CheckCircle,
-    title: "Business Advisory",
-    description: "Data-driven insights and strategic advisory services to drive sustainable growth and competitive advantage."
+    title: "Golden Visa",
+    description: "Specialized assistance for UAE Golden Visa applications, helping you secure long-term residency.",
+    href: "/services/golden-visa"
   },
   {
     icon: TrendingUp,
     title: "PRO Services",
-    description: "Efficient government liaison, document processing, and corporate administration to streamline your operations."
+    description: "Efficient government liaison, document processing, and corporate administration to streamline your operations.",
+    href: "/services/pro-services"
+  },
+  {
+    icon: CheckCircle,
+    title: "Business Advisory",
+    description: "Data-driven insights and strategic advisory services to drive sustainable growth and competitive advantage.",
+    href: "/services/business-advisory"
   }
 ];
 
@@ -125,8 +144,9 @@ export function ServicesSection() {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div 
+              <Link 
                 key={index}
+                to={service.href}
                 className={`group relative overflow-hidden rounded-2xl p-6 bg-white hover:bg-gradient-to-br hover:from-[#0f172a] hover:to-[#1e3a8a] flex-none w-[280px] transition-all duration-500 hover:scale-[1.02] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-xl ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
@@ -143,15 +163,14 @@ export function ServicesSection() {
                   <p className="text-gray-600 text-sm group-hover:text-white/90 transition-colors leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <button 
-                    onClick={() => setIsPopupOpen(true)}
+                  <div 
                     className="inline-flex items-center gap-2 bg-[#e66b02] text-white px-6 py-2.5 rounded-full transition-all duration-300 hover:bg-[#d65f02] hover:shadow-lg hover:shadow-orange-500/20"
                   >
-                    <span className="text-sm font-medium">Book a Consultation</span>
+                    <span className="text-sm font-medium">Learn More</span>
                     <ArrowRight size={16} className="transform -rotate-45" />
-                  </button>
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function CompanySetup() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   const setupOptions = [
     {
@@ -11,7 +13,8 @@ export function CompanySetup() {
       image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716',
       heading: 'Expand without limits in the heart of Dubai, UAE',
       description: 'Business Setup in Dubai Mainland offers unrestricted trade and growth opportunities. With access to the entire UAE market, businesses here can trade freely, secure government contracts, and diversify with complete flexibility. Benefit from prime locations, full ownership, unlimited visas, and zero restrictions on office space or commercial activities.',
-      buttonText: 'Get Started Now'
+      buttonText: 'Get Started Now',
+      path: '/mainland'
     },
     {
       title: 'FREE ZONE',
@@ -19,7 +22,8 @@ export function CompanySetup() {
       image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c',
       heading: 'Maximize your profits with tax benefits and 100% ownership',
       description: 'Free zone company setup in Dubai, UAE provides 100% foreign ownership, tax benefits and full profit repatriation. UAE offers over 45 specialised free zones catering to different industries. Enjoy tailored business ecosystems & seamless setup processes. Free Zones are perfect for international entities that aim to trade globally while maintaining operational efficiency.',
-      buttonText: 'Get Started Now'
+      buttonText: 'Get Started Now',
+      path: '/freezone'
     },
     {
       title: 'OFFSHORE',
@@ -27,7 +31,8 @@ export function CompanySetup() {
       image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf',
       heading: 'Protect your assets and enjoy global trade flexibility',
       description: 'Offshore Company Formation in the UAE is ideal for entrepreneurs looking to conduct international trade while benefitting from tax optimization, asset protection, & confidentiality. Offshore entities cannot trade within the UAE but provide global trading flexibility, no capital restrictions, and simplified regulatory requirements.',
-      buttonText: 'Get Started Now'
+      buttonText: 'Get Started Now',
+      path: '/offshore'
     }
   ];
 
@@ -53,9 +58,8 @@ export function CompanySetup() {
     setCurrentSlide(index);
   };
 
-  const handleGetStarted = () => {
-    // Handle button click here
-    console.log('Get Started clicked');
+  const handleGetStarted = (path: string) => {
+    navigate(path);
   };
 
   return (
@@ -81,6 +85,7 @@ export function CompanySetup() {
               className={`relative aspect-[4/5] rounded-xl overflow-hidden group cursor-pointer transition-all duration-500 ${
                 index === currentSlide ? 'z-10 scale-105 shadow-2xl' : 'scale-95 opacity-75'
               }`}
+              onClick={() => handleGetStarted(option.path)}
             >
               {/* Default View - Image with title */}
               <div className="absolute inset-0 transition-all duration-500 ease-out group-hover:scale-110">
@@ -125,7 +130,6 @@ export function CompanySetup() {
                 {/* Sliding up button */}
                 <div className="mt-auto transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-300">
                   <button 
-                    onClick={handleGetStarted}
                     className="group/btn relative w-full overflow-hidden rounded-lg bg-[#0B2653] px-6 py-3.5 transition-all duration-300 hover:shadow-lg hover:shadow-[#0B2653]/25"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100"></div>

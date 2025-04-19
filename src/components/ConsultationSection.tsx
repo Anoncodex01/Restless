@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { ArrowRight, Mail, Phone, ChevronDown } from 'lucide-react';
+import { ArrowRight, Mail, Phone } from 'lucide-react';
 
 export function ConsultationSection() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
-    subject: '',
     message: '',
     privacyPolicy: false
   });
@@ -55,15 +54,15 @@ export function ConsultationSection() {
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-4 group p-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f172a] to-[#1e3a8a] flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#e66b02] to-[#ff8a2b] flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
                     <Phone className="w-4 h-4 text-white" />
                   </div>
                   <div>
                     <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Call Us</p>
                     <a href="tel:+1234567890" className="text-sm font-semibold text-gray-900 hover:text-[#e66b02] transition-colors">
-                      +123 456 7890
+                      +1 (234) 567-8900
                     </a>
                   </div>
                 </div>
@@ -95,31 +94,15 @@ export function ConsultationSection() {
                   </div>
                 </div>
 
-                {/* Phone and Subject row */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="group">
-                    <label className="block text-xs font-medium text-gray-700 mb-1.5 transition-colors group-focus-within:text-[#e66b02]">Phone</label>
-                    <input
-                      type="tel"
-                      placeholder="+1 (234) 567-8900"
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-[#e66b02] focus:ring-2 focus:ring-[#e66b02]/20 outline-none transition-all duration-300 text-gray-800 placeholder:text-gray-400 text-sm"
-                      required
-                    />
-                  </div>
-                  <div className="group relative">
-                    <label className="block text-xs font-medium text-gray-700 mb-1.5 transition-colors group-focus-within:text-[#e66b02]">Subject</label>
-                    <select
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-[#e66b02] focus:ring-2 focus:ring-[#e66b02]/20 outline-none transition-all duration-300 appearance-none text-gray-800 bg-white text-sm"
-                      required
-                    >
-                      <option value="">Select a subject</option>
-                      <option value="consultation">Business Consultation</option>
-                      <option value="audit">Audit Services</option>
-                      <option value="tax">Tax Advisory</option>
-                      <option value="other">Other Services</option>
-                    </select>
-                    <ChevronDown className="absolute right-4 top-[38px] w-5 h-5 text-gray-400 pointer-events-none transition-transform group-focus-within:text-[#e66b02]" />
-                  </div>
+                {/* Phone */}
+                <div className="group">
+                  <label className="block text-xs font-medium text-gray-700 mb-1.5 transition-colors group-focus-within:text-[#e66b02]">Phone</label>
+                  <input
+                    type="tel"
+                    placeholder="+1 (234) 567-8900"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-[#e66b02] focus:ring-2 focus:ring-[#e66b02]/20 outline-none transition-all duration-300 text-gray-800 placeholder:text-gray-400 text-sm"
+                    required
+                  />
                 </div>
 
                 <div className="group">

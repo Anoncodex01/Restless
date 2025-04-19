@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { HeroSection } from './components/HeroSection';
@@ -29,6 +29,7 @@ import { Partners } from './components/Partners';
 import { TeamSection } from './components/TeamSection';
 import Contact from './components/Contact';
 import Careers from './components/Careers';
+import { LoadingScreen } from './components/LoadingScreen';
 import './styles/global.css';
 
 // ScrollToTop component to handle scroll restoration
@@ -120,22 +121,82 @@ function AppRoutes() {
 }
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Preload images and assets
+    const imagesToPreload = [
+      '/video/03Dubai.mp4',
+      '/images/1.jpeg',
+      '/images/2.jpeg',
+      '/images/3.jpeg',
+      '/images/4.jpeg',
+      '/images/bg 2.webp',
+      '/images/cmp.jpg',
+      '/images/contact-hero.jpg',
+      '/images/financial.jpg',
+      '/images/freezone/imas.jpg',
+      '/images/imas.jpg',
+      '/images/personalized.jpg'
+    ];
+
+    const preloadImages = async () => {
+      const imagePromises = imagesToPreload.map((src) => {
+        return new Promise((resolve, reject) => {
+          if (src.endsWith('.mp4')) {
+            const video = document.createElement('video');
+            video.src = src;
+            video.onloadeddata = resolve;
+            video.onerror = reject;
+          } else {
+            const img = new Image();
+            img.src = src;
+            img.onload = resolve;
+            img.onerror = reject;
+          }
+        });
+      });
+
+      try {
+        await Promise.all(imagePromises);
+      } catch (error) {
+        console.error('Error preloading assets:', error);
+      }
+    };
+
+    // Simulate minimum loading time and preload assets
+    Promise.all([
+      preloadImages(),
+      new Promise(resolve => setTimeout(resolve, 3000)) // Increased to 3 seconds for better animation visibility
+    ]).then(() => {
+      setIsLoading(false);
+    });
+  }, []);
+
   return (
     <Router>
       <div className="relative">
-        <Header />
-        <ScrollToTop />
-        
-        {/* Content */}
-        <main>
-          <AppRoutes />
+        <AnimatePresence mode="wait">
+          {isLoading ? (
+            <LoadingScreen />
+          ) : (
+            <>
+              <Header />
+              <ScrollToTop />
+              
+              {/* Content */}
+              <main>
+                <AppRoutes />
 
-          <div className="bg-[#0f172a]">
-            <FooterSection />
-          </div>
+                <div className="bg-[#0f172a]">
+                  <FooterSection />
+                </div>
 
-          <FloatingActions />
-        </main>
+                <FloatingActions />
+              </main>
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </Router>
   );

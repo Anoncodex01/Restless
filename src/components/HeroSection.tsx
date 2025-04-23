@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
-import { useVideoPreload } from '../hooks/useVideoPreload';
 
 const slides = [
   {
@@ -34,22 +33,8 @@ export const HeroSection = () => {
   const [previousSlide, setPreviousSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
-
-  // Get all video URLs
-  const videoUrls = slides.map(slide => slide.video);
-  const { allVideosLoaded } = useVideoPreload(videoUrls);
-
-  // Start the slideshow only after videos are loaded
-  useEffect(() => {
-    if (allVideosLoaded && isInitialLoad) {
-      setIsInitialLoad(false);
-    }
-  }, [allVideosLoaded]);
 
   useEffect(() => {
-    if (isInitialLoad) return; // Don't start timer until initial load is complete
-
     const SLIDE_DURATION = 10000; // 10 seconds in milliseconds
     const STEPS = 100;
     const INTERVAL = SLIDE_DURATION / STEPS;
@@ -72,10 +57,10 @@ export const HeroSection = () => {
     }, INTERVAL);
 
     return () => clearInterval(interval);
-  }, [currentSlide, isInitialLoad]);
+  }, [currentSlide]);
 
   const handleSlideChange = (index: number) => {
-    if (index === currentSlide || isInitialLoad) return;
+    if (index === currentSlide) return;
     setIsTransitioning(true);
     setPreviousSlide(currentSlide);
     setTimeout(() => {
@@ -86,18 +71,6 @@ export const HeroSection = () => {
       }, 500);
     }, 50);
   };
-
-  // Loading state UI
-  if (isInitialLoad) {
-    return (
-      <div className="relative min-h-screen bg-[#0F172A] overflow-hidden flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mb-4 mx-auto"></div>
-          <p className="text-white text-lg">Loading amazing content...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="relative min-h-screen bg-[#0F172A] overflow-hidden">

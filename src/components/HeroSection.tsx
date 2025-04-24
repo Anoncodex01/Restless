@@ -9,12 +9,6 @@ const slides = [
     cta: "Book a Consultation"
   },
   {
-    title: "Simplified Banking Solutions",
-    description: "Secure your UAE business account with ease and efficiency today!",
-    video: "/video/01Taxation.mp4",
-    cta: "Book a Consultation"
-  },
-  {
     title: "Your Business, Our Expertise",
     description: "Stay compliant and enhance your financial growth with our trusted accounting and tax solutions",
     video: "/video/04Dubai.mp4",
@@ -24,6 +18,12 @@ const slides = [
     title: "Your Gateway to the UAE",
     description: "Fast-track your UAE visa process, from residency permits to exclusive Golden Visas—hassle-free and fast!",
     video: "/video/02Auditing.mp4",
+    cta: "Book a Consultation"
+  },
+  {
+    title: "Simplified Banking Solutions",
+    description: "Secure your UAE business account with ease and efficiency today!",
+    video: "/video/01Taxation.mp4",
     cta: "Book a Consultation"
   }
 ];
@@ -88,7 +88,9 @@ export const HeroSection = () => {
             muted
             loop
             playsInline
+            preload="auto"
             className="w-full h-full object-cover"
+            onError={(e) => console.error('Error loading video:', e)}
           />
         </div>
         {/* Current video */}
@@ -102,7 +104,9 @@ export const HeroSection = () => {
             muted
             loop
             playsInline
+            preload="auto"
             className="w-full h-full object-cover"
+            onError={(e) => console.error('Error loading video:', e)}
           />
         </div>
       </div>

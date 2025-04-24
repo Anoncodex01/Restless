@@ -48,49 +48,50 @@ export function FAQSection() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (
-    <section className="relative py-24 overflow-hidden">
-      {/* Background with texture */}
-      <div 
-        className="absolute inset-0 bg-[#0f172a]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to bottom right, rgba(14, 165, 233, 0.05), rgba(230, 107, 2, 0.05)),
-            url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e66b02' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-            radial-gradient(circle at 50% 0%, rgba(230, 107, 2, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 0% 100%, rgba(14, 165, 233, 0.08) 0%, transparent 50%)
-          `,
-          backgroundSize: '30px 30px, 30px 30px, 100% 100%, 100% 100%',
-          backgroundBlendMode: 'normal, soft-light, normal, normal'
+    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-gray-50">
+      {/* Rich gradient background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1E2757]/[0.02] via-transparent to-[#e66b02]/[0.02]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(30,39,87,0.03),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(230,107,2,0.03),transparent_50%)]" />
+      </div>
+      
+      {/* Accent gradients */}
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#1E2757]/[0.02] rounded-full blur-3xl" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#e66b02]/[0.02] rounded-full blur-3xl" />
+
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.015]" 
+        style={{ 
+          backgroundImage: `radial-gradient(#1E2757 0.5px, transparent 0.5px), radial-gradient(#1E2757 0.5px, transparent 0.5px)`,
+          backgroundSize: '20px 20px',
+          backgroundPosition: '0 0, 10px 10px'
         }}
       />
-      
-      {/* Animated gradient orbs */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-[#e66b02] rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-72 h-72 bg-[#0ea5e9] rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse [animation-delay:2s]"></div>
 
       <div className="relative container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left side - Header Content */}
             <div className="md:sticky md:top-24">
-              <div className="inline-block bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full mb-4">
-                <span className="text-[#e66b02] font-semibold uppercase tracking-wider text-sm">FAQ</span>
+              <div className="inline-block bg-gradient-to-r from-[#1E2757]/5 to-[#e66b02]/5 px-4 py-1.5 rounded-full mb-4">
+                <span className="bg-gradient-to-r from-[#1E2757] to-[#e66b02] bg-clip-text text-transparent font-semibold uppercase tracking-wider text-sm">FAQ</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] to-[#e66b02] bg-clip-text text-transparent">
                 Questions You're
-                <span className="block text-[#e66b02]">Probably Asking</span>
+                <span className="block">Probably Asking</span>
               </h2>
-              <p className="text-gray-300 text-lg mb-8">
+              <p className="text-gray-600 text-lg mb-8">
                 If you've made it this far, you're either very interested or have questions. 
                 Here are a few frequently asked questions.
               </p>
               
               {/* CTA Section */}
               <div className="mt-8">
-                <p className="text-gray-300 mb-6">Still looking for answers?</p>
+                <p className="text-gray-600 mb-6">Still looking for answers?</p>
                 <button 
                   onClick={() => setIsPopupOpen(true)}
-                  className="inline-flex items-center bg-[#e66b02] text-white px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-[#e66b02]/20 hover:scale-105 group"
+                  className="inline-flex items-center bg-gradient-to-r from-[#1E2757] to-[#e66b02] text-white px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-[#e66b02]/20 hover:scale-105 group"
                 >
                   <span className="text-base font-medium">Speak to our expert</span>
                   <div className="w-8 h-8 ml-3 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
@@ -109,14 +110,14 @@ export function FAQSection() {
                 >
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    className="w-full bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-left transition-all duration-300"
+                    className="w-full bg-white hover:bg-gradient-to-r hover:from-[#1E2757]/[0.02] hover:to-[#e66b02]/[0.02] rounded-2xl p-6 text-left transition-all duration-300 shadow-sm hover:shadow-md border border-gray-100"
                   >
                     <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-semibold text-white pr-8">
+                      <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#1E2757] pr-8 transition-colors">
                         {faq.question}
                       </h3>
-                      <div className={`flex-shrink-0 w-6 h-6 rounded-full border-2 border-[#e66b02] flex items-center justify-center transition-transform duration-300 ${
-                        openIndex === index ? 'bg-[#e66b02] rotate-180' : ''
+                      <div className={`flex-shrink-0 w-6 h-6 rounded-full border-2 border-[#e66b02] flex items-center justify-center transition-all duration-300 ${
+                        openIndex === index ? 'bg-gradient-to-r from-[#1E2757] to-[#e66b02] rotate-180' : ''
                       }`}>
                         {openIndex === index ? (
                           <Minus size={14} className="text-white" />
@@ -128,31 +129,31 @@ export function FAQSection() {
                     <div className={`overflow-hidden transition-all duration-300 ${
                       openIndex === index ? 'mt-4 max-h-[500px]' : 'max-h-0'
                     }`}>
-                      <p className="text-gray-300">
+                      <p className="text-gray-600">
                         {faq.answer}
                       </p>
                       {faq.link && (
-                        <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+                        <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
                           <Link
                             to={faq.link.to}
-                            className="text-[#e66b02] hover:text-[#ff7b02] transition-colors duration-200 flex items-center gap-2"
+                            className="text-[#e66b02] hover:text-[#1E2757] transition-colors duration-200 flex items-center gap-2"
                           >
                             {faq.link.text}
                             <ArrowRight size={16} />
                           </Link>
                           <Link
                             to="/contact"
-                            className="inline-flex items-center justify-center px-6 py-2 border-2 border-[#e66b02] text-[#e66b02] hover:bg-[#e66b02] hover:text-white rounded-full transition-colors duration-200"
+                            className="inline-flex items-center justify-center px-6 py-2 border-2 border-[#e66b02] text-[#e66b02] hover:bg-gradient-to-r hover:from-[#1E2757] hover:to-[#e66b02] hover:text-white rounded-full transition-all duration-200"
                           >
                             Book A Consultation
                           </Link>
                         </div>
                       )}
                       {!faq.link && (
-                        <div className="flex justify-end mt-6 pt-4 border-t border-white/10">
+                        <div className="flex justify-end mt-6 pt-4 border-t border-gray-100">
                           <Link
                             to="/contact"
-                            className="inline-flex items-center justify-center px-6 py-2 border-2 border-[#e66b02] text-[#e66b02] hover:bg-[#e66b02] hover:text-white rounded-full transition-colors duration-200"
+                            className="inline-flex items-center justify-center px-6 py-2 border-2 border-[#e66b02] text-[#e66b02] hover:bg-gradient-to-r hover:from-[#1E2757] hover:to-[#e66b02] hover:text-white rounded-full transition-all duration-200"
                           >
                             Book A Consultation
                           </Link>

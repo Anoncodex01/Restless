@@ -18,17 +18,11 @@ const FeatureCard = ({ title, description, position, delay }: FeatureCardProps) 
   // Mobile layout
   if (typeof window !== 'undefined' && window.innerWidth < 768) {
     return (
-      <div className={`relative pl-8 mb-12 last:mb-0 transition-all duration-700 transform
+      <div className={`relative mb-12 last:mb-0 transition-all duration-700 transform
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        {/* Vertical Line */}
-        <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#f97316] to-[#fb923c]" />
-        
-        {/* Circle */}
-        <div className="absolute left-[-4px] top-0 w-[10px] h-[10px] rounded-full bg-[#f97316]" />
-        
         {/* Content */}
-        <div className="text-white">
-          <h3 className="text-xl font-semibold mb-3">{title}</h3>
+        <div className="text-white p-6 rounded-xl bg-[#1e293b]/20 border-l-4 border-[#f97316] hover:bg-[#1e293b]/40 transition-all duration-300">
+          <h3 className="text-xl font-semibold mb-3 text-[#f97316]">{title}</h3>
           <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
         </div>
       </div>
@@ -37,12 +31,15 @@ const FeatureCard = ({ title, description, position, delay }: FeatureCardProps) 
 
   // Desktop layout
   const alignment = position === 'left' ? 'text-right' : 'text-left';
+  const borderSide = position === 'left' ? 'border-r-4' : 'border-l-4';
+  
   return (
-    <div className={`max-w-sm ${alignment} transition-all duration-700 transform relative
+    <div className={`max-w-sm ${alignment} transition-all duration-700 transform
       ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-      <div className={`absolute top-0 ${position === 'left' ? '-right-6' : '-left-6'} h-full w-1 bg-[#f97316]`}></div>
-      <h3 className="text-2xl font-semibold mb-2 text-white">{title}</h3>
-      <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
+      <div className={`p-6 rounded-xl bg-[#1e293b]/20 ${borderSide} border-[#f97316] hover:bg-[#1e293b]/40 transition-all duration-300`}>
+        <h3 className="text-2xl font-semibold mb-2 text-[#f97316]">{title}</h3>
+        <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
+      </div>
     </div>
   );
 };
@@ -129,24 +126,14 @@ export function GuidingSection() {
               className="block transform transition-all duration-1000"
               style={animationStyles}
             >
-              Empowering Your Business
+              Top 6 reasons why you should
             </span>
             <span className="block mt-2 transform transition-all duration-1000" style={{ ...animationStyles, animationDelay: '300ms' }}>
               <span className="inline-block hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">
-                Expert Financial
-              </span>{' '}
-              &{' '}
-              <span className="inline-block hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                Compliance Solutions
+                invest in the UAE
               </span>
             </span>
           </h2>
-          <p 
-            className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mt-6 transform transition-all duration-1000"
-            style={{ ...animationStyles, animationDelay: '500ms' }}
-          >
-            Expert financial and compliance solutions for seamless business success in Dubai.
-          </p>
         </div>
 
         {/* Mobile Layout */}
@@ -182,13 +169,11 @@ export function GuidingSection() {
           {/* Center Column - Hub Icon */}
           <div className="relative">
             <div className="relative flex flex-col items-center justify-center min-h-[600px]">
-              {/* Connection Lines using SVG */}
               <svg 
                 className={`absolute inset-0 w-full h-full transition-opacity duration-1500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                 viewBox="0 0 800 800"
                 preserveAspectRatio="xMidYMid meet"
               >
-                {/* Horizontal Line */}
                 <path
                   d="M 0,400 H 800"
                   stroke="#94a3b8"
@@ -196,8 +181,6 @@ export function GuidingSection() {
                   fill="none"
                   className="opacity-40"
                 />
-                
-                {/* Curved Lines */}
                 <path
                   d="M 200,200 Q 400,200 600,200"
                   stroke="#94a3b8"
@@ -214,13 +197,12 @@ export function GuidingSection() {
                 />
               </svg>
               
-              {/* Central Image */}
               <div className={`relative z-10 transition-all duration-1500 transform w-[800px] h-[500px]
                 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
                 <img 
                   src="/images/RDV_Tree 6.svg"
                   alt="RDV Tree"
-                  className="w-full h-full object-contain filter brightness-125"
+                  className="w-full h-full object-contain filter brightness-125 hover:scale-105 transition-transform duration-500"
                   style={{ 
                     maxWidth: '100%',
                     maxHeight: '100%',

@@ -92,10 +92,7 @@ export function ClientSection() {
             animate={{ opacity: 1, y: 0 }}
             className="mb-6"
           >
-            <div className="bg-[#FDF3EB] rounded-full px-6 py-2 inline-flex items-center gap-3">
-              <span className="w-4 h-4 bg-[#e66b02]"></span>
-              <span className="text-[#e66b02] font-medium">TESTIMONIALS</span>
-            </div>
+           
           </motion.div>
           
           <motion.h2 

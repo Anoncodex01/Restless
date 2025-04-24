@@ -57,20 +57,8 @@ function HomePage() {
         <TrustedPartner />
       </div>
 
-      <div className="bg-gray-50">
-        <GuidingSection />
-      </div>
-
       <div className="bg-white">
         <ServicesSection />
-      </div>
-
-      <div className="bg-gray-50">
-        <Partners />
-      </div>
-
-      <div className="bg-white">
-        <TeamSection />
       </div>
 
       <div className="bg-gray-50">
@@ -78,19 +66,23 @@ function HomePage() {
       </div>
 
       <div className="bg-white">
+        <Partners />
+      </div>
+
+      <div className="bg-gray-50">
         <ClientSection />
       </div>
 
+      <div className="bg-white">
+        <TeamSection />
+      </div>
+
       <div className="bg-gray-50">
-        <FAQSection />
+        <GuidingSection />
       </div>
 
       <div className="bg-white">
-        <BlogSection />
-      </div>
-
-      <div className="bg-gray-50">
-        <ConsultationSection />
+        <FAQSection />
       </div>
     </PageTransition>
   );

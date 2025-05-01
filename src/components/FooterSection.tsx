@@ -24,7 +24,7 @@ export function FooterSection() {
             <div className="space-y-6">
               <div className="flex items-center justify-center md:justify-start">
                 <span className="text-3xl font-bold text-white">rdv</span>
-                <span className="text-3xl font-bold text-[#00A0DC]">.ea</span>
+                <span className="text-3xl font-bold text-[#00A0DC]">.ae</span>
               </div>
               <p className="text-gray-300 text-sm text-center md:text-left">
                 Your trusted partner for business setup in Dubai. We provide comprehensive solutions for mainland, free zone, and offshore company formation.
@@ -120,9 +120,9 @@ export function FooterSection() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@rdv.ea" className="flex items-center justify-center md:justify-start text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                  <a href="mailto:info@rdv.ae" className="flex items-center justify-center md:justify-start text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
                     <Mail size={16} className="mr-3" />
-                    info@rdv.ea
+                    info@rdv.ae
                   </a>
                 </li>
                 <li className="flex items-start justify-center md:justify-start text-gray-300 text-sm">
@@ -137,7 +137,7 @@ export function FooterSection() {
           <div className="mt-12 md:mt-16 pt-8 border-t border-gray-700">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-400 text-sm text-center md:text-left">
-                © {new Date().getFullYear()} RDV.ea. All rights reserved.
+                © {new Date().getFullYear()} RDV.ae. All rights reserved.
               </p>
               <div className="flex items-center space-x-6">
                 <a href="#" className="text-gray-400 hover:text-[#00A0DC] transition-colors text-sm">

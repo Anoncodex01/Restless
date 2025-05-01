@@ -1,9 +1,9 @@
 import React from 'react';
 
 export function FloatingActions() {
-  // Replace these with your actual contact details
-  const whatsappNumber = '+971501231234';  // Replace with your WhatsApp number
-  const phoneNumber = '+971501231234';      // Replace with your phone number
+  // Contact details
+  const whatsappNumber = '+971554703339';  // Updated WhatsApp number
+  const phoneNumber = '+971554703339';      // Updated phone number
   
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
   const phoneLink = `tel:${phoneNumber}`;

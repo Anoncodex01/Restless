@@ -99,7 +99,7 @@ export function Header() {
             <div className="flex-shrink-0">
               <Link to="/" className="flex items-center">
                 <span className="text-2xl font-bold text-orange-600">rdv</span>
-                <span className="text-2xl font-bold text-orange-500">.ea</span>
+                <span className="text-2xl font-bold text-orange-500">.ae</span>
               </Link>
             </div>
 

@@ -122,42 +122,98 @@ export function CITCompliance() {
       </section>
 
       {/* Understanding Corporate Tax Section */}
-      <section className="py-20 bg-[#0f172a]">
+      <section className="py-20 bg-gradient-to-b from-[#0f172a] to-[#1e293b]">
         <div className="container mx-auto px-4 max-w-7xl">
           <motion.div 
-            className="prose max-w-4xl mx-auto"
+            className="relative"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold text-center text-white mb-8">
-              Understanding Corporate Tax in the UAE
-            </h2>
-            <div className="bg-[#1e293b] rounded-2xl p-8 backdrop-blur-sm border border-white/10 shadow-lg">
-              <p className="text-gray-300 mb-6">
-                In 2023, the UAE implemented a federal corporate tax law, marking a significant change in the region's tax system. Corporate tax now applies to most businesses operating in the UAE, which includes companies engaged in trading, professional services, and other sectors. The tax rate is set at 9% for taxable profits exceeding AED 375,000, with profits below this threshold being tax-exempt. However, certain activities and business structures, like those in free zones, may be eligible for tax exemptions.
-              </p>
-              <ul className="list-none space-y-4">
-                <li className="flex items-center space-x-3 text-gray-300">
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center">
-                    <span className="text-orange-500 text-sm">•</span>
+            {/* Decorative Elements */}
+            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-orange-500/10 rounded-full blur-3xl" />
+            <div className="absolute top-20 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-3xl" />
+            
+            <div className="relative max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  Understanding Corporate Tax in the UAE
+                </h2>
+                <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto rounded-full" />
+              </div>
+
+              <div className="space-y-8 relative">
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-xl">
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    In 2023, the UAE implemented a federal corporate tax law, marking a significant change in the region's tax system. Corporate tax now applies to most businesses operating in the UAE, which includes companies engaged in trading, professional services, and other sectors. The tax rate is set at 9% for taxable profits exceeding AED 375,000, with profits below this threshold being tax-exempt. However, certain activities and business structures, like those in free zones, may be eligible for tax exemptions.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/5 backdrop-blur-sm rounded-2xl p-8 border border-orange-500/20 shadow-xl">
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    Navigating corporate tax can be overwhelming, especially with the frequent updates to the laws. Our role is to demystify this process, ensuring your business not only complies but also takes full advantage of available tax incentives, exemptions, and deductions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why Corporate Tax Registration and Filing Matter */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Decorative Elements */}
+            <div className="absolute top-20 left-0 w-32 h-32 bg-orange-500/5 rounded-full blur-3xl" />
+            <div className="absolute -bottom-10 right-1/2 transform translate-x-1/2 w-24 h-24 bg-orange-500/10 rounded-full blur-3xl" />
+
+            <div className="relative max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-4">
+                  Why Corporate Tax Registration and Filing Matter
+                </h2>
+                <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto rounded-full" />
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                <motion.div 
+                  className="bg-[#0f172a]/5 backdrop-blur-sm rounded-2xl p-8 border border-[#0f172a]/10 shadow-xl hover:shadow-2xl transition-all duration-300"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center mb-6">
+                    <Shield className="w-6 h-6 text-white" />
                   </div>
-                  <span>0% for businesses with taxable income not exceeding AED 375,000</span>
-                </li>
-                <li className="flex items-center space-x-3 text-gray-300">
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center">
-                    <span className="text-orange-500 text-sm">•</span>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    Corporate tax registration is mandatory for businesses operating in the UAE, and failure to comply can result in heavy penalties and reputational damage. Filing accurate tax returns ensures that your business stays in good standing with the authorities and avoids fines.
+                  </p>
+                </motion.div>
+
+                <motion.div 
+                  className="bg-gradient-to-br from-orange-500/10 to-orange-600/5 backdrop-blur-sm rounded-2xl p-8 border border-orange-500/20 shadow-xl hover:shadow-2xl transition-all duration-300"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center mb-6">
+                    <Target className="w-6 h-6 text-white" />
                   </div>
-                  <span>9% for businesses with taxable income exceeding AED 375,000</span>
-                </li>
-                <li className="flex items-center space-x-3 text-gray-300">
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center">
-                    <span className="text-orange-500 text-sm">•</span>
-                  </div>
-                  <span>15% for members of multinational groups with revenues above EUR 750 million</span>
-                </li>
-              </ul>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    However, corporate tax is not just about compliance—it's about strategic planning. By understanding your tax obligations, you can better plan for future investments, manage cash flow, and improve the overall financial health of your company.
+                  </p>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -305,7 +361,10 @@ export function CITCompliance() {
               How RDV Consultants Supports You
             </h2>
             <p className="text-gray-600 mb-12">
-              Our team at RDV Consultants combines in-depth knowledge of UAE corporate tax laws with a hands-on approach to help businesses of all sizes stay compliant while reducing their tax exposure.
+              Our team at RDV Consultants combines in-depth knowledge of UAE corporate tax laws with a hands-on approach to help businesses of all sizes stay compliant while reducing their tax exposure. We work with you to understand your business structure and goals, offering customized tax solutions that drive growth.
+            </p>
+            <p className="text-gray-600 mb-12">
+              Whether you are just starting your business or expanding your operations, RDV Consultants is your trusted partner in managing corporate tax matters. We handle the technical details, so you can focus on what matters most—growing your business.
             </p>
 
             <div className="relative">
@@ -353,33 +412,6 @@ export function CITCompliance() {
                 ))}
               </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-[#0f172a]">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div 
-            className="text-center max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to Simplify Your Corporate Tax Process?</h2>
-            <p className="text-gray-300 mb-8">
-              Get in touch with our experts today to learn how we can help your business navigate corporate tax registration, filing, and compliance. Our team is committed to providing exceptional service tailored to your unique needs.
-            </p>
-            <motion.button
-              onClick={handleOpenPopup}
-              className="inline-flex items-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 space-x-3 group"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span>Book A Consultation</span>
-              <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-            </motion.button>
           </motion.div>
         </div>
       </section>
@@ -434,6 +466,44 @@ export function CITCompliance() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-32">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/images/imas.jpg')",
+            backgroundPosition: "center"
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 to-[#0f172a]/90"></div>
+        </div>
+
+        <div className="relative container mx-auto px-4 max-w-7xl">
+          <motion.div 
+            className="text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl font-bold text-white mb-6">Ready to Simplify Your Corporate Tax Process?</h2>
+            <p className="text-gray-300 mb-8 text-lg">
+              Get in touch with our experts today to learn how we can help your business navigate corporate tax registration, filing, and compliance. Our team is committed to providing exceptional service tailored to your unique needs.
+            </p>
+            <motion.button
+              onClick={handleOpenPopup}
+              className="inline-flex items-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 space-x-3 group shadow-lg hover:shadow-xl hover:shadow-orange-500/20"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="text-lg">Book A Consultation</span>
+              <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </motion.div>
         </div>
       </section>
 

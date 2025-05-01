@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, ChevronRight, FileCheck, Shield, Target, PieChart, FileText, ClipboardCheck } from 'lucide-react';
 import { PopupForm } from './PopupForm';
 import { motion } from 'framer-motion';
+import { ContactForm } from './ContactForm';
 
 export function FinancialReporting() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -69,23 +70,34 @@ export function FinancialReporting() {
       {/* Main Content Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div 
-            className="prose max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold text-center text-[#0f172a] mb-8">
-              Precision. Transparency. Compliance.
-            </h2>
-            <p className="text-gray-600 mb-8">
-              At RDV Consultants, we understand that accurate financial reporting is the backbone of informed decision-making and regulatory compliance, essential for the success of any business. With our deep expertise in International Financial Reporting Standards (IFRS), we provide precise, transparent, and tailored financial statement preparation services that cater to the unique needs of businesses in Dubai and across the UAE.
-            </p>
-            <p className="text-gray-600 mb-8">
-              Whether you're an SME or a larger entity, our team of qualified chartered accountants ensures your financial statements are meticulously prepared and fully aligned with local regulatory requirements. From consolidated financial statements to complex group reporting, we deliver reports that provide actionable insights, helping you make informed strategic decisions. Trust RDV Consultants to not only meet compliance standards but also enhance your business's financial integrity and credibility with stakeholders. Let us handle the numbers, so you can focus on growth.
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {/* Left Content Area (spans 2 columns) */}
+            <motion.div 
+              className="lg:col-span-2 prose max-w-none"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl font-bold text-[#0f172a] mb-8">
+                Precision. Transparency. Compliance.
+              </h2>
+              <p className="text-gray-600 mb-8">
+                At RDV Consultants, we understand that accurate financial reporting is the backbone of informed decision-making and regulatory compliance, essential for the success of any business. With our deep expertise in International Financial Reporting Standards (IFRS), we provide precise, transparent, and tailored financial statement preparation services that cater to the unique needs of businesses in Dubai and across the UAE.
+              </p>
+              <p className="text-gray-600 mb-8">
+                Whether you're an SME or a larger entity, our team of qualified chartered accountants ensures your financial statements are meticulously prepared and fully aligned with local regulatory requirements. From consolidated financial statements to complex group reporting, we deliver reports that provide actionable insights, helping you make informed strategic decisions. Trust RDV Consultants to not only meet compliance standards but also enhance your business's financial integrity and credibility with stakeholders. Let us handle the numbers, so you can focus on growth.
+              </p>
+            </motion.div>
+
+            {/* Right Contact Form */}
+            <div className="lg:sticky lg:top-8">
+              <div className="bg-[#0f172a] rounded-xl px-8 py-6 shadow-xl">
+                <h3 className="text-xl font-bold text-white mb-6">Let's Connect.</h3>
+                <ContactForm darkMode={true} />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

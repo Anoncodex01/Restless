@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Facebook, Instagram, Linkedin, Twitter, Phone, Mail, MapPin } from 'lucide-react';
 import { PopupForm } from './PopupForm';
+import { Link } from 'react-router-dom';
 
 export function FooterSection() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -15,21 +16,6 @@ export function FooterSection() {
 
   return (
     <footer className="relative overflow-hidden">
-      {/* Top Banner */}
-      <div className="bg-gradient-to-r from-[#1c2757] to-[#000] py-6 md:py-8 px-4">
-        <div className="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
-          <h2 className="text-xl md:text-3xl font-bold text-white text-center md:text-left">
-            Fast & Affordable Dubai Business Setup With RDV
-          </h2>
-          <button 
-            onClick={handleOpenPopup}
-            className="w-full md:w-auto bg-white text-[#1e3a8a] px-6 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-black/10 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
-          >
-            Book a Free Consultation
-          </button>
-        </div>
-      </div>
-
       {/* Main Footer Content */}
       <div className="bg-[#0B2653] py-12 md:py-16 px-4">
         <div className="container mx-auto max-w-6xl">
@@ -63,13 +49,31 @@ export function FooterSection() {
             <div className="text-center md:text-left">
               <h3 className="text-white font-semibold text-lg mb-6">Quick Links</h3>
               <ul className="space-y-4">
-                {['About Us', 'Our Services', 'Business Setup', 'Partners', 'Contact Us'].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <Link to="/about-us" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/freezone" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                    Freezone
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/mainland" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                    Mainland
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/careers" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                    Career
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                    Contact Us
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -77,19 +81,31 @@ export function FooterSection() {
             <div className="text-center md:text-left">
               <h3 className="text-white font-semibold text-lg mb-6">Our Services</h3>
               <ul className="space-y-4">
-                {[
-                  'Mainland Business Setup',
-                  'Freezone Company Formation',
-                  'Offshore Company Setup',
-                  'Business Consulting',
-                  'PRO Services'
-                ].map((service) => (
-                  <li key={service}>
-                    <a href="#" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
-                      {service}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <Link to="/services/accounting-bookkeeping" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                    Accounting & Bookkeeping
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/vat-compliance" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                    VAT Compliance
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/cit-compliance" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                    CIT Compliance
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/golden-visa" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                    Golden Visa
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/pro-services" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                    PRO Services
+                  </Link>
+                </li>
               </ul>
             </div>
 

@@ -16,7 +16,7 @@ const JobCard = ({ title, description, link = "#" }: { title: string; descriptio
     <div className="flex items-center space-x-4">
       <div className="flex items-center text-gray-500">
         <MapPin className="w-5 h-5 mr-2" />
-        <span>100% remote</span>
+        <span>Dubai</span>
       </div>
       <div className="flex items-center text-gray-500">
         <Clock className="w-5 h-5 mr-2" />
@@ -88,33 +88,6 @@ const Careers = () => {
               </p>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Why Join Us Section */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#1e1b4b] mb-4">Why Join RDV?</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We offer more than just a job - we offer a career with growth opportunities and a great work environment.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 text-center">
-              <h3 className="text-xl font-bold text-[#1e1b4b] mb-4">Remote First</h3>
-              <p className="text-gray-600">Work from anywhere in the world with our flexible remote policy.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 text-center">
-              <h3 className="text-xl font-bold text-[#1e1b4b] mb-4">Growth Opportunities</h3>
-              <p className="text-gray-600">Continuous learning and development opportunities to advance your career.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 text-center">
-              <h3 className="text-xl font-bold text-[#1e1b4b] mb-4">Great Culture</h3>
-              <p className="text-gray-600">Join a diverse team that values collaboration, innovation, and work-life balance.</p>
-            </div>
-          </div>
         </div>
       </section>
     </>

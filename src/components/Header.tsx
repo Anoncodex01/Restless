@@ -120,10 +120,24 @@ export function Header() {
                 </button>
                 {activeDropdown === 'business' && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-orange-100 py-2">
-                    <Link to="/freezone" className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                    <Link 
+                      to="/freezone" 
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        navigate('/freezone');
+                      }}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                    >
                       {t('free_zone')}
                     </Link>
-                    <Link to="/mainland" className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                    <Link 
+                      to="/mainland" 
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        navigate('/mainland');
+                      }}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                    >
                       {t('main_land')}
                     </Link>
                   </div>
@@ -149,6 +163,10 @@ export function Header() {
                             <li key={item.name}>
                               <Link
                                 to={item.href}
+                                onClick={() => {
+                                  setActiveDropdown(null);
+                                  navigate(item.href);
+                                }}
                                 className="text-[15px] text-gray-700 hover:text-orange-500 transition-colors duration-200 block"
                               >
                                 {item.name}
@@ -161,10 +179,6 @@ export function Header() {
                   </div>
                 )}
               </div>
-
-              <Link to="/#blog" className="text-gray-700 hover:text-orange-500 transition-colors duration-200 text-sm font-medium">
-                Blog
-              </Link>
 
               <Link to="/careers" className="text-gray-700 hover:text-orange-500 transition-colors duration-200 text-sm font-medium">
                 Careers
@@ -326,14 +340,6 @@ export function Header() {
                   </div>
                 )}
               </div>
-
-              <Link
-                to="/#blog"
-                onClick={() => handleMobileNavigation('/#blog')}
-                className="block px-3 py-2 text-gray-700 hover:text-orange-500 text-sm font-medium transition-colors duration-200"
-              >
-                Blog
-              </Link>
 
               <Link
                 to="/careers"

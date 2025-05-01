@@ -18,7 +18,7 @@ export function PageTransition({ children }: PageTransitionProps) {
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 300); // Reduced loading time
+    }, 200); // Reduced loading time for better UX
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
@@ -30,6 +30,7 @@ export function PageTransition({ children }: PageTransitionProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
+      className="min-h-screen"
     >
       {isLoading ? (
         <div className="min-h-screen flex items-center justify-center">

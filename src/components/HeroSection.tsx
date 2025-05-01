@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
+import { PopupForm } from './PopupForm';
 
 const slides = [
   {
@@ -33,6 +34,7 @@ export const HeroSection = () => {
   const [previousSlide, setPreviousSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     const SLIDE_DURATION = 10000; // 10 seconds in milliseconds
@@ -70,6 +72,14 @@ export const HeroSection = () => {
         setIsTransitioning(false);
       }, 500);
     }, 50);
+  };
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
   };
 
   return (
@@ -126,7 +136,10 @@ export const HeroSection = () => {
             <p className="text-xl md:text-2xl text-gray-300 mb-12 whitespace-pre-line">
               {slides[currentSlide].description}
             </p>
-            <button className="group px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 text-lg font-medium shadow-lg shadow-orange-500/25 flex items-center space-x-2">
+            <button 
+              onClick={handleOpenPopup}
+              className="group px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 text-lg font-medium shadow-lg shadow-orange-500/25 flex items-center space-x-2"
+            >
               <span>{slides[currentSlide].cta}</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -172,6 +185,11 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      <PopupForm
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      />
     </div>
   );
 };

@@ -6,7 +6,6 @@ const Contact = () => {
     fullname: '',
     email: '',
     phone: '',
-    subject: '',
     message: ''
   });
 
@@ -186,22 +185,6 @@ const Contact = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="Enter your full name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-gray-900 mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  placeholder="Enter your email"
-                  required
                 />
               </div>
 

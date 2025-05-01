@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { ArrowRight, Building2, FileCheck, ClipboardList, FileText, BookOpen, Calculator, Target, Shield, Briefcase, Scale, Users, Clock, GraduationCap, Award, Globe, Heart } from 'lucide-react';
+import { ArrowRight, Building2, FileCheck, ClipboardList, FileText, BookOpen, Calculator, Target, Shield, Briefcase, Scale, Users, Clock, GraduationCap, Award, Globe, Heart, Star, CheckCircle } from 'lucide-react';
 import { PopupForm } from './PopupForm';
 import { motion } from 'framer-motion';
+import { ContactForm } from './ContactForm';
 
 export function GoldenVisa() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -80,49 +81,34 @@ export function GoldenVisa() {
       {/* Introduction Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div 
-            className="prose max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-              Start Your Golden Chapter in the UAE
-            </h2>
-            <p className="text-gray-600 mb-8">
-              Unlock the door to unparalleled opportunities in the UAE with the prestigious Golden Visa—a long-term residency program designed for investors, entrepreneurs, exceptional talents, and outstanding students. This exclusive visa grants you the freedom to live, work, or study in the UAE while enjoying a host of exceptional benefits.
-            </p>
-            <p className="text-gray-600 mb-8">
-              The UAE's 'Golden visa' is a long-term residence visa which enables foreign talents to live, work or study in the UAE while enjoying exclusive benefits which include:
-            </p>
-            <ul className="list-none space-y-6 mb-8">
-              <li className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center mt-1">
-                  <Clock className="w-4 h-4 text-orange-500" />
-                </div>
-                <p className="text-gray-600">a long-term, renewable residence visa valid for upto 10 years</p>
-              </li>
-              <li className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center mt-1">
-                  <Shield className="w-4 h-4 text-orange-500" />
-                </div>
-                <p className="text-gray-600">the privilege of not needing a sponsor to stay in the UAE</p>
-              </li>
-              <li className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center mt-1">
-                  <Globe className="w-4 h-4 text-orange-500" />
-                </div>
-                <p className="text-gray-600">the ability to stay outside the UAE for more than six months</p>
-              </li>
-              <li className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center mt-1">
-                  <Users className="w-4 h-4 text-orange-500" />
-                </div>
-                <p className="text-gray-600">the ability to sponsor your family members, including spouses and children, indefinitely</p>
-              </li>
-            </ul>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {/* Left Content Area (spans 2 columns) */}
+            <motion.div 
+              className="lg:col-span-2 prose max-w-none"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl font-bold text-[#0f172a] mb-8">
+                UAE Golden Visa: Your Gateway to Long-Term Residency
+              </h2>
+              <p className="text-gray-600 mb-8">
+                The UAE Golden Visa is a long-term residence visa that enables foreign talents to live, work, and study in the UAE without the need for a national sponsor. This prestigious visa program is designed to attract exceptional talents, professionals, and investors who can contribute significantly to the UAE's economy and development.
+              </p>
+              <p className="text-gray-600">
+                At RDV Consultants, we specialize in guiding you through the Golden Visa application process, ensuring a smooth and successful journey towards securing your long-term residency in the UAE. Our expert team understands the intricacies of the program and will help you navigate the requirements and documentation with ease.
+              </p>
+            </motion.div>
+
+            {/* Right Contact Form */}
+            <div className="lg:sticky lg:top-8">
+              <div className="bg-[#0f172a] rounded-xl px-8 py-6 shadow-xl">
+                <h3 className="text-xl font-bold text-white mb-6">Let's Connect.</h3>
+                <ContactForm darkMode={true} />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -349,7 +335,7 @@ export function GoldenVisa() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
-              className="group relative bg-gradient-to-br from-[#0f172a] to-[#1e293b] rounded-2xl p-8 shadow-lg overflow-hidden"
+              className="group relative bg-white rounded-2xl p-8 shadow-lg overflow-hidden border border-gray-200"
               whileHover={{ scale: 1.02 }}
             >
               {/* Decorative Elements */}
@@ -359,15 +345,15 @@ export function GoldenVisa() {
               <div className="relative">
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                    <Globe className="w-6 h-6 text-blue-400" />
+                    <Globe className="w-6 h-6 text-blue-500" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Blue Visa</h3>
+                  <h3 className="text-2xl font-bold text-[#0f172a]">Blue Visa</h3>
                 </div>
                 <div className="space-y-4">
-                  <p className="text-gray-300">
+                  <p className="text-gray-600">
                     The Blue Visa is a 10-year residence visa designed for individuals who have made exceptional contributions to environmental protection and sustainability, both within and beyond the UAE.
                   </p>
-                  <p className="text-gray-300">
+                  <p className="text-gray-600">
                     This visa is granted to advocates of environmental action, including members of international organisations, global companies, NGOs, associations, award recipients, and distinguished researchers and activists in the field of sustainability.
                   </p>
                 </div>
@@ -375,7 +361,7 @@ export function GoldenVisa() {
             </motion.div>
 
             <motion.div
-              className="group relative bg-gradient-to-br from-[#0f172a] to-[#1e293b] rounded-2xl p-8 shadow-lg overflow-hidden"
+              className="group relative bg-white rounded-2xl p-8 shadow-lg overflow-hidden border border-gray-200"
               whileHover={{ scale: 1.02 }}
             >
               {/* Decorative Elements */}
@@ -385,15 +371,15 @@ export function GoldenVisa() {
               <div className="relative">
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
-                    <Briefcase className="w-6 h-6 text-green-400" />
+                    <Briefcase className="w-6 h-6 text-green-500" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Green Visa</h3>
+                  <h3 className="text-2xl font-bold text-[#0f172a]">Green Visa</h3>
                 </div>
                 <div className="space-y-4">
-                  <p className="text-gray-300">
+                  <p className="text-gray-600">
                     The UAE's Green Visa is a 5-year residence permit that allows individuals to self-sponsor, removing the need for a UAE employer or national sponsor. It is ideal for freelancers, self-employed professionals, and skilled employees.
                   </p>
-                  <p className="text-gray-300">
+                  <p className="text-gray-600">
                     Freelancers/Self-employed applicants must obtain a permit from the Ministry of Human Resources and Emiratisation, hold a bachelor's degree or diploma, and show proof of earning at least AED 360,000 over the last two years.
                   </p>
                 </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, ChevronRight, Calculator, Shield, Clock, Users, FileCheck, HeartHandshake } from 'lucide-react';
 import { PopupForm } from './PopupForm';
 import { motion } from 'framer-motion';
+import { ContactForm } from './ContactForm';
 
 export function Payroll() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -69,26 +70,37 @@ export function Payroll() {
       {/* Main Content Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div 
-            className="prose max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold text-center text-[#0f172a] mb-8">
-              Seamless Payroll Solutions for Business Success
-            </h2>
-            <p className="text-gray-600 mb-8">
-              Managing payroll in the UAE involves more than just processing salaries—it requires accuracy, compliance, and efficiency. With evolving labor laws, Wage Protection System (WPS) requirements, and tax regulations, handling payroll in-house can be costly and time-consuming.
-            </p>
-            <p className="text-gray-600 mb-8">
-              At RDV Consultants, we offer secure, compliant, and customized payroll solutions tailored to your business needs. From salary calculations and deductions to leave encashments, pensions, and end-of-service benefits, we ensure seamless payroll processing while you focus on growth.
-            </p>
-            <p className="text-gray-600 mb-8">
-              Whether you're a startup, SME, or large enterprise, our expert-managed payroll services help you save time, reduce costs, and ensure employees are paid accurately and on time. Partner with us for a hassle-free, efficient, and fully compliant payroll experience.
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {/* Left Content Area (spans 2 columns) */}
+            <motion.div 
+              className="lg:col-span-2 prose max-w-none"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl font-bold text-[#0f172a] mb-8">
+                Seamless Payroll Solutions for Business Success
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Managing payroll in the UAE involves more than just processing salaries—it requires accuracy, compliance, and efficiency. With evolving labor laws, Wage Protection System (WPS) requirements, and tax regulations, handling payroll in-house can be costly and time-consuming.
+              </p>
+              <p className="text-gray-600 mb-8">
+                At RDV Consultants, we offer secure, compliant, and customized payroll solutions tailored to your business needs. From salary calculations and deductions to leave encashments, pensions, and end-of-service benefits, we ensure seamless payroll processing while you focus on growth.
+              </p>
+              <p className="text-gray-600 mb-8">
+                Whether you're a startup, SME, or large enterprise, our expert-managed payroll services help you save time, reduce costs, and ensure employees are paid accurately and on time. Partner with us for a hassle-free, efficient, and fully compliant payroll experience.
+              </p>
+            </motion.div>
+
+            {/* Right Contact Form */}
+            <div className="lg:sticky lg:top-8">
+              <div className="bg-[#0f172a] rounded-xl p-6 shadow-xl">
+                <h3 className="text-xl font-bold text-white mb-4">Let's Connect.</h3>
+                <ContactForm darkMode={true} />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

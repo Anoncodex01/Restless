@@ -102,7 +102,7 @@ export function ServicesSection() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="relative">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
               No Matter The Business,
               <br />
               <span className="bg-gradient-to-r from-[#e66b02] via-[#1E2757] to-[#e66b02] bg-clip-text text-transparent">

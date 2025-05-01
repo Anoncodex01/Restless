@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, LineChart, PieChart, Scale, TrendingUp, Settings, Users, Target, CheckCircle, Briefcase } from 'lucide-react';
 import { PopupForm } from './PopupForm';
+import { ContactForm } from './ContactForm';
 
 export function BusinessAdvisory() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -80,23 +81,34 @@ export function BusinessAdvisory() {
       {/* Introduction Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div 
-            className="prose max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-              Building Smarter Businesses with Expert Advisory
-            </h2>
-            <p className="text-gray-600 mb-8">
-              Starting a business in the UAE presents exciting opportunities, but it also comes with unique challenges. RDV Consultants specializes in providing strategic Business Advisory Services to startups, helping you navigate the complexities of setting up and growing your business in this dynamic market.
-            </p>
-            <p className="text-gray-600">
-              Whether you're refining your business model, seeking investment, or ensuring regulatory compliance, our expert guidance will support you every step of the way as you build a strong foundation for long-term success.
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {/* Left Content Area (spans 2 columns) */}
+            <motion.div 
+              className="lg:col-span-2 prose max-w-none"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl font-bold text-[#0f172a] mb-8">
+                Building Smarter Businesses with Expert Advisory
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Starting a business in the UAE presents exciting opportunities, but it also comes with unique challenges. RDV Consultants specializes in providing strategic Business Advisory Services to startups, helping you navigate the complexities of setting up and growing your business in this dynamic market.
+              </p>
+              <p className="text-gray-600">
+                Whether you're refining your business model, seeking investment, or ensuring regulatory compliance, our expert guidance will support you every step of the way as you build a strong foundation for long-term success.
+              </p>
+            </motion.div>
+
+            {/* Right Contact Form */}
+            <div className="lg:sticky lg:top-8">
+              <div className="bg-[#0f172a] rounded-xl px-8 py-6 shadow-xl">
+                <h3 className="text-xl font-bold text-white mb-6">Let's Connect.</h3>
+                <ContactForm darkMode={true} />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -164,56 +176,80 @@ export function BusinessAdvisory() {
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Choose RDV Consultants?</h2>
-            <div className="h-1 w-32 bg-orange-500 mx-auto rounded-full"></div>
-          </motion.div>
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative inline-block"
+            >
+              <h2 className="text-4xl font-bold text-[#0f172a] mb-4">
+                Why Choose RDV Consultants?
+              </h2>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-orange-500" />
+            </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {[
               {
                 icon: Users,
+                color: "from-orange-400 to-orange-600",
                 title: "Expertise You Can Trust",
                 description: "Our team of experienced consultants brings deep knowledge of local markets, business environments, and regulatory frameworks to help guide your business toward success."
               },
               {
                 icon: Target,
+                color: "from-blue-400 to-blue-600",
                 title: "Customized Solutions",
                 description: "We don't believe in a one-size-fits-all approach. We tailor our services to suit the unique needs of your business, ensuring that the solutions we provide align with your goals and challenges."
               },
               {
                 icon: TrendingUp,
+                color: "from-green-400 to-green-600",
                 title: "Results-Driven Approach",
                 description: "We are committed to delivering measurable outcomes that drive growth and profitability. Our goal is to empower your business with the tools and insights necessary for sustained success."
               },
               {
                 icon: Briefcase,
+                color: "from-purple-400 to-purple-600",
                 title: "End-to-End Support",
                 description: "From the initial planning stage to ongoing optimization, we provide comprehensive advisory services that support every phase of your business journey. You can rely on us to be a trusted partner in your business's growth."
               }
-            ].map((benefit, index) => (
+            ].map((feature, index) => (
               <motion.div
                 key={index}
-                className="relative group"
+                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
               >
-                <div className="absolute inset-0.5 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
-                <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6">
-                    <benefit.icon className="w-7 h-7 text-orange-500" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
-                  <p className="text-gray-600 text-lg">{benefit.description}</p>
+                {/* Background Pattern */}
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-5 transform translate-x-16 -translate-y-16">
+                  <feature.icon className="w-full h-full" />
                 </div>
+
+                {/* Icon Container */}
+                <div className="relative mb-6">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-6`}>
+                    <feature.icon className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="relative">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-500 transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+
+                {/* Hover Border Effect */}
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </motion.div>
             ))}
           </div>

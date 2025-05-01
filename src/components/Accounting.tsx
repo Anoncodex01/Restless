@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Check, ChevronRight, Building2, FileText, Shield, Clock, BarChart, Calculator } from 'lucide-react';
 import { PopupForm } from './PopupForm';
 import { motion } from 'framer-motion';
+import { ContactForm } from './ContactForm';
 
 export function Accounting() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -91,25 +92,111 @@ export function Accounting() {
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Main Content - Stay Financially Fit */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-[#0f172a] mb-4">
-              Stay Financially Fit with RDV Consultants
-            </h2>
-            <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-[#0f172a] mx-auto mb-8 rounded-full" />
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Accurate financial records are the backbone of any successful business. At RDV Consultants, we offer comprehensive accounting and bookkeeping services to ensure your financial data is well-organized, compliant, and optimized for strategic decision-making. Whether you're an SME, startup, or established company, our expertise helps you maintain control over your business finances without the hassle.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {/* Left Content Area (spans 2 columns) */}
+            <div className="lg:col-span-2">
+              <div className="text-center lg:text-left max-w-3xl mb-16">
+                <h2 className="text-3xl font-bold text-[#0f172a] mb-4">
+                  Stay Financially Fit with RDV Consultants
+                </h2>
+                <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-[#0f172a] mb-8 rounded-full lg:mx-0 mx-auto" />
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  Accurate financial records are the backbone of any successful business. At RDV Consultants, we offer comprehensive accounting and bookkeeping services to ensure your financial data is well-organized, compliant, and optimized for strategic decision-making. Whether you're an SME, startup, or established company, our expertise helps you maintain control over your business finances without the hassle.
+                </p>
+              </div>
 
-          <div className="mt-16">
-            <p className="text-gray-600 text-lg leading-relaxed mb-12">
-              Managing financial records can be complex and time-consuming, especially with evolving regulations and compliance requirements in the UAE. Our professional accountants and bookkeepers provide seamless solutions to streamline financial operations, reduce risks, and enhance transparency. We leverage cutting-edge accounting software, automation tools, and industry best practices to deliver precise and real-time financial insights. By partnering with RDV Consultants, you gain access to strategic financial guidance, ensuring sustainable growth and compliance with UAE accounting and tax laws.
-            </p>
+              <div className="mt-8">
+                <p className="text-gray-600 text-lg leading-relaxed mb-12">
+                  Managing financial records can be complex and time-consuming, especially with evolving regulations and compliance requirements in the UAE. Our professional accountants and bookkeepers provide seamless solutions to streamline financial operations, reduce risks, and enhance transparency. We leverage cutting-edge accounting software, automation tools, and industry best practices to deliver precise and real-time financial insights. By partnering with RDV Consultants, you gain access to strategic financial guidance, ensuring sustainable growth and compliance with UAE accounting and tax laws.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Contact Form */}
+            <div className="lg:sticky lg:top-8">
+              <div className="bg-[#0f172a] rounded-xl p-6 shadow-xl">
+                <h3 className="text-xl font-bold text-white mb-4">Let's Connect.</h3>
+                <ContactForm darkMode={true} />
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+
+      {/* Who Can Benefit Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-orange-50/10 to-orange-100/20 relative overflow-hidden">
+        {/* Background Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-[#0f172a]/5 pointer-events-none" />
+        
+        <div className="container mx-auto px-4 max-w-7xl relative">
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl font-bold text-[#0f172a] mb-4">
+              Who Can Benefit?
+            </h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 mx-auto" />
+          </motion.div>
+
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="relative">
+              {/* Progress Line */}
+              <motion.div 
+                className="absolute top-5 left-0 w-full h-0.5"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-full shadow-lg" />
+              </motion.div>
+              
+              {/* Progress Points */}
+              <div className="relative flex justify-between">
+                {[
+                  "Small and Medium Enterprises (SMEs)",
+                  "Startups & Entrepreneurs",
+                  "E-commerce & Retail Businesses",
+                  "Freelancers & Consultants",
+                  "International Companies"
+                ].map((text, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="flex flex-col items-center w-48"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                  >
+                    <motion.div 
+                      className="w-4 h-4 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 mb-4 z-10 shadow-lg shadow-orange-500/20"
+                      whileHover={{ scale: 1.2 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <div className="absolute w-8 h-8 bg-orange-500/20 rounded-full -left-2 -top-2 animate-ping" />
+                    </motion.div>
+                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-xl shadow-orange-500/5 hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1 border border-orange-500/10 hover:border-orange-500/20">
+                      <p className="text-gray-800 text-center text-lg font-medium">
+                        {text}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-orange-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-[#0f172a]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
       </section>
 
       {/* Why Choose Section */}
@@ -179,16 +266,19 @@ export function Accounting() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#0f172a] mb-4">
               Benefits of Professional Accounting & Bookkeeping
             </h2>
-            <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-[#0f172a] mx-auto mb-8 rounded-full" />
+            <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-[#0f172a] mx-auto mb-6 rounded-full" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="max-w-4xl mx-auto relative">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-orange-500 to-[#0f172a]" />
+
             {[
               {
                 title: "Regulatory Compliance",
@@ -216,111 +306,48 @@ export function Accounting() {
                 icon: BarChart
               }
             ].map((benefit, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-orange-500/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`relative flex items-center gap-6 mb-6 ${
+                  index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                }`}
               >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500/10 to-orange-600/10 flex items-center justify-center mb-4 group-hover:from-orange-500/20 group-hover:to-orange-600/20 transition-colors">
-                      {React.createElement(benefit.icon, {
-                        className: "w-7 h-7 text-orange-500 group-hover:text-orange-600 transition-colors"
-                      })}
+                {/* Timeline Node */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-orange-500 rounded-full">
+                  <div className="absolute w-6 h-6 bg-orange-500/20 rounded-full -left-1.5 -top-1.5 animate-ping" />
+                </div>
+
+                {/* Content Box */}
+                <div className={`w-1/2 ${index % 2 === 0 ? 'text-right pr-6' : 'pl-6'}`}>
+                  <div className="group bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 border border-gray-100 hover:border-orange-500/30">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className={`flex ${index % 2 === 0 ? 'flex-row-reverse ml-auto' : ''}`}>
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500/10 to-orange-600/10 flex items-center justify-center group-hover:from-orange-500/20 group-hover:to-orange-600/20 transition-colors">
+                          {React.createElement(benefit.icon, {
+                            className: "w-5 h-5 text-orange-500 group-hover:text-orange-600 transition-colors"
+                          })}
+                        </div>
+                      </div>
+                      <h3 className={`text-lg font-bold text-gray-900 group-hover:text-orange-500 transition-colors ${
+                        index % 2 === 0 ? 'mr-auto' : ''
+                      }`}>
+                        {benefit.title}
+                      </h3>
                     </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-500 transition-colors">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-gray-600 group-hover:text-gray-900 transition-colors">
+                    <p className="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">
                       {benefit.description}
                     </p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Who Can Benefit Section */}
-      <section className="py-20 bg-gradient-to-r from-[#0f172a] to-[#1e293b] observe-section">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div 
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Who Can Benefit?
-            </h2>
-            <div className="h-1 w-24 bg-orange-500 mx-auto" />
-          </motion.div>
-
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="relative">
-              {/* Progress Line */}
-              <motion.div 
-                className="absolute top-5 left-0 w-full h-0.5 bg-white/10"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.5 }}
-              >
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500" />
+                {/* Empty space for the other side */}
+                <div className="w-1/2" />
               </motion.div>
-              
-              {/* Progress Points */}
-              <div className="relative flex justify-between">
-                {[
-                  "Small and Medium Enterprises (SMEs)",
-                  "Startups & Entrepreneurs",
-                  "E-commerce & Retail Businesses",
-                  "Freelancers & Consultants",
-                  "International Companies"
-                ].map((text, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="flex flex-col items-center w-48"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                  >
-                    <motion.div 
-                      className="w-4 h-4 rounded-full bg-orange-500 mb-4 z-10"
-                      whileHover={{ scale: 1.2 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    />
-                    <p className="text-white text-center text-lg">{text}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partner Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-[#0f172a] mb-4">
-              Partner with RDV Consultants
-            </h2>
-            <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-[#0f172a] mx-auto mb-8 rounded-full" />
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              Navigating financial management doesn't have to be complex. Let RDV Consultants handle your accounting needs while you focus on running and expanding your business. Contact us today for a consultation and take control of your finances with confidence!
-            </p>
-            <button
-              onClick={handleOpenPopup}
-              className="inline-flex items-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 space-x-3 group"
-            >
-              <span>Book A Consultation</span>
-              <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-            </button>
+            ))}
           </div>
         </div>
       </section>
@@ -335,15 +362,6 @@ export function Accounting() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {[
-              {
-                question: "Why is Accounting critical for businesses in the UAE?",
-                answer: {
-                  title: "Statutory Requirements:",
-                  description: "Under UAE law, businesses must maintain accurate financial records per International Accounting Standards and appoint an auditor for annual audits. These records must be kept for at least 5 years. Additionally, VAT regulations require businesses to track and maintain transaction records.",
-                  subtitle: "Management Requirements:",
-                  subdescription: "Accounting is essential for tracking financial performance, ensuring compliance, and providing key financial insights to management, investors, and authorities for informed decision-making."
-                }
-              },
               {
                 question: "What are the penalties for failing to maintain accurate and timely financial records?",
                 answer: {
@@ -371,6 +389,15 @@ export function Accounting() {
                     "Calculating and filing any necessary tax returns",
                     "Providing you with insights to improve financial performance for the next year"
                   ]
+                }
+              },
+              {
+                question: "Why is Accounting critical for businesses in the UAE?",
+                answer: {
+                  title: "Statutory Requirements:",
+                  description: "Under UAE law, businesses must maintain accurate financial records per International Accounting Standards and appoint an auditor for annual audits. These records must be kept for at least 5 years. Additionally, VAT regulations require businesses to track and maintain transaction records.",
+                  subtitle: "Management Requirements:",
+                  subdescription: "Accounting is essential for tracking financial performance, ensuring compliance, and providing key financial insights to management, investors, and authorities for informed decision-making."
                 }
               }
             ].map((faq, index) => (
@@ -412,6 +439,28 @@ export function Accounting() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partner Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-[#0f172a] mb-4">
+              Partner with RDV Consultants
+            </h2>
+            <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-[#0f172a] mx-auto mb-8 rounded-full" />
+            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+              Navigating financial management doesn't have to be complex. Let RDV Consultants handle your accounting needs while you focus on running and expanding your business. Contact us today for a consultation and take control of your finances with confidence!
+            </p>
+            <button
+              onClick={handleOpenPopup}
+              className="inline-flex items-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 space-x-3 group"
+            >
+              <span>Book A Consultation</span>
+              <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
         </div>
       </section>

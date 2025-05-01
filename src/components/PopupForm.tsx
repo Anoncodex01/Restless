@@ -93,177 +93,205 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div 
-        className="bg-white rounded-2xl w-full max-w-5xl overflow-hidden animate-in fade-in zoom-in duration-300 shadow-2xl"
+        className="bg-white rounded-2xl w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in duration-300 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex h-[600px]">
-          {/* Left side - Image */}
-          <div className="hidden md:block w-[50%] relative group">
-            <img
-              src="/images/meeting.webp"
-              alt="Business meeting"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-75 transition-opacity duration-300" />
-            <div className="absolute inset-x-0 bottom-0 p-6 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
-              <span className="block text-blue-400 text-sm font-medium mb-2">#1 Accounting Services in Dubai</span>
-              <h3 className="text-white text-2xl font-medium leading-snug">
-                Building Success Together with Our Trusted Strategic Experts
-              </h3>
+        <div className="w-full p-8 bg-white">
+          {submitted ? (
+            <div className="h-full flex flex-col items-center justify-center text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                <CheckCircle2 className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-2">Thank You!</h3>
+              <p className="text-gray-600 mb-8">We've received your request and will get back to you shortly.</p>
+              <button
+                onClick={onClose}
+                className="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+              >
+                Close
+              </button>
             </div>
-          </div>
-
-          {/* Right side - Form */}
-          <div className="w-full md:w-[65%] p-8 bg-white">
-            {submitted ? (
-              <div className="h-full flex flex-col items-center justify-center text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <CheckCircle2 className="w-8 h-8 text-green-600" />
+          ) : (
+            <>
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#e66b02] text-white font-semibold text-sm">RDV</span>
+                    <h4 className="text-sm font-medium text-gray-600">
+                      #1 Accounting Services In <span className="text-[#e66b02]">Dubai</span>
+                    </h4>
+                  </div>
+                  <h2 className="text-2xl font-semibold text-gray-900">
+                    Get a Free Call Back from Our Expert
+                  </h2>
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-2">Thank You!</h3>
-                <p className="text-gray-600 mb-8">We've received your request and will get back to you shortly.</p>
                 <button
                   onClick={onClose}
-                  className="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                  className="text-gray-500 hover:text-gray-700 transition-colors p-2 hover:bg-gray-100 rounded-full"
                 >
-                  Close
+                  <X size={20} />
                 </button>
               </div>
-            ) : (
-              <>
-                <div className="flex justify-between items-start mb-6">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#e66b02] text-white font-semibold text-sm">RDV</span>
-                      <h4 className="text-sm font-medium text-gray-600">
-                        #1 Accounting Services In <span className="text-[#e66b02]">Dubai</span>
-                      </h4>
-                    </div>
-                    <h2 className="text-2xl font-semibold text-gray-900">
-                      Get a Free Call Back from Our Expert
-                    </h2>
-                  </div>
-                  <button
-                    onClick={onClose}
-                    className="text-gray-500 hover:text-gray-700 transition-colors p-2 hover:bg-gray-100 rounded-full"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Enter your name"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-gray-50 border ${
-                          errors.name ? 'border-red-500' : 'border-gray-300'
-                        } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900`}
-                      />
-                      {errors.name && (
-                        <p className="mt-1 text-red-500 text-[13px]">{errors.name}</p>
-                      )}
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Enter your email"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-gray-50 border ${
-                          errors.email ? 'border-red-500' : 'border-gray-300'
-                        } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900`}
-                      />
-                      {errors.email && (
-                        <p className="mt-1 text-red-500 text-[13px]">{errors.email}</p>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Number
-                      </label>
-                      <div className="flex">
-                        <div className="flex-shrink-0">
-                          <select className="h-full px-3 py-2.5 rounded-l-xl bg-gray-50 border border-r-0 border-gray-300 text-gray-700 text-sm focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all">
-                            <option>🇦🇪 +971</option>
-                          </select>
-                        </div>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="Phone number"
-                          className={`w-full px-4 py-2.5 rounded-r-xl bg-gray-50 border ${
-                            errors.phone ? 'border-red-500' : 'border-gray-300'
-                          } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900`}
-                        />
-                      </div>
-                      {errors.phone && (
-                        <p className="mt-1 text-red-500 text-[13px]">{errors.phone}</p>
-                      )}
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Company
-                      </label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="Your company name"
-                        className="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-300 focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900"
-                      />
-                    </div>
-                  </div>
-
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Message
+                      Name
                     </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
                       onChange={handleChange}
-                      placeholder="Please let us know your requirements here..."
-                      rows={3}
-                      className="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-300 focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none"
+                      placeholder="Enter your name"
+                      className={`w-full px-4 py-2.5 rounded-xl bg-gray-50 border ${
+                        errors.name ? 'border-red-500' : 'border-gray-300'
+                      } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900`}
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-red-500 text-[13px]">{errors.name}</p>
+                    )}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Enter your email"
+                      className={`w-full px-4 py-2.5 rounded-xl bg-gray-50 border ${
+                        errors.email ? 'border-red-500' : 'border-gray-300'
+                      } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900`}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-red-500 text-[13px]">{errors.email}</p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Number
+                    </label>
+                    <div className="flex">
+                      <div className="flex-shrink-0">
+                        <select className="h-full px-3 py-2.5 rounded-l-xl bg-gray-50 border border-r-0 border-gray-300 text-gray-700 text-sm focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all">
+                          <option>🇦🇪 +971</option>
+                          <option>🇺🇸 +1</option>
+                          <option>🇬🇧 +44</option>
+                          <option>🇸🇦 +966</option>
+                          <option>🇶🇦 +974</option>
+                          <option>🇧🇭 +973</option>
+                          <option>🇰🇼 +965</option>
+                          <option>🇴🇲 +968</option>
+                          <option>🇮🇳 +91</option>
+                          <option>🇵🇰 +92</option>
+                          <option>🇨🇳 +86</option>
+                          <option>🇯🇵 +81</option>
+                          <option>🇰🇷 +82</option>
+                          <option>🇩🇪 +49</option>
+                          <option>🇫🇷 +33</option>
+                          <option>🇮🇹 +39</option>
+                          <option>🇪🇸 +34</option>
+                          <option>🇷🇺 +7</option>
+                          <option>🇦🇺 +61</option>
+                          <option>🇧🇷 +55</option>
+                          <option>🇨🇦 +1</option>
+                          <option>🇲🇽 +52</option>
+                          <option>🇿🇦 +27</option>
+                          <option>🇪🇬 +20</option>
+                          <option>🇳🇬 +234</option>
+                          <option>🇰🇪 +254</option>
+                          <option>🇪🇹 +251</option>
+                          <option>🇹🇿 +255</option>
+                          <option>🇺🇬 +256</option>
+                          <option>🇷🇼 +250</option>
+                          <option>🇨🇲 +237</option>
+                          <option>🇬🇭 +233</option>
+                          <option>🇸🇳 +221</option>
+                          <option>🇲🇦 +212</option>
+                          <option>🇹🇳 +216</option>
+                          <option>🇩🇿 +213</option>
+                          <option>🇱🇾 +218</option>
+                          <option>🇸🇩 +249</option>
+                          <option>🇨🇮 +225</option>
+                          <option>🇲🇱 +223</option>
+                          <option>🇧🇯 +229</option>
+                          <option>🇧🇫 +226</option>
+                          <option>🇹🇷 +90</option>
+                          <option>🇮🇷 +98</option>
+                          <option>🇮🇶 +964</option>
+                          <option>🇯🇴 +962</option>
+                          <option>🇱🇧 +961</option>
+                          <option>🇸🇾 +963</option>
+                        </select>
+                      </div>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="Phone number"
+                        className={`w-full px-4 py-2.5 rounded-r-xl bg-gray-50 border ${
+                          errors.phone ? 'border-red-500' : 'border-gray-300'
+                        } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900`}
+                      />
+                    </div>
+                    {errors.phone && (
+                      <p className="mt-1 text-red-500 text-[13px]">{errors.phone}</p>
+                    )}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Company
+                    </label>
+                    <input
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      placeholder="Your company name"
+                      className="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-300 focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900"
                     />
                   </div>
+                </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full py-3 bg-[#e66b02] hover:bg-[#d65f02] text-white rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 hover:gap-3"
-                  >
-                    {isSubmitting ? (
-                      <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                    ) : (
-                      <>
-                        <span>SUBMIT</span>
-                        <ArrowRight size={18} className="transform -rotate-45" />
-                      </>
-                    )}
-                  </button>
-                </form>
-              </>
-            )}
-          </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Please let us know your requirements here..."
+                    rows={3}
+                    className="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-300 focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3 bg-[#e66b02] hover:bg-[#d65f02] text-white rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 hover:gap-3"
+                >
+                  {isSubmitting ? (
+                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                  ) : (
+                    <>
+                      <span>SUBMIT</span>
+                      <ArrowRight size={18} className="transform -rotate-45" />
+                    </>
+                  )}
+                </button>
+              </form>
+            </>
+          )}
         </div>
       </div>
     </div>

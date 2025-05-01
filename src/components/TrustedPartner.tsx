@@ -40,11 +40,11 @@ export function TrustedPartner() {
         {/* Centered Modern Title */}
         <div className="text-center mb-6 relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-gradient-to-r from-[#E67E22]/20 to-[#1E2757]/20 rounded-full blur-3xl -z-10"></div>
-          <h1 className="text-[3rem] md:text-[3.5rem] font-bold leading-tight tracking-tight">
+          <h1 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             <div className="inline-block bg-gradient-to-r from-[#1E2757] via-[#2a3672] to-[#E67E22] bg-clip-text text-transparent">
               Your Strategic Partner for Business
             </div>
-            <div className="inline-block bg-gradient-to-r from-[#E67E22] via-[#CD853F] to-[#8B4513] bg-clip-text text-transparent mt-2">
+            <div className="block bg-gradient-to-r from-[#E67E22] via-[#CD853F] to-[#8B4513] bg-clip-text text-transparent mt-2">
               Success in the UAE
             </div>
           </h1>
@@ -59,7 +59,7 @@ export function TrustedPartner() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto mb-12">
           {features.map((feature, index) => (
             <div key={index} className="relative overflow-hidden rounded-2xl aspect-[4/3] group shadow-lg hover:shadow-2xl transition-all duration-500">
               <img 
@@ -67,12 +67,12 @@ export function TrustedPartner() {
                 alt={feature.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1E2757]/95 via-[#1E2757]/50 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 p-4 flex flex-col justify-end transform transition-all duration-500">
-                <h3 className="text-lg font-semibold text-white mb-2 transform transition-transform duration-500 group-hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E2757]/95 via-[#1E2757]/70 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 p-3 sm:p-4 flex flex-col justify-end transform transition-all duration-500">
+                <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2 transform transition-transform duration-500 group-hover:-translate-y-2">
                   {feature.title}
                 </h3>
-                <p className="text-white/90 text-sm transform transition-all duration-500 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+                <p className="text-white/90 text-xs sm:text-sm transform transition-all duration-500 opacity-100 sm:opacity-0 translate-y-0 sm:translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 line-clamp-2 sm:line-clamp-none">
                   {feature.description}
                 </p>
               </div>

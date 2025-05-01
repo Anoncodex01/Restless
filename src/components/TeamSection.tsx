@@ -60,7 +60,7 @@ export function TeamSection() {
           transition={{ duration: 0.6 }}
         >
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
               Your Advisers
             </h2>
             {/* Gradient line under the title */}
@@ -98,7 +98,7 @@ export function TeamSection() {
 
                 {/* Text Content */}
                 <div className="text-center relative">
-                  <motion.h3 
+                  {/* <motion.h3 
                     className="text-xl font-bold text-[#1E2757] mb-2 group-hover:text-[#e66b02] transition-colors duration-300"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -119,7 +119,7 @@ export function TeamSection() {
                     transition={{ delay: index * 0.3 + 0.1 }}
                   >
                     {member.role}
-                  </motion.p>
+                  </motion.p> */}
                 </div>
 
                 {/* Decorative Elements */}

@@ -99,10 +99,10 @@ export function ClientSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold relative inline-block"
+            className="text-3xl md:text-4xl font-bold relative inline-block bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent"
           >
             What Our Clients Say
-            <div className="absolute -bottom-6 left-0 right-0 h-[2px] bg-[#FDF3EB]"></div>
+            <div className="absolute -bottom-6 left-0 right-0 h-[2px] bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757]"></div>
           </motion.h2>
         </div>
 

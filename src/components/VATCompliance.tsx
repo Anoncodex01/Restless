@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, Calculator, FileCheck, ClipboardList, FileText, BookOpen, FileSpreadsheet, LogOut, Shield, Target, Clock, Headphones } from 'lucide-react';
 import { PopupForm } from './PopupForm';
 import { motion } from 'framer-motion';
+import { ContactForm } from './ContactForm';
 
 export function VATCompliance() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -69,32 +70,34 @@ export function VATCompliance() {
       {/* Main Content Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div 
-            className="prose max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold text-center text-[#0f172a] mb-8">
-              VAT Services in the UAE – Simplified & Hassle-Free
-            </h2>
-            <p className="text-gray-600 mb-8">
-              Value Added Tax (VAT) is a key component of the UAE's tax system, impacting businesses across various industries. Introduced at a standard rate of 5%, VAT applies to most goods and services, requiring businesses to register, file returns, and maintain proper records to ensure compliance with the Federal Tax Authority (FTA). Failure to adhere to VAT regulations can result in penalties, affecting financial stability and business operations.
-            </p>
-            <p className="text-gray-600 mb-8">
-              At RDV Consultants, we specialize in helping businesses navigate the complexities of VAT, ensuring they meet legal obligations while optimizing their tax position. Whether you're registering for VAT, filing returns, or seeking compliance guidance, our expert team provides tailored solutions that simplify the process. With RDV Consultants as your VAT partner, you can focus on growing your business while we handle your tax responsibilities with precision and efficiency.
-            </p>
-            <motion.button
-              onClick={handleOpenPopup}
-              className="inline-flex items-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 space-x-3 group"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {/* Left Content Area (spans 2 columns) */}
+            <motion.div 
+              className="lg:col-span-2 prose max-w-none"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              <span>Book A Consultation</span>
-              <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-          </motion.div>
+              <h2 className="text-3xl font-bold text-[#0f172a] mb-8">
+                VAT Services in the UAE – Simplified & Hassle-Free
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Value Added Tax (VAT) is a key component of the UAE's tax system, impacting businesses across various industries. Introduced at a standard rate of 5%, VAT applies to most goods and services, requiring businesses to register, file returns, and maintain proper records to ensure compliance with the Federal Tax Authority (FTA). Failure to adhere to VAT regulations can result in penalties, affecting financial stability and business operations.
+              </p>
+              <p className="text-gray-600">
+                At RDV Consultants, we specialize in helping businesses navigate the complexities of VAT, ensuring they meet legal obligations while optimizing their tax position. Whether you're registering for VAT, filing returns, or seeking compliance guidance, our expert team provides tailored solutions that simplify the process. With RDV Consultants as your VAT partner, you can focus on growing your business while we handle your tax responsibilities with precision and efficiency.
+              </p>
+            </motion.div>
+
+            {/* Right Contact Form */}
+            <div className="lg:sticky lg:top-8">
+              <div className="bg-[#0f172a] rounded-xl px-8 py-6 shadow-xl">
+                <h3 className="text-xl font-bold text-white mb-6">Let's Connect.</h3>
+                <ContactForm darkMode={true} />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

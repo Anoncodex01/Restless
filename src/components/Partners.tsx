@@ -172,7 +172,7 @@ export function Partners() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
               Free Zone Partners
             </h2>
             {/* Gradient line under the title */}

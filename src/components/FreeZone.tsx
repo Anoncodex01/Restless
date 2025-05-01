@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronRight, Check, ArrowRight, Plus, Minus, ClipboardList, PenTool, ScrollText, Building2, CheckSquare, Target } from 'lucide-react';
 import { PopupForm } from './PopupForm';
 import { Link } from 'react-router-dom';
+import { ContactForm } from './ContactForm';
 
 interface FreeZoneCardProps {
   title: string;
@@ -138,10 +139,10 @@ export function FreeZone() {
           <div className="container mx-auto px-4 max-w-7xl h-full flex flex-col justify-center -mt-16">
             <div className="max-w-3xl">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-                Build your Future in the UAE
+              UAE Free Zones 
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl">
-                Unlock endless opportunities—seamless business setup in the UAE with expert guidance!
+              Unlock Limitless Opportunities
               </p>
               <button
                 onClick={handleOpenPopup}
@@ -156,354 +157,289 @@ export function FreeZone() {
       </div>
 
       {/* Main Content */}
-      <div className="py-16">
+      <div className="py-8">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Left Content */}
-            <div className="flex-1 space-y-16">
-              {/* Introduction */}
+            <div className="space-y-4">
               <div>
-                <h2 className="text-2xl font-bold text-[#0f172a] mb-6">
+                <h2 className="text-2xl font-bold text-[#0f172a] mb-4">
                   Set Up A Free Zone Company In The UAE
                 </h2>
-                <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-[#0f172a] mb-6 rounded-full" />
-                <p className="text-gray-700 text-lg mb-8">
+                <div className="h-1 w-16 bg-gradient-to-r from-orange-500 to-[#0f172a] mb-4 rounded-full" />
+                <p className="text-gray-700">
                   With over 40 free zones across the UAE, businesses enjoy world-class benefits, from 100% foreign ownership to tax advantages and strategic locations. However, choosing the right free zone can be a complex decision. That's where RDV Consultants comes in – turning complexity into clarity.
                 </p>
-                <p className="text-gray-700 text-lg mb-8">
+              </div>
+              <div>
+                <p className="text-gray-700">
                   We make the process seamless by helping you identify the free zone that best suits your business objectives. Whether it's licensing, bank account, office space, share capital, or regulatory requirements, we provide expert guidance every step of the way. Our simplified approach saves you time, minimizes costs, and ensures a hassle-free setup—so you can focus on growing your business while we handle the rest.
                 </p>
-                <button
-                  onClick={handleOpenPopup}
-                  className="inline-flex items-center bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white px-6 py-3 rounded-lg hover:from-[#1e293b] hover:to-[#0f172a] transition-all duration-300 space-x-2 group"
-                >
-                  <span>Book A Consultation</span>
-                  <ChevronRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-
-              {/* Why Choose Section */}
-              <div>
-                <h2 className="text-2xl font-bold text-[#0f172a] mb-6">
-                  Why Choose a Free Zone for Your Business?
-                </h2>
-                <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-[#0f172a] mb-6 rounded-full" />
-                <p className="text-gray-700 mb-6">
-                  Explore the Advantages of a UAE Free Zone and Unlock New Growth Opportunities for Your Business.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">100% Foreign Ownership</span>
-                      <span className="text-gray-700"> – Maintain full control of your business without a local sponsor</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Fast & Affordable Setup</span>
-                      <span className="text-gray-700"> – Quick registration with minimal paperwork and lower costs</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Tax-Free Environment</span>
-                      <span className="text-gray-700"> – 100% exemption from income tax and customs duties, with full repatriation of profits</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">World-Class Infrastructure</span>
-                      <span className="text-gray-700"> – Operate from modern business hubs with global connectivity</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Thriving Business Community</span>
-                      <span className="text-gray-700"> – Network with businesses in your sector for growth and collaboration</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Entity Options Section */}
-              <div>
-                <h2 className="text-2xl font-bold text-[#0f172a] mb-6">
-                  Entity Options for Your Free Zone Setup
-                </h2>
-                <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-[#0f172a] mb-6 rounded-full" />
-                <p className="text-gray-700 mb-6">
-                  Setting up a business in the UAE's free zones offers flexibility and ease, with three primary entity options to choose from:
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Branch of a Foreign or Local Company</span>
-                      <span className="text-gray-700"> – Expand your existing business by establishing a branch in the UAE free zones, maintaining the legal identity of the parent company.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Free Zone Establishment (FZE)</span>
-                      <span className="text-gray-700"> – Ideal for individual entrepreneurs, this option allows you to establish a business with full ownership and control as a sole shareholder.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Free Zone Company (FZC)</span>
-                      <span className="text-gray-700"> – A collaborative option for partnerships, allowing 2 to 5 shareholders to form a company with shared responsibilities and benefits.</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Business Licenses Section */}
-              <div>
-                <h2 className="text-2xl font-bold text-[#0f172a] mb-6">
-                  Business Licenses for Every Need in UAE Free Zones
-                </h2>
-                <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-[#0f172a] mb-6 rounded-full" />
-                <p className="text-gray-700 mb-6">
-                  The UAE Free Zones offer a range of business licenses tailored to various industries, providing seamless opportunities for entrepreneurs and corporations.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">General Trading Licence</span>
-                      <span className="text-gray-700"> - Trade a diverse range of products with ease and flexibility</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Commercial Licence</span>
-                      <span className="text-gray-700"> - Authorizes businesses to operate in industrial, trade, or consultancy sectors</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Industrial Licence</span>
-                      <span className="text-gray-700"> - Manufacture goods, import raw materials, and export products worldwide</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Service Licence</span>
-                      <span className="text-gray-700"> - Designed for professionals in legal, financial, and business consultancy fields</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Manufacturing Licence</span>
-                      <span className="text-gray-700"> - Allows applicants to establish and operate manufacturing facilities for the production of goods</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Why Partner Section */}
-              <div>
-                <h2 className="text-2xl font-bold text-[#0f172a] mb-6">
-                  Why Partner with RDV for Your DMCC Business Setup?
-                </h2>
-                <div className="h-1 w-20 bg-gradient-to-r from-orange-500 to-[#0f172a] mb-6 rounded-full" />
-                <ul className="space-y-4">
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Quick & Efficient Company Setup</span>
-                      <span className="text-gray-700"> - A tailored approach to registering your business, ensuring a smooth and efficient setup that aligns with your specific goals and regulatory needs.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Effortless PRO Services</span>
-                      <span className="text-gray-700"> - Efficient and hassle-free processing of government paperwork, visa applications, and document clearances, ensuring smooth operations.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Business Licence Procurement</span>
-                      <span className="text-gray-700"> - Expert guidance to navigate the complexities of obtaining the right licenses, ensuring full compliance with local regulations for your business.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Document Translation</span>
-                      <span className="text-gray-700"> - Accurate translation services for all your business documents, ensuring legal compliance and clarity in every language.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-[#0f172a] mt-1" />
-                    <div>
-                      <span className="font-semibold text-orange-500">Local Partnership Support</span>
-                      <span className="text-gray-700"> - Connecting you with trusted local sponsors, helping you navigate the sponsorship process smoothly and compliantly.</span>
-                    </div>
-                  </li>
-                </ul>
               </div>
             </div>
 
-            {/* Right Sidebar */}
-            <div className="lg:w-[400px] space-y-8">
-              {/* Let's Connect Form */}
-              <div className="bg-[#0f172a] rounded-2xl p-6 text-white">
-                <h3 className="text-2xl font-bold mb-6">Let's Connect.</h3>
-                <form className="space-y-4">
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Type full name"
-                      className="w-full bg-transparent border-b border-white/30 py-2 text-white placeholder-white/70 focus:outline-none focus:border-orange-500"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      placeholder="Email address"
-                      className="w-full bg-transparent border-b border-white/30 py-2 text-white placeholder-white/70 focus:outline-none focus:border-orange-500"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="tel"
-                      placeholder="Phone Number (+123-4567)"
-                      className="w-full bg-transparent border-b border-white/30 py-2 text-white placeholder-white/70 focus:outline-none focus:border-orange-500"
-                    />
-                  </div>
-                  <div>
-                    <select className="w-full bg-transparent border-b border-white/30 py-2 text-white focus:outline-none focus:border-orange-500">
-                      <option value="" className="bg-[#0f172a]">Free Zone</option>
-                      <option value="dmcc" className="bg-[#0f172a]">DMCC</option>
-                      <option value="jafza" className="bg-[#0f172a]">JAFZA</option>
-                      <option value="dafza" className="bg-[#0f172a]">DAFZA</option>
-                    </select>
-                  </div>
-                  <div>
-                    <textarea
-                      placeholder="Type your message"
-                      rows={4}
-                      className="w-full bg-transparent border-b border-white/30 py-2 text-white placeholder-white/70 focus:outline-none focus:border-orange-500 resize-none"
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 rounded-full font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300"
-                  >
-                    Submit
-                  </button>
-                </form>
-              </div>
-
-              {/* Explore the Industry */}
-              <div className="bg-gray-100 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-[#0f172a] mb-4">
-                  Explore the Industry
-                </h3>
-                <div className="h-1 w-12 bg-gradient-to-r from-orange-500 to-[#0f172a] mb-4 rounded-full" />
-                <ul className="space-y-3">
-                  {industryLinks.map((link, index) => (
-                    <li key={index}>
-                      <a
-                        href={link.href}
-                        className="text-gray-700 hover:text-orange-500 transition-colors"
-                      >
-                        {link.title}
-                      </a>
-                    </li>
-                  ))}
-                  <li>
-                    <a
-                      href="/uae-legalities"
-                      className="text-gray-700 hover:text-orange-500 transition-colors"
-                    >
-                      UAE Legalities
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Recent Blogs */}
-              <div className="bg-gray-100 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-[#0f172a] mb-4">
-                  Recent Blogs
-                </h3>
-                <div className="h-1 w-12 bg-gradient-to-r from-orange-500 to-[#0f172a] mb-4 rounded-full" />
-                <div className="space-y-6">
-                  <div>
-                    <Link to="/blog/cost-of-starting-business-dubai" className="block">
-                      <div className="relative rounded-xl overflow-hidden mb-3">
-                        <img 
-                          src="/images/blogs/cost-business-setup.jpg" 
-                          alt="Cost of Starting a Business in Dubai" 
-                          className="w-full h-48 object-cover"
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-                          <div className="flex gap-2">
-                            <span className="text-xs text-white bg-[#dc2626] px-2 py-1 rounded">Mainland</span>
-                            <span className="text-xs text-white bg-[#dc2626] px-2 py-1 rounded">Free Zone</span>
-                            <span className="text-xs text-white bg-[#dc2626] px-2 py-1 rounded">Offshore</span>
-                          </div>
-                        </div>
-                      </div>
-                      <h4 className="text-lg font-semibold text-gray-800 hover:text-[#dc2626] transition-colors">
-                        Cost of Starting a Business in Dubai
-                      </h4>
-                      <Link 
-                        to="/business-setup" 
-                        className="inline-block mt-2 text-sm font-medium text-white bg-[#2F5B79] px-4 py-1 rounded hover:bg-[#264a63] transition-colors"
-                      >
-                        UAE Business Setup
-                      </Link>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* For an instant reply */}
-              <div className="bg-gray-100 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-[#0f172a] mb-4">
-                  For an instant reply
-                </h3>
-                <div className="flex gap-4">
-                  <a 
-                    href="https://wa.me/your-whatsapp-number" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-12 h-12 bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-colors"
-                  >
-                    <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                  </a>
-                  <a 
-                    href="tel:your-phone-number" 
-                    className="flex items-center justify-center w-12 h-12 bg-[#0f172a] rounded-full hover:bg-gray-800 transition-colors"
-                  >
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </a>
-                </div>
+            {/* Right Contact Form */}
+            <div className="lg:sticky lg:top-8">
+              <div className="bg-[#0f172a] rounded-xl p-6 shadow-xl">
+                <h3 className="text-xl font-bold text-white mb-4">Let's Connect.</h3>
+                <ContactForm darkMode={true} />
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Why Choose Section - Full Width */}
+      <div className="relative py-12 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-4">
+              Why Choose a Free Zone for Your Business?
+            </h2>
+            <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto mb-6" />
+            <p className="text-xl text-gray-600">
+              Explore the Advantages of a UAE Free Zone and Unlock New Growth Opportunities for Your Business.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "100% Foreign Ownership",
+                description: "Maintain full control of your business without a local sponsor",
+                icon: (
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M12 16V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M12 8H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )
+              },
+              {
+                title: "Fast & Affordable Setup",
+                description: "Quick registration with minimal paperwork and lower costs",
+                icon: (
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8V12L15 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )
+              },
+              {
+                title: "Tax-Free Environment",
+                description: "100% exemption from income tax and customs duties, with full repatriation of profits",
+                icon: (
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1V23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )
+              },
+              {
+                title: "World-Class Infrastructure",
+                description: "Operate from modern business hubs with global connectivity",
+                icon: (
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 21V5C19 3.89543 18.1046 3 17 3H7C5.89543 3 5 3.89543 5 5V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M3 21H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M9 7H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M9 11H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M9 15H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )
+              },
+              {
+                title: "Thriving Business Community",
+                description: "Network with businesses in your sector for growth and collaboration",
+                icon: (
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )
+              }
+            ].map((benefit, index) => (
+              <div
+                key={index}
+                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border border-gray-100 hover:border-orange-500/30"
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-orange-600 transform origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100 rounded-t-2xl" />
+                
+                <div className="flex flex-col h-full">
+                  <div className="mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500/10 to-orange-600/10 flex items-center justify-center group-hover:from-orange-500/20 group-hover:to-orange-600/20 transition-colors">
+                      <div className="text-orange-500 group-hover:text-orange-600 transition-colors">
+                        {benefit.icon}
+                      </div>
+                    </div>
+              </div>
+
+                  <h3 className="text-xl font-bold text-[#0f172a] mb-4 group-hover:text-orange-500 transition-colors">
+                    {benefit.title}
+                </h3>
+                  
+                  <p className="text-gray-600 group-hover:text-gray-900 transition-colors">
+                    {benefit.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Entity Options Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl font-bold text-[#0f172a] mb-4">
+              Entity Options for Your Free Zone Setup
+            </h2>
+            <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto mb-6" />
+            <p className="text-gray-600 mb-12">
+              Setting up a business in the UAE's free zones offers flexibility and ease, with three primary entity options to choose from:
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {[
+              {
+                title: "Branch of a Foreign or Local Company",
+                description: "Expand your existing business by establishing a branch in the UAE free zones, maintaining the legal identity of the parent company."
+              },
+              {
+                title: "Free Zone Establishment (FZE)",
+                description: "Ideal for individual entrepreneurs, this option allows you to establish a business with full ownership and control as a sole shareholder."
+              },
+              {
+                title: "Free Zone Company (FZC)",
+                description: "A collaborative option for partnerships, allowing 2 to 5 shareholders to form a company with shared responsibilities and benefits."
+              }
+            ].map((entity, index) => (
+              <div
+                key={index}
+                className="flex items-start group"
+              >
+                <div className="flex-shrink-0 mr-6">
+                  <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center">
+                    <span className="text-orange-500 font-bold text-xl">{index + 1}</span>
+                  </div>
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-xl font-bold text-[#0f172a] mb-2 group-hover:text-orange-500 transition-colors">
+                    {entity.title}
+                  </h3>
+                  <div className="h-0.5 w-16 bg-orange-500/30 mb-3" />
+                  <p className="text-gray-600 leading-relaxed">
+                    {entity.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Business Licenses Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl font-bold text-[#0f172a] mb-4">
+              Business Licenses for Every Need in UAE Free Zones
+            </h2>
+            <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto mb-6" />
+            <p className="text-gray-600 mb-12">
+              The UAE Free Zones offer a range of business licenses tailored to various industries, providing seamless opportunities for entrepreneurs and corporations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+            {/* Left Column */}
+            <div className="relative">
+              {/* Vertical Line */}
+              <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500/0 via-orange-500/30 to-orange-500/0" />
+
+              <div className="space-y-12">
+                {[
+                  {
+                    title: "General Trading Licence",
+                    description: "Trade a diverse range of products with ease and flexibility"
+                  },
+                  {
+                    title: "Commercial Licence",
+                    description: "Authorizes businesses to operate in industrial, trade, or consultancy sectors"
+                  },
+                  {
+                    title: "Industrial Licence",
+                    description: "Manufacture goods, import raw materials, and export products worldwide"
+                  }
+                ].map((license, index) => (
+                  <div
+                    key={index}
+                    className="relative pl-8 group"
+                  >
+                    {/* Timeline Node */}
+                    <div className="absolute left-0 w-3 h-3 rounded-full bg-orange-500 -translate-x-[5px] group-hover:scale-150 transition-transform" />
+                    
+                    <div>
+                      <h3 className="text-xl font-bold text-[#0f172a] mb-2 group-hover:text-orange-500 transition-colors flex items-center">
+                        <span className="text-orange-500/50 mr-3 text-sm font-mono">
+                          {(index + 1).toString().padStart(2, '0')}
+                        </span>
+                        {license.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {license.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <div className="relative">
+              {/* Vertical Line */}
+              <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500/0 via-orange-500/30 to-orange-500/0" />
+
+              <div className="space-y-12">
+                {[
+                  {
+                    title: "Service Licence",
+                    description: "Designed for professionals in legal, financial, and business consultancy fields"
+                  },
+                  {
+                    title: "Manufacturing Licence",
+                    description: "Allows applicants to establish and operate manufacturing facilities for the production of goods"
+                  }
+                ].map((license, index) => (
+                  <div
+                    key={index}
+                    className="relative pl-8 group"
+                  >
+                    {/* Timeline Node */}
+                    <div className="absolute left-0 w-3 h-3 rounded-full bg-orange-500 -translate-x-[5px] group-hover:scale-150 transition-transform" />
+                    
+                    <div>
+                      <h3 className="text-xl font-bold text-[#0f172a] mb-2 group-hover:text-orange-500 transition-colors flex items-center">
+                        <span className="text-orange-500/50 mr-3 text-sm font-mono">
+                          {(index + 4).toString().padStart(2, '0')}
+                        </span>
+                        {license.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {license.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Featured Free Zones - Blue background */}
       <section className="py-16 bg-gradient-to-b from-[#0f172a] to-[#1e293b]">
@@ -512,13 +448,14 @@ export function FreeZone() {
             Popular Free Zones
           </h2>
           <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto mb-12 rounded-full" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Row 1: DMCC and JAFZA */}
             <FreeZoneCard
               title="DMCC"
               subtitle="Dubai Multi Commodities Centre"
-              description="A premier free zone designed to drive international trade across diverse industries. From precious metals and food products to industrial goods, DMCC offers a dynamic business ecosystem."
+              description="At the core of Dubai, the Dubai Multi Commodities Centre (DMCC) stands as a premier free zone designed to drive international trade across diverse industries. From precious metals and food products to industrial goods, DMCC offers a dynamic business ecosystem that fosters growth and innovation. With a streamlined regulatory framework, state-of-the-art infrastructure, and a pro-business environment, DMCC has attracted industry leaders and innovative startups alike. Today, it is home to over 25,000 companies, offering businesses unparalleled opportunities to network, collaborate, and expand in one of the world's most dynamic commercial landscapes."
               features={[
-                "9-time winner of Global Free Zone of the Year Award",
+                "9-time winner of the Global Free Zone of the Year Award by the Financial Times' fDi Magazine",
                 "Attracts 15% of Dubai's annual FDI",
                 "87 Residential and Commercial towers"
               ]}
@@ -527,22 +464,59 @@ export function FreeZone() {
             <FreeZoneCard
               title="JAFZA"
               subtitle="Jebel Ali Free Zone Authority"
-              description="JAFZA stands as DP World's flagship free zone and the largest customs-bonded zone in the Middle East. Home to 100+ Fortune Global 500 companies and over 10,700 businesses."
+              description="When it comes to world-class free zones, JAFZA stands in a league of its own. As DP World's flagship free zone and the largest customs-bonded zone in the Middle East, JAFZA is the beating heart of global trade. Home to 100+ Fortune Global 500 companies and over 10,700 businesses, it is where the world's biggest brands thrive. JAFZA offers unmatched connectivity—a seamless link between Jebel Ali Port, Al Maktoum International Airport, and international markets via an integrated multi-modal transport network. Combined with cutting-edge logistics infrastructure, JAFZA isn't just a business hub—it's the future of global commerce."
               features={[
-                "Top-ranked free zone globally at fDi Intelligence's Global Free Zones",
+                "Top-ranked free zone globally at fDi Intelligence's Global Free Zones of the Year 2024",
                 "Attracts 23.9% of Dubai's FDI",
-                "Strategic location with access to 3.5 billion people"
+                "Strategically located at the crossroads of a region providing market access to over 3.5 billion people"
+              ]}
+              onConsult={handleOpenPopup}
+            />
+
+            {/* Row 2: IFZA and SPC */}
+            <FreeZoneCard
+              title="IFZA"
+              subtitle="International Free Zone Authority"
+              description="Looking for an affordable and strategic business setup in Dubai? IFZA is one of the most cost-effective and business-friendly free zones in the UAE, offering seamless registration, flexible office solutions, and direct access to major markets and ports. With minimal requirements, streamlined procedures, and tailored packages, IFZA is the perfect choice for entrepreneurs and investors seeking a hassle-free setup. With flexible workspace options, including desks, private offices, and office suites, businesses of all sizes can find the perfect setup. Whether you're a startup or an expanding enterprise, IFZA's tailored packages and investor-friendly approach make it the go-to choice for business success in the UAE."
+              features={[
+                "Flexible workspace options",
+                "Streamlined procedures",
+                "Cost-effective solutions"
               ]}
               onConsult={handleOpenPopup}
             />
             <FreeZoneCard
-              title="IFZA"
-              subtitle="International Free Zone Authority"
-              description="One of the most cost-effective and business-friendly free zones in the UAE, offering seamless registration, flexible office solutions, and direct access to major markets and ports."
+              title="SPC"
+              subtitle="Sharjah Publishing City"
+              description="Located in Sharjah's Al Zahia area, SPC Free Zone is rapidly emerging as a top destination for entrepreneurs and businesses. One of its biggest advantages is the dual license, allowing businesses to operate in both the free zone and the mainland, offering unmatched flexibility. Its strategic proximity to trade ports ensures seamless global connectivity, making it an ideal hub for companies looking to expand. Beyond publishing, it supports e-commerce, jewelry manufacturing, trading, and more, making it a versatile and future-ready business environment. SPC Free Zone also provides state-of-the-art office spaces, warehouses, and co-working facilities, catering to a wide range of industries."
               features={[
-                "Flexible workspace options",
-                "Streamlined procedures",
-                "Investor-friendly approach"
+                "Dual license advantage",
+                "Strategic location",
+                "Versatile business activities"
+              ]}
+              onConsult={handleOpenPopup}
+            />
+
+            {/* Row 3: MFZ and RAKEZ */}
+            <FreeZoneCard
+              title="MFZ"
+              subtitle="Meydan Free Zone"
+              description="Meydan Free Zone offers an exceptional opportunity for entrepreneurs looking to establish a business in Dubai. Located in a thriving economic hub, it provides the perfect gateway for international expansion. With one of the lowest setup costs among Dubai's free zones, it ensures a cost-effective yet prestigious business presence. Meydan FZ features simple formation procedures and minimal requirements, making it easier than ever to launch your company. Its strategic central location enhances connectivity, placing businesses at the heart of Dubai's commercial landscape. Whether you're a startup or an established enterprise, Meydan Free Zone provides an enabling environment for success in a city known for global business excellence."
+              features={[
+                "Low setup costs",
+                "Simple formation procedures",
+                "Strategic central location"
+              ]}
+              onConsult={handleOpenPopup}
+            />
+            <FreeZoneCard
+              title="RAKEZ"
+              subtitle="Ras Al Khaimah Economic Zone"
+              description="RAKEZ is a powerhouse of opportunity, offering a stable, business-friendly environment in Ras Al Khaimah, UAE. Known for the city's economic security and steady growth, RAKEZ continues to attract businesses looking for a cost-effective, high-potential base in the UAE. Its strategic location ensures 24/7 connectivity via seaports, an international airport, and an extensive highway network, making it a prime hub for global commerce. As a consolidation of RAK Free Zone and RAK Investment Authority, it provides customizable company setup options designed to meet the needs of businesses of all sizes—from freelancers and SMEs to multinational enterprises and large industries."
+              features={[
+                "Strategic location with 24/7 connectivity",
+                "Customizable company setup options",
+                "Cost-effective business environment"
               ]}
               onConsult={handleOpenPopup}
             />
@@ -672,18 +646,13 @@ export function FreeZone() {
                 className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-orange-500/50 shadow-lg hover:shadow-2xl transition-all duration-300 group"
               >
                 <div className="relative">
-                  <div className="absolute -top-12 left-0 text-8xl font-bold text-orange-500/10 select-none">
-                    {(index + 1).toString().padStart(2, '0')}
-                  </div>
-                  <div className="relative">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-500 transition-colors">
-                      {faq.question}
-                    </h3>
-                    <div className="h-0.5 w-20 bg-orange-500 mb-6" />
-                    <p className="text-gray-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-500 transition-colors">
+                    {faq.question}
+                  </h3>
+                  <div className="h-0.5 w-20 bg-orange-500 mb-6" />
+                  <p className="text-gray-600 leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               </div>
             ))}

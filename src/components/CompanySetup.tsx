@@ -90,7 +90,7 @@ export function CompanySetup() {
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <div className="text-center mb-16">
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
               Choosing the Right Jurisdiction
               <br />
               <span className="bg-gradient-to-r from-[#e66b02] via-[#1E2757] to-[#e66b02] bg-clip-text text-transparent">

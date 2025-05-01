@@ -84,6 +84,9 @@ function HomePage() {
       <div className="bg-white">
         <FAQSection />
       </div>
+      <div className="bg-gray-50">
+        <ConsultationSection />
+      </div>
     </PageTransition>
   );
 }
@@ -103,7 +106,7 @@ function AppContent() {
       
       {/* Content */}
       <main>
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<HomePage />} />
             <Route path="/about-us" element={<PageTransition><AboutUs /></PageTransition>} />

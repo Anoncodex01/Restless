@@ -467,16 +467,14 @@ export function MainLand() {
                   {setupSteps.slice(0, 2).map((step, index) => (
                     <div key={index} className="relative flex items-start">
                       {/* Timeline Node */}
-                      <div className="absolute right-[-32px] flex items-center justify-center w-16 h-6 rounded-full bg-orange-500 z-10">
-                        <div className="flex space-x-4">
-                          <span className="text-white font-bold text-xs">
-                            {index === 0 ? "1" : "2"}
-                          </span>
-                        </div>
+                      <div className="absolute -left-8 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 z-10 shadow-md">
+                        <span className="text-white font-bold text-base">
+                          {index === 0 ? "1" : "2"}
+                        </span>
                       </div>
 
                       {/* Content */}
-                      <div className="pr-12 bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-orange-500/30 w-full">
+                      <div className="ml-4 bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-orange-500/30 w-full">
                         <h3 className="text-lg font-bold text-[#0f172a] mb-1 group-hover:text-orange-500 transition-colors">
                           {step.title}
                         </h3>

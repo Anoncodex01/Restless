@@ -70,8 +70,8 @@ const Contact = () => {
               {/* Call Us */}
               <div>
                 <h3 className="text-gray-500 text-lg mb-1">Call Us</h3>
-                <a href="tel:(123) 456-7890" className="text-[#1e1b4b] text-lg hover:text-orange-600">
-                  (123) 456-7890
+                <a href="tel:(+971) 55 470 3339" className="text-[#1e1b4b] text-lg hover:text-orange-600">
+                  (+971) 55 470 3339
                 </a>
               </div>
 
@@ -79,8 +79,9 @@ const Contact = () => {
               <div>
                 <h3 className="text-gray-500 text-lg mb-1">Location</h3>
                 <p className="text-[#1e1b4b] text-lg">
-                  123 Innovation Street, Suite<br />
-                  500 Fintech City, State, 56789
+                Dubai Silicon Oasis, DDP<br />
+                Building A2, Dubai, UAE
+
                 </p>
               </div>
 

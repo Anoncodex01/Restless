@@ -61,7 +61,7 @@ export function TeamSection() {
         >
           <div className="relative inline-block">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
-              Your Advisers
+              Your Advisors
             </h2>
             {/* Gradient line under the title */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] rounded-full"></div>

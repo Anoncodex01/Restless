@@ -105,6 +105,9 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
+              <Link to="/" className="text-gray-700 hover:text-orange-500 transition-colors duration-200 text-sm font-medium">
+                Home
+              </Link>
               <Link to="/about-us" className="text-gray-700 hover:text-orange-500 transition-colors duration-200 text-sm font-medium">
                 {t('about_us')}
               </Link>
@@ -264,6 +267,13 @@ export function Header() {
         {isMenuOpen && (
           <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-orange-100 rounded-b-2xl">
             <div className="px-8 pt-2 pb-3 space-y-1">
+              <Link
+                to="/"
+                onClick={() => handleMobileNavigation('/')}
+                className="block px-3 py-2 text-gray-700 hover:text-orange-500 text-sm font-medium transition-colors duration-200"
+              >
+                Home
+              </Link>
               <Link
                 to="/about-us"
                 onClick={() => handleMobileNavigation('/about-us')}

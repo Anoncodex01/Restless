@@ -114,9 +114,9 @@ export function FooterSection() {
               <h3 className="text-white font-semibold text-lg mb-6">Contact Us</h3>
               <ul className="space-y-4">
                 <li>
-                  <a href="tel:+971123456789" className="flex items-center justify-center md:justify-start text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                  <a href="tel:+971554703339" className="flex items-center justify-center md:justify-start text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
                     <Phone size={16} className="mr-3" />
-                    +971 12 345 6789
+                    +971 55 470 3339
                   </a>
                 </li>
                 <li>
@@ -127,7 +127,8 @@ export function FooterSection() {
                 </li>
                 <li className="flex items-start justify-center md:justify-start text-gray-300 text-sm">
                   <MapPin size={16} className="mr-3 mt-1 flex-shrink-0" />
-                  <span>Office 1234, Building Name,<br />Sheikh Zayed Road, Dubai, UAE</span>
+                  <span>Dubai Silicon Oasis, DDP<br />Building A2, Dubai, UAE
+                  </span>
                 </li>
               </ul>
             </div>

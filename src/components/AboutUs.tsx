@@ -117,8 +117,7 @@ export function AboutUs() {
                       <p className="text-orange-500 font-medium mb-4">{member.title}</p>
                       <p className="text-gray-600 mb-4">{member.description}</p>
                       <div className="space-y-2">
-                        <p className="text-gray-600">{member.email}</p>
-                        <p className="text-gray-600">{member.phone}</p>
+                        <p className="text-gray-600">info@rdv.ae</p>
                       </div>
                     </div>
                   </div>

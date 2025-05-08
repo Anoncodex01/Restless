@@ -12,6 +12,7 @@ interface FormData {
   phone: string;
   company: string;
   message: string;
+  countryCode: string;
 }
 
 interface FormErrors {
@@ -19,13 +20,24 @@ interface FormErrors {
 }
 
 export function PopupForm({ isOpen, onClose }: PopupFormProps) {
+  const countryList = [
+    { code: '+971', name: 'United Arab Emirates', flag: '🇦🇪' },
+    { code: '+1', name: 'United States', flag: '🇺🇸' },
+    { code: '+44', name: 'United Kingdom', flag: '🇬🇧' },
+    { code: '+91', name: 'India', flag: '🇮🇳' },
+    { code: '+254', name: 'Kenya', flag: '🇰🇪' },
+    // ... add more countries as needed ...
+  ];
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
     company: '',
-    message: ''
+    message: '',
+    countryCode: '+971',
   });
+  const [countrySearch, setCountrySearch] = useState('');
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -70,6 +82,14 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
         return newErrors;
       });
     }
+  };
+
+  const handleCountrySelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData(prev => ({ ...prev, countryCode: e.target.value }));
+  };
+
+  const handleCountryCodeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, countryCode: e.target.value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -117,9 +137,6 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#e66b02] text-white font-semibold text-sm">RDV</span>
-                    <h4 className="text-sm font-medium text-gray-600">
-                      #1 Accounting Services In <span className="text-[#e66b02]">Dubai</span>
-                    </h4>
                   </div>
                   <h2 className="text-2xl font-semibold text-gray-900">
                     Get a Free Call Back from Our Expert
@@ -178,59 +195,18 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Number
                     </label>
-                    <div className="flex">
-                      <div className="flex-shrink-0">
-                        <select className="h-full px-3 py-2.5 rounded-l-xl bg-gray-50 border border-r-0 border-gray-300 text-gray-700 text-sm focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all">
-                          <option>🇦🇪 +971</option>
-                          <option>🇺🇸 +1</option>
-                          <option>🇬🇧 +44</option>
-                          <option>🇸🇦 +966</option>
-                          <option>🇶🇦 +974</option>
-                          <option>🇧🇭 +973</option>
-                          <option>🇰🇼 +965</option>
-                          <option>🇴🇲 +968</option>
-                          <option>🇮🇳 +91</option>
-                          <option>🇵🇰 +92</option>
-                          <option>🇨🇳 +86</option>
-                          <option>🇯🇵 +81</option>
-                          <option>🇰🇷 +82</option>
-                          <option>🇩🇪 +49</option>
-                          <option>🇫🇷 +33</option>
-                          <option>🇮🇹 +39</option>
-                          <option>🇪🇸 +34</option>
-                          <option>🇷🇺 +7</option>
-                          <option>🇦🇺 +61</option>
-                          <option>🇧🇷 +55</option>
-                          <option>🇨🇦 +1</option>
-                          <option>🇲🇽 +52</option>
-                          <option>🇿🇦 +27</option>
-                          <option>🇪🇬 +20</option>
-                          <option>🇳🇬 +234</option>
-                          <option>🇰🇪 +254</option>
-                          <option>🇪🇹 +251</option>
-                          <option>🇹🇿 +255</option>
-                          <option>🇺🇬 +256</option>
-                          <option>🇷🇼 +250</option>
-                          <option>🇨🇲 +237</option>
-                          <option>🇬🇭 +233</option>
-                          <option>🇸🇳 +221</option>
-                          <option>🇲🇦 +212</option>
-                          <option>🇹🇳 +216</option>
-                          <option>🇩🇿 +213</option>
-                          <option>🇱🇾 +218</option>
-                          <option>🇸🇩 +249</option>
-                          <option>🇨🇮 +225</option>
-                          <option>🇲🇱 +223</option>
-                          <option>🇧🇯 +229</option>
-                          <option>🇧🇫 +226</option>
-                          <option>🇹🇷 +90</option>
-                          <option>🇮🇷 +98</option>
-                          <option>🇮🇶 +964</option>
-                          <option>🇯🇴 +962</option>
-                          <option>🇱🇧 +961</option>
-                          <option>🇸🇾 +963</option>
-                        </select>
-                      </div>
+                    <div className="flex gap-2">
+                      {/* Manual Code Input Only */}
+                      <input
+                        type="text"
+                        name="countryCode"
+                        value={formData.countryCode}
+                        onChange={handleCountryCodeInput}
+                        placeholder="Code (e.g. +971)"
+                        className="w-20 px-2 py-2.5 rounded-l-xl bg-gray-50 border border-gray-300 text-gray-900 focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all"
+                        maxLength={6}
+                      />
+                      {/* Phone Number Input */}
                       <input
                         type="tel"
                         name="phone"
@@ -240,6 +216,7 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         className={`w-full px-4 py-2.5 rounded-r-xl bg-gray-50 border ${
                           errors.phone ? 'border-red-500' : 'border-gray-300'
                         } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900`}
+                        style={{ minWidth: '120px' }}
                       />
                     </div>
                     {errors.phone && (

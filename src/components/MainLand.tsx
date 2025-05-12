@@ -257,7 +257,7 @@ export function MainLand() {
               </div>
               <div>
                 <p className="text-gray-700">
-                  At RDV Consultants, we offer expert guidance to help businesses successfully establish themselves in the UAE's mainland market. Our team assists with every aspect of the setup process, ensuring you comply with local regulations, select the ideal structure, and obtain the necessary licenses to start your business smoothly and efficiently.
+                  At RDV Consultants, we offer experts guidance to help businesses successfully establish themselves in the UAE's mainland market. Our team assists with every aspect of the setup process, ensuring you comply with local regulations, select the ideal structure, and obtain the necessary licenses to start your business smoothly and efficiently.
                 </p>
               </div>
             </div>

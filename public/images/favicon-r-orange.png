@@ -1,0 +1,19 @@
+<GENERATE_IMAGE>
+{
+  "width": 512,
+  "height": 512,
+  "background": "#e66b02",
+  "elements": [
+    {
+      "type": "text",
+      "text": "R",
+      "fontSize": 340,
+      "fontFamily": "Arial Black, Arial, sans-serif",
+      "color": "#fff",
+      "x": 256,
+      "y": 256,
+      "anchor": "middle"
+    }
+  ]
+}
+</GENERATE_IMAGE> 

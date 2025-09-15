@@ -66,28 +66,28 @@ export function GuidingSection() {
   const [isVisible, setIsVisible] = useState(false);
   const features = [
     {
-      title: "Business-friendly tax structure",
-      description: "The UAE's tax structure promotes business growth with no personal income tax, no tax on overseas earnings, and a highly competitive 9% corporate tax rate—the lowest in the GCC—making it an attractive hub for investors and entrepreneurs."
+      title: "Youth-Led Innovation",
+      description: "We empower young people to lead innovative solutions to community challenges. Our youth-centered approach ensures that programs are designed by and for young people, creating sustainable impact that resonates with their lived experiences and aspirations."
     },
     {
-      title: "Cutting-edge infrastructure",
-      description: "The UAE offers world-class infrastructure, featuring state-of-the-art office spaces, advanced logistics, and a seamless digital ecosystem to support business efficiency and growth."
+      title: "Proven Track Record",
+      description: "Since 2010, we've successfully implemented 200+ projects across 8 regions in Tanzania, directly reaching over 55,695 young people. Our evidence-based approach demonstrates measurable impact in livelihoods, climate action, sexual rights, and civic engagement."
     },
     {
-      title: "Effortless business setup",
-      description: "The UAE is renowned for its fast and hassle-free business setup, supported by pro-business regulations and government incentives. With Free Zones offering 100% foreign ownership, tax exemptions, and low startup costs, entrepreneurs can establish and expand their businesses with ease."
+      title: "Multi-Sector Expertise",
+      description: "Our comprehensive programs span four key areas: sustainable livelihoods and economic empowerment, climate action and environmental conservation, sexual and reproductive health rights, and civic engagement and democratic participation."
     },
     {
-      title: "Center of global trade",
-      description: "The UAE is a global trade hub, with 10 airports and 12 seaports providing seamless access to key markets. Its strategic location between Europe, Asia, and Africa makes it a central gateway for international trade and investment."
+      title: "Local Knowledge, Global Network",
+      description: "As part of the global Restless Development network operating in 16 countries, we combine deep local knowledge of Tanzanian communities with international best practices and resources, ensuring culturally relevant yet globally informed programming."
     },
     {
-      title: "Long-term economic security",
-      description: "The UAE is recognized for its economic stability, driven by oil revenues and diversification into sectors like tourism, real estate, and finance. Its robust economic policies ensure long-term economic security and resilience."
+      title: "Sustainable Impact Model",
+      description: "We focus on building local capacity and creating systems that outlast individual projects. Our approach emphasizes training local youth leaders, strengthening community organizations, and advocating for policy changes that create lasting transformation."
     },
     {
-      title: "Exceptional quality of life",
-      description: "The UAE offers a high standard of living with a vibrant, multicultural society, high-end infrastructure and low crime rates. Its Golden Visa program provides long-term residency, allowing residents to enjoy a secure and prosperous lifestyle without income tax."
+      title: "Digital Innovation Ready",
+      description: "We're building for the future with mobile-friendly, low-data solutions and multilingual accessibility. Our digital-first approach enables us to reach remote communities while preparing for expanded online fundraising and program delivery capabilities."
     }
   ];
 
@@ -126,11 +126,11 @@ export function GuidingSection() {
               className="block transform transition-all duration-1000"
               style={animationStyles}
             >
-              Top 6 reasons why you should
+              Why Partner with
             </span>
             <span className="block mt-2 transform transition-all duration-1000" style={{ ...animationStyles, animationDelay: '300ms' }}>
               <span className="inline-block hover:scale-105 transition-transform duration-300 bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">
-                invest in the UAE
+                Restless Development Tanzania
               </span>
             </span>
           </h2>

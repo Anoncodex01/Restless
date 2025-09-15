@@ -1,38 +1,62 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export function CompanySetup() {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language || 'en';
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
   const setupOptions = [
     {
-      title: 'MAINLAND',
-      subtitle: 'BUSINESS SETUP',
-      image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716',
-      heading: 'Unlock Full Market Access with Mainland Business Setup',
-      description: 'A mainland setup allows you to tap into the vast local market and engage directly with businesses across the UAE. Setting up a mainland company in Dubai provides unmatched benefits, such as full access to the local market',
-      buttonText: 'Get Started Now',
-      path: '/mainland'
+      title: currentLang === 'sw' ? 'MAISHA' : 'LIVELIHOODS',
+      titleSw: 'MAISHA',
+      subtitle: currentLang === 'sw' ? 'NA UCHUMI' : '& ECONOMIC EMPOWERMENT',
+      subtitleSw: 'NA UCHUMI',
+      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43',
+      heading: currentLang === 'sw' ? 'Kuwezesha Vijana Kiuchumi' : 'Empowering Youth Economically',
+      headingSw: 'Kuwezesha Vijana Kiuchumi',
+      description: currentLang === 'sw' 
+        ? 'Tunawasaidia vijana kujenga ujuzi wa biashara, kupata fursa za kazi, na kuunda vyanzo vya kipato endelevu kupitia mafunzo ya uongozi, ushauri, na miradi ya fedha ndogo.'
+        : 'We help young people build entrepreneurial skills, access employment opportunities, and create sustainable income sources through leadership training, mentorship, and microfinance programs.',
+      descriptionSw: 'Tunawasaidia vijana kujenga ujuzi wa biashara, kupata fursa za kazi, na kuunda vyanzo vya kipato endelevu kupitia mafunzo ya uongozi, ushauri, na miradi ya fedha ndogo.',
+      buttonText: currentLang === 'sw' ? 'Jifunze Zaidi' : 'Learn More',
+      buttonTextSw: 'Jifunze Zaidi',
+      path: '/programs/livelihoods'
     },
     {
-      title: 'FREE ZONE',
-      subtitle: 'BUSINESS SETUP',
-      image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c',
-      heading: 'Unlock Limitless Opportunities',
-      description: 'With over 40 free zones across the UAE, businesses enjoy world-class benefits, from 100% foreign ownership to tax advantages and strategic locations. However, choosing the right free zone can be a complex decision. That\'s where RDV Consultants comes in – turning complexity into clarity.',
-      buttonText: 'Get Started Now',
-      path: '/freezone'
+      title: currentLang === 'sw' ? 'MAZINGIRA' : 'CLIMATE ACTION',
+      titleSw: 'MAZINGIRA',
+      subtitle: currentLang === 'sw' ? 'NA HALI YA HEWA' : '& ENVIRONMENT',
+      subtitleSw: 'NA HALI YA HEWA',
+      image: 'https://images.unsplash.com/photo-1569163139394-de44cb5894ce',
+      heading: currentLang === 'sw' ? 'Uhifadhi wa Mazingira' : 'Environmental Conservation',
+      headingSw: 'Uhifadhi wa Mazingira',
+      description: currentLang === 'sw'
+        ? 'Miradi ya uhifadhi wa mazingira inayoongozwa na vijana ikiwa ni pamoja na kupanda miti, usimamizi wa taka, miradi ya nishati mbadala, na mikakati ya kubadilika kwa hali ya hewa kwa jamii zenye uwezo wa kujikinga.'
+        : 'Youth-led environmental conservation initiatives including tree planting, waste management, renewable energy projects, and climate adaptation strategies for resilient communities.',
+      descriptionSw: 'Miradi ya uhifadhi wa mazingira inayoongozwa na vijana ikiwa ni pamoja na kupanda miti, usimamizi wa taka, miradi ya nishati mbadala, na mikakati ya kubadilika kwa hali ya hewa kwa jamii zenye uwezo wa kujikinga.',
+      buttonText: currentLang === 'sw' ? 'Jifunze Zaidi' : 'Learn More',
+      buttonTextSw: 'Jifunze Zaidi',
+      path: '/programs/climate'
     },
     {
-      title: 'OFFSHORE',
-      subtitle: 'BUSINESS SETUP',
-      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf',
-      heading: '',
-      description: '',
-      buttonText: 'Get Started Now',
-      path: '/offshore'
+      title: currentLang === 'sw' ? 'USHIRIKI' : 'CIVIC ENGAGEMENT',
+      titleSw: 'USHIRIKI',
+      subtitle: currentLang === 'sw' ? 'WA KIRAIA' : '& DEMOCRACY',
+      subtitleSw: 'WA KIRAIA',
+      image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac',
+      heading: currentLang === 'sw' ? 'Kuwezesha Ushiriki wa Kijamii' : 'Empowering Civic Participation',
+      headingSw: 'Kuwezesha Ushiriki wa Kijamii',
+      description: currentLang === 'sw'
+        ? 'Kuwezesha vijana kushiriki katika michakato ya kidemokrasia, mafunzo ya utetezi, maendeleo ya uongozi, na kuandaa jamii kwa mabadiliko ya kijamii na utawala bora.'
+        : 'Empowering young people to participate in democratic processes, advocacy training, leadership development, and community organizing for social change and good governance.',
+      descriptionSw: 'Kuwezesha vijana kushiriki katika michakato ya kidemokrasia, mafunzo ya utetezi, maendeleo ya uongozi, na kuandaa jamii kwa mabadiliko ya kijamii na utawala bora.',
+      buttonText: currentLang === 'sw' ? 'Jifunze Zaidi' : 'Learn More',
+      buttonTextSw: 'Jifunze Zaidi',
+      path: '/programs/civic'
     }
   ];
 
@@ -91,10 +115,10 @@ export function CompanySetup() {
         <div className="text-center mb-16">
           <div className="relative inline-block">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
-              Choosing the Right Jurisdiction
+              {currentLang === 'sw' ? 'Mipango Yetu ya Maendeleo' : 'Our Development Programs'}
               <br />
               <span className="bg-gradient-to-r from-[#e66b02] via-[#1E2757] to-[#e66b02] bg-clip-text text-transparent">
-                for Your Dubai Business
+                {currentLang === 'sw' ? 'kwa Vijana Tanzania' : 'for Youth in Tanzania'}
               </span>
             </h2>
             {/* Gradient line under the title */}

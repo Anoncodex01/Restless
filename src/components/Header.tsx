@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X, Facebook, Instagram, Linkedin, Twitter, ChevronDown } from 'lucide-react';
+import { Menu, X, Facebook, Instagram, Linkedin, Twitter, ChevronDown, Heart } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import i18n from '../i18n';
@@ -16,33 +16,40 @@ export function Header() {
 
   const languages = [
     { code: 'en', label: 'English', dir: 'ltr' },
-    { code: 'ar', label: 'العربية', dir: 'rtl' },
-    { code: 'id', label: 'Indonesia', dir: 'ltr' },
-    { code: 'th', label: 'ไทย', dir: 'ltr' },
+    { code: 'sw', label: 'Kiswahili', dir: 'ltr' },
   ];
 
-  const services = {
-    accounting: {
-      title: t('accounting_services'),
+  const programs = {
+    livelihoods: {
+      title: currentLang === 'sw' ? 'Maisha Bora' : 'Livelihoods',
       items: [
-        { name: "Accounting and Bookkeeping", href: '/services/accounting-bookkeeping' },
-        { name: "Payroll Services", href: '/services/payroll' },
-        { name: "Financial Reporting", href: '/services/financial-reporting' },
+        { name: currentLang === 'sw' ? 'Ujuzi wa Kazi' : 'Skills Development', href: '/programs/skills-development' },
+        { name: currentLang === 'sw' ? 'Uwekezaji wa Vijana' : 'Youth Entrepreneurship', href: '/programs/entrepreneurship' },
+        { name: currentLang === 'sw' ? 'Ajira na Kazi' : 'Employment & Jobs', href: '/programs/employment' },
       ]
     },
-    tax: {
-      title: t('tax_compliance'),
+    climate: {
+      title: currentLang === 'sw' ? 'Mazingira' : 'Climate Action',
       items: [
-        { name: "VAT Compliance", href: '/services/vat-compliance' },
-        { name: "CIT Compliance", href: '/services/cit-compliance' },
+        { name: currentLang === 'sw' ? 'Uhifadhi wa Mazingira' : 'Environmental Conservation', href: '/programs/environment' },
+        { name: currentLang === 'sw' ? 'Nishati Safi' : 'Clean Energy', href: '/programs/clean-energy' },
+        { name: currentLang === 'sw' ? 'Mabadiliko ya Tabia' : 'Behavior Change', href: '/programs/behavior-change' },
       ]
     },
-    visa: {
-      title: t('visa_other_services'),
+    rights: {
+      title: currentLang === 'sw' ? 'Haki za Kijinsia' : 'Sexual Rights',
       items: [
-        { name: "Golden Visa", href: '/services/golden-visa' },
-        { name: "PRO Services", href: '/services/pro-services' },
-        { name: "Business Advisory", href: '/services/business-advisory' },
+        { name: currentLang === 'sw' ? 'Elimu ya Afya ya Uzazi' : 'Sexual Health Education', href: '/programs/sexual-health' },
+        { name: currentLang === 'sw' ? 'Haki za Wanawake' : 'Women\'s Rights', href: '/programs/womens-rights' },
+        { name: currentLang === 'sw' ? 'Kupambana na Ukatili' : 'Gender-Based Violence', href: '/programs/gbv' },
+      ]
+    },
+    civic: {
+      title: currentLang === 'sw' ? 'Ushiriki wa Kijamii' : 'Civic Engagement',
+      items: [
+        { name: currentLang === 'sw' ? 'Uongozi wa Vijana' : 'Youth Leadership', href: '/programs/youth-leadership' },
+        { name: currentLang === 'sw' ? 'Demokrasia na Haki' : 'Democracy & Rights', href: '/programs/democracy' },
+        { name: currentLang === 'sw' ? 'Mabadiliko ya Jamii' : 'Social Change', href: '/programs/social-change' },
       ]
     }
   };
@@ -92,88 +99,51 @@ export function Header() {
   return (
     <div className="fixed w-full top-6 z-50 px-4">
       {/* Modern Header */}
-      <header className="max-w-7xl mx-auto bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-orange-100">
+      <header className="max-w-7xl mx-auto bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-orange-100 font-['Noto_Sans']">
         <div className="px-8">
           <div className="flex justify-between items-center h-[72px]">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link to="/" className="flex items-center">
-                <span className="text-2xl font-bold text-orange-600">rdv</span>
-                <span className="text-2xl font-bold text-orange-500">.ae</span>
+              <Link to="/" className="flex items-center space-x-2">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#e36f1e] to-[#d45a0a] rounded-lg flex items-center justify-center">
+                  <Heart className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold text-[#e36f1e] leading-tight">Restless</span>
+                  <span className="text-base font-medium text-[#d45a0a] leading-tight">Development</span>
+                </div>
               </Link>
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-orange-500 transition-colors duration-200 text-sm font-medium">
-                Home
+              <Link to="/" className="text-gray-700 hover:text-[#e36f1e] transition-colors duration-200 text-base font-medium">
+                {currentLang === 'sw' ? 'Nyumbani' : 'Home'}
               </Link>
-              <Link to="/about-us" className="text-gray-700 hover:text-orange-500 transition-colors duration-200 text-sm font-medium">
-                {t('about_us')}
-              </Link>
+              <span className="text-gray-700 cursor-default text-base font-medium">
+                {currentLang === 'sw' ? 'Kuhusu Sisi' : 'About Us'}
+              </span>
               
-              {/* Business Setup Dropdown */}
+              {/* Our Work Dropdown */}
               <div className="relative nav-dropdown">
                 <button
-                  onClick={() => handleDropdownToggle('business')}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-orange-500 transition-colors duration-200 text-sm font-medium"
+                  onClick={() => handleDropdownToggle('programs')}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-[#e36f1e] transition-colors duration-200 text-base font-medium"
                 >
-                  <span>{t('business_setup')}</span>
-                  <ChevronDown size={16} className={`transform transition-transform ${activeDropdown === 'business' ? 'rotate-180' : ''}`} />
+                  <span>{currentLang === 'sw' ? 'Kazi Yetu' : 'Our Work'}</span>
+                  <ChevronDown size={16} className={`transform transition-transform ${activeDropdown === 'programs' ? 'rotate-180' : ''}`} />
                 </button>
-                {activeDropdown === 'business' && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-orange-100 py-2">
-                    <Link 
-                      to="/freezone" 
-                      onClick={() => {
-                        setActiveDropdown(null);
-                        navigate('/freezone');
-                      }}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
-                    >
-                      {t('free_zone')}
-                    </Link>
-                    <Link 
-                      to="/mainland" 
-                      onClick={() => {
-                        setActiveDropdown(null);
-                        navigate('/mainland');
-                      }}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
-                    >
-                      {t('main_land')}
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Our Services Dropdown */}
-              <div className="relative nav-dropdown">
-                <button
-                  onClick={() => handleDropdownToggle('services')}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-orange-500 transition-colors duration-200 text-sm font-medium"
-                >
-                  <span>{t('our_services')}</span>
-                  <ChevronDown size={16} className={`transform transition-transform ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
-                </button>
-                {activeDropdown === 'services' && (
-                  <div className="absolute top-full left-0 mt-2 w-[900px] bg-white rounded-xl shadow-lg border border-orange-100 p-6 grid grid-cols-3 gap-8 -translate-x-1/3">
-                    {Object.values(services).map((category) => (
+                {activeDropdown === 'programs' && (
+                  <div className="absolute top-full left-0 mt-2 w-[900px] bg-white rounded-xl shadow-lg border border-orange-100 p-6 grid grid-cols-2 gap-8 -translate-x-1/3">
+                    {Object.values(programs).map((category) => (
                       <div key={category.title}>
-                        <h3 className="text-orange-600 font-semibold text-lg mb-4">{category.title}</h3>
+                        <h3 className="text-[#e36f1e] font-semibold text-xl mb-4">{category.title}</h3>
                         <ul className="space-y-3">
                           {category.items.map((item) => (
                             <li key={item.name}>
-                              <Link
-                                to={item.href}
-                                onClick={() => {
-                                  setActiveDropdown(null);
-                                  navigate(item.href);
-                                }}
-                                className="text-[15px] text-gray-700 hover:text-orange-500 transition-colors duration-200 block"
-                              >
+                              <span className="text-base text-gray-700 cursor-default block py-1">
                                 {item.name}
-                              </Link>
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -183,40 +153,46 @@ export function Header() {
                 )}
               </div>
 
-              <Link to="/careers" className="text-gray-700 hover:text-orange-500 transition-colors duration-200 text-sm font-medium">
-                Careers
-              </Link>
+              <span className="text-gray-700 cursor-default text-base font-medium">
+                {currentLang === 'sw' ? 'Matokeo' : 'Impact'}
+              </span>
 
-              <Link to="/contact" className="text-gray-700 hover:text-orange-500 transition-colors duration-200 text-sm font-medium">
-                Contact Us
-              </Link>
+              <span className="text-gray-700 cursor-default text-base font-medium">
+                {currentLang === 'sw' ? 'Habari' : 'News'}
+              </span>
             </nav>
 
-            {/* Social Icons & Language */}
-            <div className="hidden md:flex items-center space-x-8">
+            {/* Donation Button, Social Icons & Language */}
+            <div className="hidden md:flex items-center space-x-4">
+              {/* Donation Button */}
+              <button className="bg-gradient-to-r from-[#e36f1e] to-[#d45a0a] text-white px-6 py-2.5 rounded-full text-base font-medium hover:from-[#d45a0a] hover:to-[#c44a08] transition-all duration-200 hover:shadow-lg hover:shadow-[#e36f1e]/25 flex items-center space-x-2">
+                <Heart className="w-4 h-4" />
+                <span>{currentLang === 'sw' ? 'Changia' : 'Donate'}</span>
+              </button>
+
               {/* Social Icons */}
               <div className="flex items-center space-x-4">
                 <a
-                  href="https://www.linkedin.com/company/rdvconsultants/"
+                  href="https://www.linkedin.com/company/restless-development/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-orange-500 transition-colors duration-200"
+                  className="text-gray-600 hover:text-[#e36f1e] transition-colors duration-200"
                 >
                   <LinkedinIcon className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://www.instagram.com/rdv.consultants"
+                  href="https://www.instagram.com/restlessdevelopment"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-orange-500 transition-colors duration-200"
+                  className="text-gray-600 hover:text-[#e36f1e] transition-colors duration-200"
                 >
                   <InstagramIcon className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://www.facebook.com/share/15w8NYqRVV/"
+                  href="https://www.facebook.com/restlessdevelopment"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-orange-500 transition-colors duration-200"
+                  className="text-gray-600 hover:text-[#e36f1e] transition-colors duration-200"
                 >
                   <FacebookIcon className="h-5 w-5" />
                 </a>
@@ -226,7 +202,7 @@ export function Header() {
               <div className="relative language-selector">
                 <button
                   onClick={() => setIsLangOpen(!isLangOpen)}
-                  className="flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:from-orange-600 hover:to-orange-700 transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/25"
+                  className="flex items-center space-x-2 bg-gradient-to-r from-[#e36f1e] to-[#d45a0a] text-white px-6 py-2.5 rounded-full text-base font-medium hover:from-[#d45a0a] hover:to-[#c44a08] transition-all duration-200 hover:shadow-lg hover:shadow-[#e36f1e]/25"
                 >
                   <span>{getCurrentLanguageLabel()}</span>
                   <ChevronDown size={16} className={`transform transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
@@ -240,8 +216,8 @@ export function Header() {
                         <button
                           key={lang.code}
                           onClick={() => handleLanguageChange(lang.code)}
-                          className={`w-full text-left block px-4 py-2 text-sm hover:bg-orange-50 hover:text-orange-600 ${
-                            currentLang === lang.code ? 'text-orange-600 bg-orange-50' : 'text-gray-700'
+                          className={`w-full text-left block px-4 py-2 text-sm hover:bg-orange-50 hover:text-[#e36f1e] ${
+                            currentLang === lang.code ? 'text-[#e36f1e] bg-orange-50' : 'text-gray-700'
                           }`}
                         >
                           {lang.label}
@@ -255,7 +231,7 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-orange-500 transition-colors duration-200"
+              className="md:hidden p-2 rounded-md text-gray-700 hover:text-[#e36f1e] transition-colors duration-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -265,85 +241,45 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-orange-100 rounded-b-2xl">
+          <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-orange-100 rounded-b-2xl font-['Noto_Sans']">
             <div className="px-8 pt-2 pb-3 space-y-1">
               <Link
                 to="/"
                 onClick={() => handleMobileNavigation('/')}
-                className="block px-3 py-2 text-gray-700 hover:text-orange-500 text-sm font-medium transition-colors duration-200"
+                className="block px-3 py-2 text-gray-700 hover:text-[#e36f1e] text-base font-medium transition-colors duration-200"
               >
-                Home
+                {currentLang === 'sw' ? 'Nyumbani' : 'Home'}
               </Link>
-              <Link
-                to="/about-us"
-                onClick={() => handleMobileNavigation('/about-us')}
-                className="block px-3 py-2 text-gray-700 hover:text-orange-500 text-sm font-medium transition-colors duration-200"
-              >
-                {t('about_us')}
-              </Link>
+              <span className="block px-3 py-2 text-gray-700 cursor-default text-base font-medium">
+                {currentLang === 'sw' ? 'Kuhusu Sisi' : 'About Us'}
+              </span>
 
-              {/* Business Setup Mobile */}
+              {/* Our Work Mobile */}
               <div className="px-3 py-2">
                 <button
-                  onClick={() => handleMobileDropdownToggle('business')}
-                  className="flex items-center justify-between w-full text-gray-700 text-sm font-medium"
+                  onClick={() => handleMobileDropdownToggle('programs')}
+                  className="flex items-center justify-between w-full text-gray-700 text-base font-medium"
                 >
-                  <span>{t('business_setup')}</span>
+                  <span>{currentLang === 'sw' ? 'Kazi Yetu' : 'Our Work'}</span>
                   <ChevronDown
                     size={16}
                     className={`transform transition-transform ${
-                      activeMobileDropdown === 'business' ? 'rotate-180' : ''
+                      activeMobileDropdown === 'programs' ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
-                {activeMobileDropdown === 'business' && (
-                  <div className="mt-2 space-y-1">
-                    <Link
-                      to="/freezone"
-                      onClick={() => handleMobileNavigation('/freezone')}
-                      className="block pl-4 py-1.5 text-gray-600 hover:text-orange-500 text-sm transition-colors duration-200"
-                    >
-                      {t('free_zone')}
-                    </Link>
-                    <Link
-                      to="/mainland"
-                      onClick={() => handleMobileNavigation('/mainland')}
-                      className="block pl-4 py-1.5 text-gray-600 hover:text-orange-500 text-sm transition-colors duration-200"
-                    >
-                      {t('main_land')}
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Services Mobile Menu */}
-              <div className="px-3 py-2">
-                <button
-                  onClick={() => handleMobileDropdownToggle('services')}
-                  className="flex items-center justify-between w-full text-gray-700 text-sm font-medium"
-                >
-                  <span>{t('our_services')}</span>
-                  <ChevronDown
-                    size={16}
-                    className={`transform transition-transform ${
-                      activeMobileDropdown === 'services' ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                {activeMobileDropdown === 'services' && (
+                {activeMobileDropdown === 'programs' && (
                   <div className="mt-2">
-                    {Object.values(services).map((category) => (
+                    {Object.values(programs).map((category) => (
                       <div key={category.title} className="mb-4">
-                        <div className="text-orange-600 font-medium mb-2 pl-4">{category.title}</div>
+                        <div className="text-[#e36f1e] font-medium text-lg mb-2 pl-4">{category.title}</div>
                         {category.items.map((item) => (
-                          <Link
+                          <span
                             key={item.name}
-                            to={item.href}
-                            onClick={() => handleMobileNavigation(item.href)}
-                            className="block pl-8 py-1.5 text-gray-600 hover:text-orange-500 text-sm transition-colors duration-200"
+                            className="block pl-8 py-1.5 text-gray-600 cursor-default text-base"
                           >
                             {item.name}
-                          </Link>
+                          </span>
                         ))}
                       </div>
                     ))}
@@ -351,46 +287,78 @@ export function Header() {
                 )}
               </div>
 
-              <Link
-                to="/careers"
-                onClick={() => handleMobileNavigation('/careers')}
-                className="block px-3 py-2 text-gray-700 hover:text-orange-500 text-sm font-medium transition-colors duration-200"
-              >
-                Careers
-              </Link>
+              <span className="block px-3 py-2 text-gray-700 cursor-default text-base font-medium">
+                {currentLang === 'sw' ? 'Matokeo' : 'Impact'}
+              </span>
 
-              <Link
-                to="/contact"
-                onClick={() => handleMobileNavigation('/contact')}
-                className="block px-3 py-2 text-gray-700 hover:text-orange-500 text-sm font-medium transition-colors duration-200"
-              >
-                Contact Us
-              </Link>
+              <span className="block px-3 py-2 text-gray-700 cursor-default text-base font-medium">
+                {currentLang === 'sw' ? 'Habari' : 'News'}
+              </span>
+
+
+              {/* Language Selector Mobile */}
+              <div className="border-t border-orange-100 my-2"></div>
+              <div className="px-3 py-2">
+                <div className="relative">
+                  <button
+                    onClick={() => setIsLangOpen(!isLangOpen)}
+                    className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-[#e36f1e] to-[#d45a0a] text-white px-4 py-2.5 rounded-full text-base font-medium hover:from-[#d45a0a] hover:to-[#c44a08] transition-all duration-200"
+                  >
+                    <span>{getCurrentLanguageLabel()}</span>
+                    <ChevronDown size={16} className={`transform transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {isLangOpen && (
+                    <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-orange-100 rounded-lg shadow-lg z-50">
+                      <div className="py-1">
+                        {languages.map((lang) => (
+                          <button
+                            key={lang.code}
+                            onClick={() => handleLanguageChange(lang.code)}
+                            className={`w-full text-left px-4 py-2 text-base hover:bg-orange-50 hover:text-[#e36f1e] ${
+                              currentLang === lang.code ? 'text-[#e36f1e] bg-orange-50' : 'text-gray-700'
+                            }`}
+                          >
+                            {lang.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Donation Button Mobile */}
+              <div className="px-3 py-2">
+                <button className="w-full bg-gradient-to-r from-[#e36f1e] to-[#d45a0a] text-white px-4 py-2.5 rounded-full text-base font-medium hover:from-[#d45a0a] hover:to-[#c44a08] transition-all duration-200 flex items-center justify-center space-x-2">
+                  <Heart className="w-4 h-4" />
+                  <span>{currentLang === 'sw' ? 'Changia' : 'Donate'}</span>
+                </button>
+              </div>
               
               {/* Social Icons Mobile */}
               <div className="border-t border-orange-100 my-2"></div>
               <div className="flex items-center space-x-6 px-3 py-2">
                 <a
-                  href="https://www.linkedin.com/company/rdvconsultants/"
+                  href="https://www.linkedin.com/company/restless-development/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-orange-500 transition-colors duration-200"
+                  className="text-gray-600 hover:text-[#e36f1e] transition-colors duration-200"
                 >
                   <LinkedinIcon className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://www.instagram.com/rdv.consultants"
+                  href="https://www.instagram.com/restlessdevelopment"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-orange-500 transition-colors duration-200"
+                  className="text-gray-600 hover:text-[#e36f1e] transition-colors duration-200"
                 >
                   <InstagramIcon className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://www.facebook.com/share/15w8NYqRVV/"
+                  href="https://www.facebook.com/restlessdevelopment"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-orange-500 transition-colors duration-200"
+                  className="text-gray-600 hover:text-[#e36f1e] transition-colors duration-200"
                 >
                   <FacebookIcon className="h-5 w-5" />
                 </a>

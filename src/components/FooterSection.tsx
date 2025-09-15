@@ -20,28 +20,28 @@ export function FooterSection() {
       <div className="bg-[#0B2653] py-12 md:py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
-            {/* Company Info */}
+            {/* Organization Info */}
             <div className="space-y-6">
-              <div className="flex items-center justify-center md:justify-start">
-                <span className="text-3xl font-bold text-white">rdv</span>
-                <span className="text-3xl font-bold text-[#00A0DC]">.ae</span>
+              <div className="text-center md:text-left">
+                <div className="text-3xl font-bold text-white">Restless</div>
+                <div className="text-3xl font-bold text-[#e36f1e]">Development</div>
               </div>
               <p className="text-gray-300 text-sm text-center md:text-left">
-                Your trusted partner for business setup in Dubai. We provide comprehensive solutions for mainland, free zone, and offshore company formation.
+                We are a youth-led development agency. We put young people in the driving seat to lead change in their own communities and beyond.
               </p>
               <div className="flex items-center justify-center md:justify-start space-x-6">
-                <a href="#" className="text-white hover:text-[#00A0DC] transition-colors">
+                <span className="text-white cursor-default">
                   <Facebook size={24} />
-                </a>
-                <a href="#" className="text-white hover:text-[#00A0DC] transition-colors">
+                </span>
+                <span className="text-white cursor-default">
                   <Instagram size={24} />
-                </a>
-                <a href="#" className="text-white hover:text-[#00A0DC] transition-colors">
+                </span>
+                <span className="text-white cursor-default">
                   <Linkedin size={24} />
-                </a>
-                <a href="#" className="text-white hover:text-[#00A0DC] transition-colors">
+                </span>
+                <span className="text-white cursor-default">
                   <Twitter size={24} />
-                </a>
+                </span>
               </div>
             </div>
 
@@ -50,61 +50,61 @@ export function FooterSection() {
               <h3 className="text-white font-semibold text-lg mb-6">Quick Links</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link to="/about-us" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                  <span className="text-gray-300 text-sm cursor-default">
                     About Us
-                  </Link>
+                  </span>
                 </li>
                 <li>
-                  <Link to="/freezone" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
-                    Freezone
-                  </Link>
+                  <span className="text-gray-300 text-sm cursor-default">
+                    Our Programs
+                  </span>
                 </li>
                 <li>
-                  <Link to="/mainland" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
-                    Mainland
-                  </Link>
+                  <span className="text-gray-300 text-sm cursor-default">
+                    Where We Work
+                  </span>
                 </li>
                 <li>
-                  <Link to="/careers" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
-                    Career
-                  </Link>
+                  <span className="text-gray-300 text-sm cursor-default">
+                    Careers
+                  </span>
                 </li>
                 <li>
-                  <Link to="/contact" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                  <span className="text-gray-300 text-sm cursor-default">
                     Contact Us
-                  </Link>
+                  </span>
                 </li>
               </ul>
             </div>
 
-            {/* Services */}
+            {/* Our Focus Areas */}
             <div className="text-center md:text-left">
-              <h3 className="text-white font-semibold text-lg mb-6">Our Services</h3>
+              <h3 className="text-white font-semibold text-lg mb-6">Our Focus Areas</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link to="/services/accounting-bookkeeping" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
-                    Accounting & Bookkeeping
-                  </Link>
+                  <span className="text-gray-300 text-sm cursor-default">
+                    Livelihoods
+                  </span>
                 </li>
                 <li>
-                  <Link to="/services/vat-compliance" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
-                    VAT Compliance
-                  </Link>
+                  <span className="text-gray-300 text-sm cursor-default">
+                    Climate Action
+                  </span>
                 </li>
                 <li>
-                  <Link to="/services/cit-compliance" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
-                    CIT Compliance
-                  </Link>
+                  <span className="text-gray-300 text-sm cursor-default">
+                    Sexual Rights
+                  </span>
                 </li>
                 <li>
-                  <Link to="/services/golden-visa" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
-                    Golden Visa
-                  </Link>
+                  <span className="text-gray-300 text-sm cursor-default">
+                    Civic Engagement
+                  </span>
                 </li>
                 <li>
-                  <Link to="/services/pro-services" className="text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
-                    PRO Services
-                  </Link>
+                  <span className="text-gray-300 text-sm cursor-default">
+                    Youth Leadership
+                  </span>
                 </li>
               </ul>
             </div>
@@ -114,39 +114,79 @@ export function FooterSection() {
               <h3 className="text-white font-semibold text-lg mb-6">Contact Us</h3>
               <ul className="space-y-4">
                 <li>
-                  <a href="tel:+971554703339" className="flex items-center justify-center md:justify-start text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                  <span className="flex items-center justify-center md:justify-start text-gray-300 text-sm cursor-default">
                     <Phone size={16} className="mr-3" />
-                    +971 55 470 3339
-                  </a>
+                    +255 22 266 7038
+                  </span>
                 </li>
                 <li>
-                  <a href="mailto:info@rdv.ae" className="flex items-center justify-center md:justify-start text-gray-300 hover:text-[#00A0DC] transition-colors text-sm">
+                  <span className="flex items-center justify-center md:justify-start text-gray-300 text-sm cursor-default">
                     <Mail size={16} className="mr-3" />
-                    info@rdv.ae
-                  </a>
+                    info@restlessdevelopment.org
+                  </span>
                 </li>
                 <li className="flex items-start justify-center md:justify-start text-gray-300 text-sm">
                   <MapPin size={16} className="mr-3 mt-1 flex-shrink-0" />
-                  <span>Dubai Silicon Oasis, DDP<br />Building A2, Dubai, UAE
+                  <span>Dar es Salaam, Tanzania<br />Global Headquarters
                   </span>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Bottom Bar */}
+          {/* Donor Acknowledgements */}
           <div className="mt-12 md:mt-16 pt-8 border-t border-gray-700">
+            <div className="text-center mb-8">
+              <h3 className="text-white font-semibold text-lg mb-6">Our Generous Donors & Partners</h3>
+              <p className="text-gray-300 text-sm mb-6 max-w-4xl mx-auto">
+                We extend our heartfelt gratitude to our donors and partners who make our work possible. 
+                Their generous support enables us to empower young people across 16 countries and create lasting positive change in communities worldwide.
+              </p>
+              
+              {/* Donor Logos Grid */}
+              <div className="flex justify-center items-center gap-8 mb-8">
+                <div className="bg-white rounded-lg p-4 h-20 flex items-center justify-center">
+                  <img 
+                    src="/nextgeneu_en.jpg" 
+                    alt="NextGenerationEU" 
+                    className="h-12 object-contain"
+                  />
+                </div>
+                <div className="bg-white rounded-lg p-4 h-20 flex items-center justify-center">
+                  <img 
+                    src="/images (2).png" 
+                    alt="Donor Partner" 
+                    className="h-12 object-contain"
+                  />
+                </div>
+                <div className="bg-white rounded-lg p-4 h-20 flex items-center justify-center">
+                  <img 
+                    src="/images (3).png" 
+                    alt="Donor Partner" 
+                    className="h-12 object-contain"
+                  />
+                </div>
+              </div>
+              
+              <p className="text-gray-400 text-xs">
+                And many other individual donors and institutional partners who prefer to remain anonymous.
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="pt-8 border-t border-gray-700">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-400 text-sm text-center md:text-left">
-                © {new Date().getFullYear()} RDV.ae. All rights reserved.
+                © {new Date().getFullYear()} Restless Development. All rights reserved.
               </p>
               <div className="flex items-center space-x-6">
-                <a href="#" className="text-gray-400 hover:text-[#00A0DC] transition-colors text-sm">
+                <span className="text-gray-400 text-sm cursor-default">
                   Privacy Policy
-                </a>
-                <a href="#" className="text-gray-400 hover:text-[#00A0DC] transition-colors text-sm">
+                </span>
+                <span className="text-gray-400 text-sm cursor-default">
                   Terms of Service
-                </a>
+                </span>
               </div>
             </div>
           </div>

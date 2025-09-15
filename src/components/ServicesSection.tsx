@@ -1,49 +1,64 @@
 import React, { useEffect, useState } from 'react';
-import { Calculator, FileText, CheckCircle, TrendingUp, ArrowRight, Building2, Briefcase } from 'lucide-react';
+import { Users, Leaf, Heart, Vote, ArrowRight, Briefcase, Globe } from 'lucide-react';
 import { useRef } from 'react';
 import { PopupForm } from './PopupForm';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const services = [
   {
-    icon: Calculator,
-    title: "Accounting & Bookkeeping",
-    description: "Precision-driven financial accounting and strategic insights to enhance accuracy, efficiency, and strategic decision-making.",
-    href: "/services/accounting-bookkeeping"
-  },
-  {
-    icon: CheckCircle,
-    title: "Tax & Compliance",
-    description: "Expert tax strategies and regulatory compliance solutions to mitigate risks and optimize financial management.",
-    href: "/services/tax-compliance"
-  },
-  {
-    icon: Building2,
-    title: "Company License",
-    description: "End-to-end licensing solutions ensuring a seamless and fully compliant business setup in the UAE.",
-    href: "/services/company-license"
-  },
-  {
-    icon: FileText,
-    title: "Visa Services",
-    description: "Customized visa options for businesses and individuals, backed by expert support every step of the way.",
-    href: "/services/visa-services"
-  },
-  {
-    icon: TrendingUp,
-    title: "PRO Services",
-    description: "Efficient government liaison, document processing, and corporate administration to streamline your operations.",
-    href: "/services/pro-services"
-  },
-  {
     icon: Briefcase,
-    title: "Business Advisory",
-    description: "Data-driven insights and strategic advisory services to drive sustainable growth and competitive advantage.",
-    href: "/services/business-advisory"
+    title: "Livelihoods & Economic Empowerment",
+    titleSw: "Maisha na Uwezeshaji wa Kiuchumi",
+    description: "We support young people to develop entrepreneurial skills, access employment opportunities, and create sustainable income sources through training, mentorship, and microfinance programs.",
+    descriptionSw: "Tunawasaidia vijana kujenga ujuzi wa biashara, kupata fursa za kazi, na kuunda vyanzo vya kipato endelevu kupitia mafunzo, ushauri, na miradi ya fedha ndogo.",
+    href: "/programs/livelihoods"
+  },
+  {
+    icon: Leaf,
+    title: "Climate Action & Environment",
+    titleSw: "Hatua za Hali ya Hewa na Mazingira",
+    description: "Youth-led environmental conservation initiatives including tree planting, waste management, renewable energy projects, and climate adaptation strategies for resilient communities.",
+    descriptionSw: "Miradi ya uhifadhi wa mazingira inayoongozwa na vijana ikiwa ni pamoja na kupanda miti, usimamizi wa taka, miradi ya nishati mbadala, na mikakati ya kubadilika kwa hali ya hewa.",
+    href: "/programs/climate"
+  },
+  {
+    icon: Heart,
+    title: "Sexual & Reproductive Health Rights",
+    titleSw: "Haki za Afya ya Uzazi",
+    description: "Comprehensive sexual health education, family planning services, and advocacy for reproductive rights, ensuring young people have access to accurate information and quality healthcare.",
+    descriptionSw: "Elimu kamili ya afya ya kijinsia, huduma za kupanga uzazi, na utetezi wa haki za uzazi, kuhakikisha vijana wanapata habari sahihi na huduma bora za afya.",
+    href: "/programs/srhr"
+  },
+  {
+    icon: Vote,
+    title: "Civic Engagement & Democracy",
+    titleSw: "Ushiriki wa Kiraia na Demokrasia",
+    description: "Empowering young people to participate in democratic processes, advocacy training, leadership development, and community organizing for social change and good governance.",
+    descriptionSw: "Kuwezesha vijana kushiriki katika michakato ya kidemokrasia, mafunzo ya utetezi, maendeleo ya uongozi, na kuandaa jamii kwa mabadiliko ya kijamii na utawala bora.",
+    href: "/programs/civic"
+  },
+  {
+    icon: Users,
+    title: "Youth Leadership Development",
+    titleSw: "Maendeleo ya Uongozi wa Vijana",
+    description: "Building the next generation of leaders through mentorship programs, leadership training, and opportunities for young people to take on meaningful roles in their communities.",
+    descriptionSw: "Kujenga kizazi kijacho cha viongozi kupitia miradi ya ushauri, mafunzo ya uongozi, na fursa za vijana kuchukua majukumu muhimu katika jamii zao.",
+    href: "/programs/leadership"
+  },
+  {
+    icon: Globe,
+    title: "Digital Innovation & Technology",
+    titleSw: "Uvumbuzi wa Kidijitali na Teknolojia",
+    description: "Leveraging technology for social impact through digital literacy programs, online platforms for youth engagement, and innovative solutions for community challenges.",
+    descriptionSw: "Kutumia teknolojia kwa athari za kijamii kupitia miradi ya ujuzi wa kidijitali, majukwaa ya mtandaoni kwa ushiriki wa vijana, na suluhisho za kibunifu kwa changamoto za jamii.",
+    href: "/programs/digital"
   }
 ];
 
 export function ServicesSection() {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language || 'en';
   const [isVisible, setIsVisible] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -103,10 +118,10 @@ export function ServicesSection() {
         }`}>
           <div className="relative">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[#1E2757] via-[#e66b02] to-[#1E2757] bg-clip-text text-transparent pb-2">
-              No Matter The Business,
+              {currentLang === 'sw' ? 'Miradi Yetu' : 'Our Programs'}
               <br />
               <span className="bg-gradient-to-r from-[#e66b02] via-[#1E2757] to-[#e66b02] bg-clip-text text-transparent">
-                We've Got You Covered
+                {currentLang === 'sw' ? 'Kuwezesha Vijana Tanzania' : 'Empowering Tanzanian Youth'}
               </span>
             </h2>
             {/* Gradient line under the title */}
@@ -130,16 +145,18 @@ export function ServicesSection() {
                     <Icon className="w-12 h-12 text-[#e66b02] group-hover:text-white transition-colors" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-[#1E2757] group-hover:text-white transition-colors">
-                    {service.title}
+                    {currentLang === 'sw' ? service.titleSw : service.title}
                   </h3>
                   <p className="text-gray-600 text-base leading-relaxed mb-8 group-hover:text-white/90 transition-colors min-h-[80px]">
-                    {service.description}
+                    {currentLang === 'sw' ? service.descriptionSw : service.description}
                   </p>
                   <button 
                     onClick={handleOpenPopup}
                     className="inline-flex items-center gap-2 bg-[#e66b02] text-white px-6 py-3 rounded-full transition-all duration-300 hover:bg-[#d65f02] hover:shadow-lg hover:shadow-orange-500/20 group-hover:bg-white group-hover:text-[#1E2757]"
                   >
-                    <span className="text-sm font-medium">Book a Consultation</span>
+                    <span className="text-sm font-medium">
+                      {currentLang === 'sw' ? 'Jifunze Zaidi' : 'Learn More'}
+                    </span>
                     <ArrowRight size={16} className="transform -rotate-45" />
                   </button>
                 </div>

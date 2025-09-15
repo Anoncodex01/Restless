@@ -21,11 +21,13 @@ interface FormErrors {
 
 export function PopupForm({ isOpen, onClose }: PopupFormProps) {
   const countryList = [
-    { code: '+971', name: 'United Arab Emirates', flag: '🇦🇪' },
+    { code: '+255', name: 'Tanzania', flag: '🇹🇿' },
+    { code: '+254', name: 'Kenya', flag: '🇰🇪' },
+    { code: '+256', name: 'Uganda', flag: '🇺🇬' },
+    { code: '+260', name: 'Zambia', flag: '🇿🇲' },
+    { code: '+91', name: 'India', flag: '🇮🇳' },
     { code: '+1', name: 'United States', flag: '🇺🇸' },
     { code: '+44', name: 'United Kingdom', flag: '🇬🇧' },
-    { code: '+91', name: 'India', flag: '🇮🇳' },
-    { code: '+254', name: 'Kenya', flag: '🇰🇪' },
     // ... add more countries as needed ...
   ];
 
@@ -35,7 +37,7 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
     phone: '',
     company: '',
     message: '',
-    countryCode: '+971',
+    countryCode: '+255',
   });
   const [countrySearch, setCountrySearch] = useState('');
 
@@ -123,7 +125,7 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                 <CheckCircle2 className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-2">Thank You!</h3>
-              <p className="text-gray-600 mb-8">We've received your request and will get back to you shortly.</p>
+              <p className="text-gray-600 mb-8">Thank you for your interest in youth development. We'll be in touch soon!</p>
               <button
                 onClick={onClose}
                 className="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
@@ -136,10 +138,10 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#e66b02] text-white font-semibold text-sm">RDV</span>
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#e36f1e] text-white font-semibold text-xs">RD</span>
                   </div>
                   <h2 className="text-2xl font-semibold text-gray-900">
-                    Get a Free Call Back from Our Expert
+                    Get Involved with Restless Development
                   </h2>
                 </div>
                 <button
@@ -202,8 +204,8 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         name="countryCode"
                         value={formData.countryCode}
                         onChange={handleCountryCodeInput}
-                        placeholder="Code (e.g. +971)"
-                        className="w-20 px-2 py-2.5 rounded-l-xl bg-gray-50 border border-gray-300 text-gray-900 focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all"
+                        placeholder="Code (e.g. +255)"
+                        className="w-20 px-2 py-2.5 rounded-l-xl bg-gray-50 border border-gray-300 text-gray-900 focus:border-[#e36f1e] focus:ring-4 focus:ring-[#e36f1e]/10 outline-none transition-all"
                         maxLength={6}
                       />
                       {/* Phone Number Input */}
@@ -215,7 +217,7 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                         placeholder="Phone number"
                         className={`w-full px-4 py-2.5 rounded-r-xl bg-gray-50 border ${
                           errors.phone ? 'border-red-500' : 'border-gray-300'
-                        } focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900`}
+                        } focus:border-[#e36f1e] focus:ring-4 focus:ring-[#e36f1e]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900`}
                         style={{ minWidth: '120px' }}
                       />
                     </div>
@@ -225,15 +227,15 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Company
+                      Organization
                     </label>
                     <input
                       type="text"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder="Your company name"
-                      className="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-300 focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900"
+                      placeholder="Your organization name"
+                      className="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-300 focus:border-[#e36f1e] focus:ring-4 focus:ring-[#e36f1e]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900"
                     />
                   </div>
                 </div>
@@ -246,16 +248,16 @@ export function PopupForm({ isOpen, onClose }: PopupFormProps) {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Please let us know your requirements here..."
+                    placeholder="Tell us about your interest in youth development work..."
                     rows={3}
-                    className="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-300 focus:border-[#e66b02] focus:ring-4 focus:ring-[#e66b02]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-300 focus:border-[#e36f1e] focus:ring-4 focus:ring-[#e36f1e]/10 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-[#e66b02] hover:bg-[#d65f02] text-white rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 hover:gap-3"
+                  className="w-full py-3 bg-[#e36f1e] hover:bg-[#d45a0a] text-white rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 hover:gap-3"
                 >
                   {isSubmitting ? (
                     <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
